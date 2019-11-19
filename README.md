@@ -9,7 +9,7 @@ class: center, middle, inverse
 @ 富士通クラウドテクノロジーズ 株式会社
 
 .footnote[
- 20170726作成
+ 20191119作成
 ]
 ---
 layout: true
@@ -31,7 +31,7 @@ __`サーバーレスでガチャ機能を実装します`__
 ### [ニフクラ mobile backend](http://mbaas.nifcloud.com/about.htm) って何？
 * スマートフォンアプリに必要なバックエンド機能が __`開発不要で利用できる`__ クラウドサービス
 * クラウド上に用意された機能を __`APIを呼び出すだけで利用できます`__
-* __`無料`__で体験頂けます
+* __`無料`__ で体験頂けます
 * APIを利用するためのSDKは幅広く対応します (Swift / iOS / Android / JavaScript / Monaca / Unity)
 * mobile Backend as a Service の頭文字を取って、通称 __`mBaaS`__ 呼ばれます
 
@@ -39,9 +39,9 @@ __`サーバーレスでガチャ機能を実装します`__
 
 ---
 ### 本日の学ぶ内容
-お金（`money`）を使って、ガチャを回し、ポイント（`point`）を獲得する簡単なデモゲームアプリを作ります
-* __`会員管理機能`__を使って実装された__`オートログイン機能`__について説明します
-* __`データストア機能`__ と __`スクリプト機能`__を使ってアプリに__`ガチャ機能`__を実装します
+ルーレットを回してクーポンを獲得する簡単なデモゲームアプリを作ります
+* __`会員管理機能`__ を使って実装された__`オートログイン機能`__ について説明します
+* __`データストア機能`__ と __`スクリプト機能`__ を使ってアプリに __`ルーレット機能`__ を実装します
 
 .center[<img src="readme-image/introduce-structure.png" width="500">]
 
@@ -53,7 +53,7 @@ __`サーバーレスでガチャ機能を実装します`__
 
 ### 動作環境準備
 * PC: Windows 7 以上 (またはmacOS)
-* Unity 5.6.2f1 以上
+* Monaca 
 
 ---
 ### ハンズオンの流れ
@@ -82,7 +82,12 @@ class: center, middle, inverse
 
 ---
 layout: false
-### 【Unityの準備】プロジェクトのダウンロード
+### 【Unityの準備】プロジェクトのダウンロード(要修正)
+1.本リポジトリをzip形式でダウンロード後
+2.Monacaのプロジェクトインポート機能を利用してインポートします。
+3.mobile backendのダッシュボードにログインし、新規アプリを作成します。
+生成されたアプリケーションキーとクライアントキーを、 www/js/ncmbController.js に転記します。
+
 * 以下のURLをクリックしてUnityプロジェクトをダウンロードします
 <br>.size_large[https://github.com/NIFCloud-mbaas/UnityScriptApp/archive/master.zip]
 * ダウンロードしたZipファイルを解凍します
@@ -93,17 +98,17 @@ layout: false
 .center[<img src="readme-image/unity-project-download.png" width="550">]
 
 ---
-### 【Unityの準備】プロジェクトのインポート
+### 【Unityの準備】プロジェクトのインポート(要修正)
 * Unityを起動します
-1. プロジェクト選択画面で右上の__`Open`__ボタンをクリックします
-2. フォルダの選択画面で__`UnityProject`__フォルダを開きます
+1. プロジェクト選択画面で右上の__`Open`__ ボタンをクリックします
+2. フォルダの選択画面で__`UnityProject`__ フォルダを開きます
 
 .center[<img src="readme-image/unity-opening-project.PNG" width="800">]
 
 ---
 ### 【Unityの準備】プロジェクトの確認
-1. __`Project`__タブで以下のように__`gacha`__シーンを開きます
-2. __`Game`__タブにシーンがプレビューされることを確認します
+1. __`Project`__ タブで以下のように__`gacha`__ シーンを開きます
+2. __`Game`__ タブにシーンがプレビューされることを確認します
 * ここまで作業対象のUnityプロジェクトのインポートが完了しました
 
 .center[<img src="readme-image/unity-opening-gacha-project.png" width="500">]
@@ -113,21 +118,21 @@ layout: false
 * mBaaSの機能(API)を利用するためにUnity用のSDKをインポートする必要があります
 * 以下のURLをクリックしてSDKのダウンロードページを開きます
 <br>.size_large[https://github.com/NIFCloud-mbaas/ncmb_unity/releases]
-* __`Downloads`__欄にある __`NCMB.4.0.1.zip`__ ファイルをクリックしダウンロードします
+* __`Downloads`__ 欄にある __`NCMB.4.0.1.zip`__ ファイルをクリックしダウンロードします
 
 .center[<img src="readme-image/ncmba-sdk-download-page.PNG" width="450">]
 
 ---
 ### 【mBaaSの準備】UnitySDKのインポート
-* ダウンロードしたSDKの__`NCMB.4.0.1.zip`__ を解凍します
-* できたフォルダの中にある__`NCMB.unitypackage`__ファイルをダブルクリックするとUnityのインポート画面が出てきます
+* ダウンロードしたSDKの __`NCMB.4.0.1.zip`__ を解凍します
+* できたフォルダの中にある __`NCMB.unitypackage`__ ファイルをダブルクリックするとUnityのインポート画面が出てきます
 
 .center[<img src="readme-image/sdk-import.png" width="500">]
 
 ---
 ### 【mBaaSの準備】UnitySDKのインポート
-* Unityのインポート画面では__`import`__ボタンをクリックし、インポートします
-* __`Project`__タブに__`NCMB`__フォルダが生成されたことを確認します
+* Unityのインポート画面では __`import`__ ボタンをクリックし、インポートします
+* __`Project`__ タブに __`NCMB`__ フォルダが生成されたことを確認します
 * ここまででmBaaSのUnitySDKのインポートが完了しました
 
 .center[<img src="readme-image/sdk-import-unity.png" width="700">]
