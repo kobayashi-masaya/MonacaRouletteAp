@@ -28,6 +28,23 @@ __`サーバーレスでルーレットアプリにクーポン機能を実装�
 .center[<img src="readme-image/roulette-app-basic-structure.png" width="700">]
 
 ---
+
+# アプリを作るために使うツール
+
+---
+layout: false
+
+### [Monaca](https://ja.monaca.io/) って何？
+* __`開発環境の構築は不要`__ 全ての時間をアプリ開発へサービス
+* __`アプリ開発専用エディタ`__ でいつでも、どこでも快適に
+* __`無料`__ で体験頂けます
+* ローカル開発にも完全対応いつもの環境を __`クラウドと連携`__
+* HTMLとCSSでアプリのUIを __`誰でも簡単開発`__
+
+.center[<img src="readme-image/mBaaSとは.png" width="400">]
+
+---
+
 ### [ニフクラ mobile backend](http://mbaas.nifcloud.com/about.htm) って何？
 * スマートフォンアプリに必要なバックエンド機能が __`開発不要で利用できる`__ クラウドサービス
 * クラウド上に用意された機能を __`APIを呼び出すだけで利用できます`__
