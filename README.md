@@ -40,7 +40,7 @@ __`サーバーレスでルーレットアプリにクーポン機能を実装�
 ---
 ### 本日の学ぶ内容
 ルーレットを回してクーポンを獲得する簡単なデモゲームアプリを作ります
-* __`会員管理機能`__ を使って実装された__`オートログイン機能`__ について説明します
+
 * __`データストア機能`__ と __`スクリプト機能`__ を使ってアプリに __`ルーレット機能`__ を実装します
 
 .center[<img src="readme-image/introduce-structure.png" width="500">]
@@ -177,9 +177,9 @@ layout: false
 ---
 ### 【mBaaSの準備】アプリAPIキーの作成
 
-* [mBaaS](http://mb.cloud.nifty.com)のダッシュボードを開きます
+* [mBaaS](http://mbaas.nifcloud.com)のダッシュボードを開きます
 * 画面の左上にある「新しいアプリ」ボタンをクリックし、新規作成画面を開きます
-* アプリ名は __`20170726_gachaApp`__ とします
+* アプリ名は __`Roulette`__ とします
 * `新規作成`ボタンをクリックしてアプリを作成します
 
 .center[<img src="readme-image/mbaas-app-create.png" width="750">]
@@ -810,10 +810,9 @@ class: center, middle, inverse
 layout: false
 
 ### 学んだ内容
-* mBaaSのUnity SDKの設定方法
+* mBaaSのMonaca SDKの設定方法
 * mBaaSの会員管理機能、データストア機能とスクリプト機能の使い方
-* オートログインの仕組み
-* サーバーレスでガチャ機能を実装する方法
+* サーバーレスでルーレット機能を実装する方法
 
 ---
 ### 今後の展望
