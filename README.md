@@ -28,7 +28,9 @@ __`サーバーレスでルーレットアプリにクーポン機能を実装�
 .center[<img src="readme-image/roulette-app-basic-structure.png" width="700">]
 
 ---
-
+layout: true
+class: center, middle, inverse
+---
 # アプリを作るために使うツール
 
 ---
@@ -41,7 +43,7 @@ layout: false
 * ローカル開発にも完全対応いつもの環境を __`クラウドと連携`__
 * HTMLとCSSでアプリのUIを __`誰でも簡単開発`__
 
-.center[<img src="readme-image/mBaaSとは.png" width="400">]
+.center[<img src="readme-image/monacaとは.png" width="400">]
 
 ---
 
@@ -55,6 +57,7 @@ layout: false
 .center[<img src="readme-image/mBaaSとは.png" width="500">]
 
 ---
+
 ### 本日の学ぶ内容
 ルーレットを回してクーポンを獲得する簡単なデモゲームアプリを作ります
 
@@ -64,25 +67,30 @@ layout: false
 
 ---
 ### 事前準備
+* [Monaca](https://monaca.mobi/ja/signup)の利用登録（無料）
 * [ニフクラ mobile backend (mBaaS)](http://mbaas.nifcloud.com/signup.htm)の利用登録（無料）
 * テキストエディタお持ちでない方はご準備をお願いします
 <br>_Atomエディターはこちらから_ https://atom.io/
-
-### 動作環境準備
-* PC: Windows 7 以上 (またはmacOS)
-* Monaca 
-
 ---
+
+### 構成図
+今回の大まかな構成図以下のようになっています
+
+.center[<img src="readme-image/introduce-structure.png" width="500">]
+---
+
 ### ハンズオンの流れ
 .size_large[
 1.  __ハンズオンの準備__
-    - Monacaの準備
-    - mBaaSの準備
+    - 【Monaca】アプリ側の準備
+    - 【mBaaS】サーバー側の準備
+    - 【Monaca】mBaaSを使うための準備
+    - 動作確認①
+    - 設定ファイルのDL
+    - 【mBaaS】クーポン画像の準備
 1. __ルーレット機能の作成__
-    - データストアの準備
-    - スクリプトでの実装
-    - Monacaでの実装
-    - 動作確認
+    - 【mBaaS】スクリプト準備①SelectReward.js
+    - mBaaS】スクリプト準備②UserPost.js
     ]
 ---
 layout: true
