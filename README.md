@@ -15,7 +15,7 @@ class: center, middle, inverse
 layout: true
 class: center, middle, inverse
 ---
-# はじめに
+# 今回作成するアプリについて
 
 ---
 layout: false
@@ -25,7 +25,7 @@ layout: false
 __`サーバーレスでルーレットアプリにクーポン機能を実装します`__
 * サーバーレスとは?<br> __`サーバーを用意する必要なく`__ 、アプリ機能を作成できるということです
 
-.center[<img src="readme-image/roulette-app-basic-structure.png" width="700">]
+.center[<img src="readme-image/roulette-app-basic-structure.png" width="200">]
 
 ---
 ### [ニフクラ mobile backend](http://mbaas.nifcloud.com/about.htm) って何？
