@@ -4,7 +4,7 @@ class: center, middle, inverse
 
 ---
 # <span style="font-size: 60%">【Unityハンズオン】</span>
-# <span style="font-size: 70%">サーバーレスでゲームに<br>ガチャ機能を実装してみよう！</span>
+# <span style="font-size: 70%">サーバーレスでルーレットアプリに<br>クーポン機能を実装してみよう！</span>
 
 @ 富士通クラウドテクノロジーズ 株式会社
 
@@ -22,7 +22,7 @@ layout: false
 
 ### 概要
 * ニフクラ mobile backendの『スクリプト機能』を利用して<br>
-__`サーバーレスでガチャ機能を実装します`__
+__`サーバーレスでルーレットアプリにクーポン機能を実装します`__
 * サーバーレスとは?<br> __`サーバーを用意する必要なく`__ 、アプリ機能を作成できるということです
 
 .center[<img src="readme-image/gacha-app-basic-structure.png" width="700">]
