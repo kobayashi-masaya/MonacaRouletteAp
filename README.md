@@ -25,7 +25,7 @@ layout: false
 __`サーバーレスでルーレットアプリにクーポン機能を実装します`__
 * サーバーレスとは?<br> __`サーバーを用意する必要なく`__ 、アプリ機能を作成できるということです
 
-.center[<img src="readme-image/gacha-app-basic-structure.png" width="700">]
+.center[<img src="readme-image/roulette-app-basic-structure.png" width="700">]
 
 ---
 ### [ニフクラ mobile backend](http://mbaas.nifcloud.com/about.htm) って何？
@@ -59,19 +59,12 @@ __`サーバーレスでルーレットアプリにクーポン機能を実装�
 ### ハンズオンの流れ
 .size_large[
 1.  __ハンズオンの準備__
-    - Unityの準備
+    - Monacaの準備
     - mBaaSの準備
-1. __オートログイン機能の説明【実装済み】__
-    - 動作確認
-    - 動作フローの説明
-    - コードの解説
-1. __ガチャ機能の作成__
+1. __ルーレット機能の作成__
     - データストアの準備
     - スクリプトでの実装
-    - Unityでの実装
-    - 動作確認
-1. __ログ機能の作成__
-    - スクリプトでの実装
+    - Monacaでの実装
     - 動作確認
     ]
 ---
@@ -98,7 +91,7 @@ layout: false
 .center[<img src="readme-image/unity-project-download.png" width="550">]
 
 ---
-### 【Unityの準備】プロジェクトのインポート(要修正)
+### 【Monacaの準備】アプリケーションのインポート
 * Unityを起動します
 1. プロジェクト選択画面で右上の__`Open`__ ボタンをクリックします
 2. フォルダの選択画面で__`UnityProject`__ フォルダを開きます
@@ -106,7 +99,7 @@ layout: false
 .center[<img src="readme-image/unity-opening-project.PNG" width="800">]
 
 ---
-### 【Unityの準備】プロジェクトの確認
+### 【Monacaの準備】プロジェクトの確認
 1. __`Project`__ タブで以下のように__`gacha`__ シーンを開きます
 2. __`Game`__ タブにシーンがプレビューされることを確認します
 * ここまで作業対象のUnityプロジェクトのインポートが完了しました
@@ -138,35 +131,35 @@ layout: false
 .center[<img src="readme-image/sdk-import-unity.png" width="700">]
 
 ---
-### 【mBaaSの準備】UnitySDKにAPIキーを設定する準備
+### 【mBaaSの準備】MonacaSDKにAPIキーを設定する準備
 * __`Hierarchy`__タブの__`Create`__ボタンをクリックし、__`Create Empty`__を選択します
 * __`GameObject`__というオブジェクトが作成されます
 
 .center[<img src="readme-image/hierachy-newobject.png" width="700">]
 
 ---
-### 【mBaaSの準備】UnitySDKにAPIキーを設定する準備
+### 【mBaaSの準備】MonacaSDKにAPIキーを設定する準備
 * __`GameObject`__オブジェクトを右クリックして__`rename`__を選択します
 * 分かり易いように__`NCMBSettings`__にリネームします
 
 .center[<img src="readme-image/hierachy-newobject-rename.png" width="700">]
 
 ---
-### 【mBaaSの準備】UnitySDKにAPIキーを設定する準備
+### 【mBaaSの準備】MonacaDKにAPIキーを設定する準備
 * __`Project`__タブで __`Assets\NCMB\NCMBSettings.cs`__を確認します
 * __`NCMBSettings.cs`__を先ほど作成した__`NCMBSettings`__オブジェクトにドラッグ＆ドロップして読み込みます
 
 .center[<img src="readme-image/hierachy-newobject-drapdrop.png" width="320">]
 
 ---
-### 【mBaaSの準備】UnitySDKにAPIキーを設定する準備
+### 【mBaaSの準備】MonacaSDKにAPIキーを設定する準備
 * __`NCMBSettings`__ オブジェクトをクリックして、__`Inspector`__ タブを開きます
 * __`NCMBSettings`__ オブジェクトの__`Inspector`__ タブに __`NCMBSettings.cs(Script)`__コンポーネントが追加されていることを確認します
 
 .center[<img src="readme-image/hierachy-newobject-inspector.png" width="700">]
 
 ---
-### 【mBaaSの準備】UnitySDKにAPIキーを設定する準備
+### 【mBaaSの準備】MonacaSDKにAPIキーを設定する準備
 * __`NCMBSettings.cs(Script)`__ コンポーネントには以下の２つの入力欄があります
   + __`Aplication Key`__
   + __`Client Key`__
@@ -185,7 +178,7 @@ layout: false
 .center[<img src="readme-image/mbaas-app-create.png" width="750">]
 
 ---
-### 【mBaaSの準備】UnitySDKにアプリAPIキーを設定する
+### 【mBaaSの準備】MonacaSDKにアプリAPIキーを設定する
 * APIキーの画面で`コピー`ボタンをクリックすると __`アプリケーションキー`__と__`クライアントキー`__をコピーすることができます
 * Unity画面で __`NCMBSettings.cs(Script)`__コンポーネントの入力欄に、以下の2つのAPIキーをそれぞれ入力します
     - __Application Key__欄 : アプリケーションキー
@@ -293,14 +286,15 @@ layout: true
 class: center, middle, inverse
 
 ---
-# 3.ガチャ機能の作成
+# 3.ルーレット機能の作成
 
 ---
 layout: false
-### システム全体 - ガチャ機能部
-* ガチャ機能はスクリプト、データストア機能を使います
+### システム全体 - ルーレット機能部
+* ルーレット機能はスクリプト、データストア機能を使います
 
 .center[<img src="readme-image/000.overall_system_script.png" width="640">]
+
 
 ---
 ### ガチャ機能部 詳細
