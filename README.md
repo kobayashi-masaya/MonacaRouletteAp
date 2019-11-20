@@ -57,15 +57,6 @@ layout: false
 .center[<img src="readme-image/mBaaSとは.png" width="500">]
 
 ---
-
-### 本日の学ぶ内容
-ルーレットを回してクーポンを獲得する簡単なデモゲームアプリを作ります
-
-* __`データストア機能`__ と __`スクリプト機能`__ を使ってアプリに __`ルーレット機能`__ を実装します
-
-.center[<img src="readme-image/introduce-structure.png" width="500">]
-
----
 ### 事前準備
 * [Monaca](https://monaca.mobi/ja/signup)の利用登録（無料）
 * [ニフクラ mobile backend (mBaaS)](http://mbaas.nifcloud.com/signup.htm)の利用登録（無料）
@@ -74,7 +65,10 @@ layout: false
 ---
 
 ### 構成図
-今回の大まかな構成図以下のようになっています
+ルーレットを回してクーポンを獲得する簡単なデモゲームアプリを作ります
+
+* __`データストア機能`__ と __`スクリプト機能`__ を使ってアプリに __`ルーレット機能`__ を実装します
+構成図以下のようになっています
 
 .center[<img src="readme-image/introduce-structure.png" width="500">]
 ---
