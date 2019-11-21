@@ -25,7 +25,7 @@ layout: false
 __`サーバーレスでルーレットアプリにクーポン機能を実装します`__
 * サーバーレスとは?<br> __`サーバーを用意する必要なく`__ 、アプリ機能を作成できるということです
 
-.center[<img src="readme-image/roulette-app-basic-structure.png" width="700">]
+.center[<img src="readme-image/roulette-app-basic-structure.png" width="400">]
 
 ---
 layout: true
@@ -101,7 +101,7 @@ layout: false
 2. __`インポート`__ をクリック
 3. __`クラウドIDEで開く`__  をクリック
 
-.center[<img src="readme-image/import.PNG" width="800">]
+.center[<img src="readme-image/import.png" width="800">]
 
 ---
 
