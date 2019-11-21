@@ -94,3 +94,62 @@ class: center, middle, inverse
 
 ---
 layout: false
+
+### 【アプリ側の準備】Monacaアプリケーションのインポート
+* Monacaアプリケーションをimportします。
+1. [プロジェクト](https://monaca.mobi/ja/directimport?pid=5dd3989be788853a51dc44c0)をクリック
+2. __`インポート`__ をクリック
+3. __`クラウドIDEで開く`__  をクリック
+
+.center[<img src="readme-image/import.PNG" width="800">]
+
+---
+
+### 【サーバー側の準備】アプリAPIキーの作成
+
+* [mBaaS](http://mbaas.nifcloud.com)のダッシュボードを開きます
+* 画面の左上にある「新しいアプリ」ボタンをクリックし、新規作成画面を開きます
+* アプリ名は __`Roulette`__ とします
+* `新規作成`ボタンをクリックしてアプリを作成します
+
+.center[<img src="readme-image/mbaas-app-create.png" width="750">]
+
+---
+### 【mBaaSを使うための準備】MonacaSDKにアプリAPIキーを設定する
+* APIキーの画面で`コピー`ボタンをクリックすると __`アプリケーションキー`__ と __`クライアントキー`__ をコピーすることができます
+* Monaca画面で __`app.js`__コンポーネントの入力欄に、以下の2つのAPIキーをそれぞれ入力します
+    - __Application_Key__欄 : アプリケーションキー
+    - __Client_Key__欄 : クライアントキー
+
+.center[<img src="readme-image/mbaas-app-apikey.png" width="600">]
+
+---
+### 動作確認①
+* ここにアカウント登録と・ログインの動作確認手順
+1. 新規登録処理
+2. ログイン処理
+    - huga
+    - huga
+
+.center[<img src="readme-image/mbaas-app-apikey.png" width="600">]
+
+---
+
+### 設定ファイルのDL
+* 設定ファイル --> [ダウンロード](https://kobayashi-masaya.github.io/MonacaRouletteApp_Setting.zip)
+* ファイル構成は以下の通りです。
+
+.center[<img src="readme-image/settings.png" width="600">]
+
+
+---
+
+### クーポン画像の準備
+* ここにアカウント登録と・ログインの動作確認手順
+1. ファイルストアをクリック
+2. アップロードをクリック
+3. imgフォルダの画像3つをアップロードする
+
+.center[<img src="readme-image/file_upload.png" width="600">]
+
+---
