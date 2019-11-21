@@ -3,7 +3,7 @@ layout: true
 class: center, middle, inverse
 
 ---
-# <span style="font-size: 60%">【Unityハンズオン】</span>
+# <span style="font-size: 60%">【Monacaハンズオン】</span>
 # <span style="font-size: 70%">サーバーレスでルーレットアプリに<br>クーポン機能を実装してみよう！</span>
 
 @ 富士通クラウドテクノロジーズ 株式会社
@@ -15,7 +15,7 @@ class: center, middle, inverse
 layout: true
 class: center, middle, inverse
 ---
-# 今回作成するアプリについて
+# 作成するアプリについて
 
 ---
 layout: false
@@ -31,7 +31,7 @@ __`サーバーレスでルーレットアプリにクーポン機能を実装�
 layout: true
 class: center, middle, inverse
 ---
-# アプリを作るために使うツール
+# アプリ作成時に使うツール
 
 ---
 layout: false
