@@ -153,3 +153,53 @@ layout: false
 .center[<img src="readme-image/file_upload.png" width="600">]
 
 ---
+layout: true
+class: center, middle, inverse
+---
+# 作業手順
+
+---
+layout: false
+
+### 【mBaaS】スクリプト準備①SelectReward.js
+* 処理内容
+ 
+.center[<img src="readme-image/selectreward.png" width="600">]
+
+---
+
+### 【mBaaS】スクリプト準備①SelectReward.js
+* データストアに「Roulette_Item」クラスを準備する手順
+
+.center[<img src="readme-image/selectreward.png" width="600">]
+
+---
+
+### 【mBaaS】スクリプト準備①SelectReward.js
+* スクリプトファイル＞APIキーの設定
+
+.center[<img src="readme-image/selectreward.png" width="600">]
+
+---
+
+
+### 【mBaaS】スクリプト準備①SelectReward.js
+* コード解説
+ 
+ .center[<img src="readme-image/selectreward.png" width="600">]
+
+---
+
+### 【mBaaS】スクリプト準備①SelectReward.js
+* スクリプトアップロード手順
+ 
+ .center[<img src="readme-image/selectreward.png" width="600">]
+
+---
+
+### 【mBaaS】スクリプト準備①SelectReward
+* 管理画面上で動作確認（実行してただしくログがでるか）の手順
+ 
+ .center[<img src="readme-image/selectreward.png" width="600">]
+
+---
