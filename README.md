@@ -70,7 +70,7 @@ layout: false
 
 ---
 
-### 2.2[ニフクラ mobile backend](http://mbaas.nifcloud.com/about.htm) 紹介
+### 2.2 ニフクラ mobile backend 紹介
 * スマートフォンアプリに必要なバックエンド機能が __`開発不要で利用できる`__ クラウドサービス
 * クラウド上に用意された機能を __`APIを呼び出すだけで利用できます`__
 * __`無料`__ で体験頂けます
@@ -81,10 +81,12 @@ layout: false
 
 ---
 ### 3.事前準備
-* [Monaca](https://monaca.mobi/ja/signup)の利用登録（無料）
-* [ニフクラ mobile backend (mBaaS)](http://mbaas.nifcloud.com/signup.htm)の利用登録（無料）
+* Monacaの利用登録（無料）
+<br>https://monaca.mobi/ja/signup
+* ニフクラ mobile backend (mBaaS) の利用登録（無料） 
+<br> http://mbaas.nifcloud.com/signup.htm
 * テキストエディタお持ちでない方はご準備をお願いします
-<br>VSCodeはこちらから_ https://azure.microsoft.com/ja-jp/products/visual-studio-code/
+<br>VSCodeはこちらから https://azure.microsoft.com/ja-jp/products/visual-studio-code/
 ---
 
 ### 4.構成図(全体の流れ)
@@ -94,36 +96,9 @@ layout: false
 <br>アプリに __`ルーレット機能`__ を実装します
 <br>構成図以下のようになっています
 
-.center[<img src="readme-image/introduce-structure.png" width="500">]
+.center[<img src="readme-image/UIstructure.png" width="500">]
 ---
 
-### 4.構成図(会員管理)
-ルーレットを回してクーポンを獲得する簡単なデモゲームアプリを作ります
-
-* __`ユーザー名`__ と __`パスワード`__ を使って会員登録を行う
-<br>新規ユーザー登録をすると __`mBaaS`__ のすべての会員に追加されます
-
-.center[<img src="readme-image/structure_user.png" width="500">]
----
-
-### 4.構成図(ルーレット処理)
-ルーレットを回してクーポンを獲得する簡単なデモゲームアプリを作ります
-
-* __`スタート`__ を押すとルーレットが実行されます
-<br> __`データストア`__ から確率を取得し、結果を出力します
-
-
-.center[<img src="readme-image/script_roulette.png" width="500">]
----
-
-### 4.構成図(クーポン処理)
-ルーレットを回してクーポンを獲得する簡単なデモゲームアプリを作ります
-
-* __`ファイルストア`__ から画像を取得します
-<br>当たっていないと　__`権限`__ がないため 出力できません
-
-.center[<img src="readme-image/structure_filestore.png" width="500">]
----
 
 ### ハンズオンの流れ
 .size_large[
@@ -132,16 +107,16 @@ layout: false
     - 5.2【mBaaS】サーバー側の準備
     - 5.3【Monaca】mBaaSを使うための準備
     - 5.4  動作確認①
-    - 5.5  設定ファイルのDL
-    - 5.6【mBaaS】クーポン画像の準備
 6. __ルーレット機能の作成(後半)__
-    - 6.1【mBaaS】データストアにクラスを準備
-    - 6.2【mBaaS】スクリプト準備①SelectReward.js
-    - 6.3【mBaaS】スーパーユーザーの準備
-    - 6.4【mBaaS】スクリプト準備②UserPost.js
-    - 6.5【mBaaS】スクリプト準備③CouponGet.js
-    - 6.6【Monaca】アプリからスクリプトを呼び出す
-    - 6.7【mBaaS】動作確認②
+    - 6.1  設定ファイルのDL
+    - 6.3【mBaaS】クーポン画像の準備
+    - 6.4【mBaaS】データストアにクラスを準備
+    - 6.5【mBaaS】スクリプト準備①SelectReward.js
+    - 6.6【mBaaS】スーパーユーザーの準備
+    - 6.7【mBaaS】スクリプト準備②UserPost.js
+    - 6.8【mBaaS】スクリプト準備③CouponGet.js
+    - 6.9【Monaca】アプリからスクリプトを呼び出す
+    - 6.10【mBaaS】動作確認②
     ]
 ---
 layout: true
@@ -153,8 +128,23 @@ class: center, middle, inverse
 layout: false
 
 ### 5.1【Monaca】アプリ側の準備
+* mBaaS側で払い出されたAPIキーとMonacaSDKをMonaca側に設定し連携していきます
+
+.center[<img src="readme-image/flow1.png" width="500">]
+
+---
+
+### 5.1【Monaca】アプリ側の準備
+* mBaaS側で払い出されたAPIキーとMonacaSDKをMonaca側に設定し連携していきます
+
+.center[<img src="readme-image/flow2.png" width="500">]
+
+---
+
+
+### 5.1【Monaca】アプリ側の準備
 * Monacaアプリケーションをimportします
-1. [プロジェクト](https://00m.in/WlLhX)をクリック
+1. importリンク(https://00m.in/WlLhX)をクリック
 2. __`インポート`__ をクリック
 3. __`クラウドIDEで開く`__  をクリック
 
@@ -163,10 +153,16 @@ layout: false
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入（コンポーネントの追加）
-1. __`設定`__ をクリック
-2. __`JS/CSSコンポーネントの追加と削除`__ をクリック
+* importに成功すると以下の画面が表示されます
 
+.center[<img src="readme-image/display.png" width="500">]
+
+---
+
+### 5.1【Monaca】アプリ側の準備
+* SDKの導入（コンポーネントの追加）
+1. 上タブの __`設定`__ をクリック
+2. __`JS/CSSコンポーネントの追加と削除`__ をクリック
 
 .center[<img src="readme-image/sdk1.png" width="300">]
 
@@ -218,32 +214,72 @@ __`ncmb`__ が表示されるので __`追加`__
 
 ### 5.2【mBaaS】サーバー側の準備
 * アプリAPIキーの作成をします
-* [mBaaS](http://mbaas.nifcloud.com)のダッシュボードを開きます
-* 画面の左上にある「新しいアプリ」ボタンをクリックし、新規作成画面を開きます
-* アプリ名は __`Roulette`__ とします
-* `新規作成`ボタンをクリックしてアプリを作成します
+ * mBaaSのダッシュボードを開きます
+ * 画面の左上にある「新しいアプリ」ボタンをクリックし、新規作成画面を開きます
+ * アプリ名は __`Roulette`__ とします
+ * `新規作成`ボタンをクリックしてアプリを作成します
 
 .center[<img src="readme-image/mbaas-app-create.png" width="750">]
 
 ---
+
+### 5.2【mBaaS】サーバー側の準備
+* アプリ作成が成功すると以下の画像が表示されます。
+ * この __`アプリケーションキー`__ と __`クライアントキー`__ を合わせてアプリAPIキーと呼びます。
+
+.center[<img src="readme-image/apikey.png" width="600">]
+
+---
+
 ### 5.3【Monaca】mBaaSを使うための準備
 * MonacaSDKにアプリAPIキーを設定します
-* APIキーの画面で`コピー`ボタンをクリックすると __`アプリケーションキー`__ と __`クライアントキー`__ をコピーすることができます
-* Monaca画面で __`app.js`__コンポーネントの入力欄に、以下の2つのAPIキーをそれぞれ入力します
-    - __Application_Key__欄 : アプリケーションキー
-    - __Client_Key__欄 : クライアントキー
+* js/app.js を開きます
+* __`APPLICATION_KEY`__ と __`CLIENT_KEY`__ を mobile backend でアプリ作成時に発行された２つの APIキー （アプリケーションキーとクライアントキー）に貼り替えます
+
+<pre>
+// 【NCMB】SDKの初期化
+var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
+</pre>
 
 .center[<img src="readme-image/mbaas-app-apikey.png" width="600">]
 
 ---
+### 5.4 動作確認① (会員管理)
+* ここでmBaaSとMonacaが連携できたかを以下の画像のように、会員管理データのやり取りが行われることで確認していきます
+
+.center[<img src="readme-image/flow3.png" width="600">]
+
+---
+
+---
 ### 5.4 動作確認① (新規登録処理)
-* 新規会員登録をしたときの実行結果
-.center[<img src="readme-image/adduser.png" width="600">]
+* Monacaのプレビュー画面にてアプリを新規会員登録をしましょう。プレビュー画面は以下の画像の赤線の枠内です。
+
+.center[<img src="readme-image/preview.png" width="600">]
+
+---
+
+---
+### 5.4 動作確認① (新規登録処理)
+* プレビュー画面に、ユーザー名を __`name`__ 、 パスワードを好きな文字で入力し、 __`新規ユーザー登録`__ をクリックします
+
+.center[<img src="readme-image/adduser1.png" width="600">]
+
+---
+
+---
+### 5.4 動作確認① (新規登録処理)
+* 新規登録に成功すると以下の画像のように追加されます
+
+.center[<img src="readme-image/adduser2.png" width="600">]
 
 ---
 
 ### 5.4 動作確認① (ログイン処理)
-* ログインしたときの実行結果
+* 先ほど新規会員登録したユーザー―でログインをします
+ * ログイン画面に戻るために、Chroomをリロードします
+ * 先ほど登録したユーザー名とパスワードを入力し __`ログイン `__ をクリック
+ * ログインに成功するとルーレット画面が表示されます
 
 .center[<img src="readme-image/loginuser.png" width="700">]
 
@@ -255,16 +291,38 @@ __`ncmb`__ が表示されるので __`追加`__
 .center[<img src="readme-image/erroruser.png" width="300">]
 
 ---
+layout: true
+class: center, middle, inverse
+---
 
-### 5.5 設定ファイルのDL
-* 設定ファイル --> [ダウンロード](https://kobayashi-masaya.github.io/MonacaRouletteApp_Setting.zip)
+# 6.ルーレット機能の作成
+
+---
+layout: false
+
+### 6.ルーレット機能の作成
+* データストアとファイルストアに今回使用するデータをアップしていきます
+
+.center[<img src="readme-image/flow4.png" width="700">]
+
+---
+
+### 6.ルーレット機能の作成
+* データストアとファイルストアに今回使用するデータをアップしていきます
+
+.center[<img src="readme-image/flow5.png" width="700">]
+
+---
+
+### 6.1 設定ファイルのDL
+* 設定ファイルをダウンロード(https://kobayashi-masaya.github.io/MonacaRouletteApp_Setting.zip)
 * ファイル構成は以下の通りです。
 
 .center[<img src="readme-image/settings.png" width="700">]
 
 ---
 
-### 5.6【mBaaS】クーポン画像の準備
+### 6.2【mBaaS】クーポン画像の準備
 * ファイルストアへのアップロード手順
  1. ファイルストアをクリック
  2. アップロードをクリック
@@ -273,22 +331,83 @@ __`ncmb`__ が表示されるので __`追加`__
 .center[<img src="readme-image/file_upload.png" width="700">]
 
 ---
-layout: true
-class: center, middle, inverse
----
-# 6.ルーレット機能の作成
+
+### 6.2【mBaaS】クーポン画像の準備
+* アップロードに成功すると以下の画像が表示されます
+
+.center[<img src="readme-image/filestore.png" width="700">]
 
 ---
-layout: false
 
-### 6.1【mBaaS】データストアにクラスを準備する手順
+### 6.3【mBaaS】スーパーユーザーの準備
+* 今回Rewardクラスにアクセスできる権限を持ったスーパーユーザーを用意します
+ * このユーザー以外はアクセスできないacl設定をしていきます
+
+.center[<img src="readme-image/flow6.png" width="600">]
+
+---
+
+### 6.3【mBaaS】スーパーユーザーの準備
+* 今回スクリプトを実行する権限を持ったスーパーユーザーを用意します
+ * このユーザー以外はスクリプトが実行できないacl設定をしていきます
+
+.center[<img src="readme-image/flow7.png" width="600">]
+
+---
+
+### 6.3【mBaaS】スーパーユーザーの準備
+* 今回スクリプトを実行する権限を持ったスーパーユーザーを用意します
+ * このユーザー以外はスクリプトが実行できないacl設定をしていきます
+
+.center[<img src="readme-image/flow8.png" width="600">]
+
+---
+
+### 6.3【mBaaS】スーパーユーザーの準備
+1. 新しい会員をクリック
+2. 新しい会員の新規作成をクリック
+3. すると入力欄が表示されます
+
+.center[<img src="readme-image/superuser1.png" width="700">]
+
+---
+
+### 6.3【mBaaS】スーパーユーザーの準備
+3. userNameに superuser と入力し Enter
+4. passwordに super と入力し Enter
+5. 成功するとユーザーが追加され、passwordがhiddenになる
+6. objectIdが自動で割り振られ、この値をacl設定に後ほど使用します
+
+.center[<img src="readme-image/superuser2.png" width="700">]
+
+---
+
+
+### 6.4【mBaaS】データストアにクラスを準備する手順
 * データストアに「Roulette_Item」クラスを準備する手順
+ * このクラスではファイルストアの画像名、確率、賞の値を持たせます
  
 .center[<img src="readme-image/selectreward.png" width="600">]
 
 ---
 
-### 6.2【mBaaS】スクリプト準備①SelectReward.js
+### 6.4【mBaaS】データストアにクラスを準備する手順
+* データストアに「Reward」クラスを準備する手順
+ * 賞が当たるとユーザーがPOSTされるクラス
+ * 賞ごとに「Reward1」「Reward2」「Reward3」と用意する
+ 
+.center[<img src="readme-image/selectreward.png" width="600">]
+
+---
+
+### 6.4【mBaaS】データストアにクラスを準備する手順
+* それぞれにaclを設定する
+ 
+.center[<img src="readme-image/selectreward.png" width="600">]
+
+---
+
+### 6.5【mBaaS】スクリプト準備①SelectReward.js
 * 処理内容
   1. Roulette_Itemからルーレットの確率を取得
   2. その確率から1等,2等,3等を算出
@@ -300,21 +419,7 @@ layout: false
 
 ---
 
-### 6.3【mBaaS】スーパーユーザーの準備
-* 下記の手順で実施します
-
-.center[<img src="readme-image/superuser1.png" width="700">]
-
----
-
-### 6.3【mBaaS】スーパーユーザーの準備
-* 下記の手順で実施します
-
-.center[<img src="readme-image/superuser2.png" width="700">]
-
----
-
-### 6.4【mBaaS】スクリプト準備②UserPost.js
+### 6.6【mBaaS】スクリプト準備②UserPost.js
 * 処理内容
   1. Monaca側から当たった賞をqueryより取得
   2. 管理者でログイン
@@ -327,7 +432,7 @@ layout: false
 
 ---
 
-### 6.5【mBaaS】スクリプト準備③CouponGet.js
+### 6.7【mBaaS】スクリプト準備③CouponGet.js
 * 処理内容
   1. 非同期処理スタート、まずは管理者でログイン
   2. 次にReward1にユーザーがいるか検索
@@ -340,7 +445,7 @@ layout: false
  
 ---
   
-### 6.6【Monaca】アプリからスクリプトを呼び出す
+### 6.8【Monaca】アプリからスクリプトを呼び出す
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順
   1. app.jsにてCtrl + F にて検索窓を開き「//MARK」で検索
   2. Mark内を大きく①、②、③に分けています。
@@ -350,7 +455,7 @@ layout: false
 
 ---
 
-### 6.6【Monaca】アプリからスクリプトを呼び出す ①
+### 6.9【Monaca】アプリからスクリプトを呼び出す ①
 * 非同期処理にてスクリプトを呼び出し
 * GETメソッドを使用
 
@@ -358,7 +463,7 @@ layout: false
 
 ---
 
-### 6.6【Monaca】アプリからスクリプトを呼び出す ②
+### 6.10【Monaca】アプリからスクリプトを呼び出す ②
 * queryを指定して実行
 * POSTメソッドを使用
 
