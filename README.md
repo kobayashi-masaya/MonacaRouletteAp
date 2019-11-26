@@ -250,7 +250,7 @@ __`ncmb`__ が表示されるので __`追加`__
 ### 5.4 動作確認① (ログイン処理)
 * Monaca側には以下のようにErrorが出てきますが、そのままで大丈夫です。
 
-.center[<img src="readme-image/erroruser.png" width="400">]
+.center[<img src="readme-image/erroruser.png" width="300">]
 
 ---
 
