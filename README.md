@@ -144,7 +144,7 @@ layout: false
 
 ### 5.1【Monaca】アプリ側の準備
 * Monacaアプリケーションをimportします
-1. importリンク(https://00m.in/WlLhX)をクリック
+1. importリンク (https://00m.in/WlLhX) をクリック
 2. __`インポート`__ をクリック
 3. __`クラウドIDEで開く`__  をクリック
 
@@ -170,7 +170,7 @@ layout: false
 
 ### 5.1【Monaca】アプリ側の準備
 * SDKの導入（コンポーネントの追加）
-1. __`コンポーネント名`__ に __`ncmb `__と入力
+1. __`コンポーネント名`__ に __`ncmb `__ と入力
 2. __`検索する`__ をクリック
 
 .center[<img src="readme-image/sdk2.png" width="500">]
