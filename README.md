@@ -250,22 +250,17 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 .center[<img src="readme-image/flow3.png" width="700">]
 
 ---
-
----
 ### 5.4 動作確認① (新規登録処理)
 * Monacaのプレビュー画面にてアプリを新規会員登録をしましょう。プレビュー画面は以下の画像の赤線の枠内です。
 
 .center[<img src="readme-image/preview.png" width="600">]
 
----
 
 ---
 ### 5.4 動作確認① (新規登録処理)
 * プレビュー画面に、ユーザー名を __`name`__ 、 パスワードを好きな文字で入力し、 __`新規ユーザー登録`__ をクリックします
 
 .center[<img src="readme-image/adduser1.png" width="600">]
-
----
 
 ---
 ### 5.4 動作確認① (新規登録処理)
