@@ -96,7 +96,7 @@ layout: false
 <br>アプリに __`ルーレット機能`__ を実装します
 <br>構成図以下のようになっています
 
-.center[<img src="readme-image/UIstructure.png" width="500">]
+.center[<img src="readme-image/UIstructure.png" width="700">]
 ---
 
 
@@ -130,14 +130,14 @@ layout: false
 ### 5.1【Monaca】アプリ側の準備
 * mBaaS側で払い出されたAPIキーとMonacaSDKをMonaca側に設定し連携していきます
 
-.center[<img src="readme-image/flow1.png" width="500">]
+.center[<img src="readme-image/flow1.png" width="700">]
 
 ---
 
 ### 5.1【Monaca】アプリ側の準備
 * mBaaS側で払い出されたAPIキーとMonacaSDKをMonaca側に設定し連携していきます
 
-.center[<img src="readme-image/flow2.png" width="500">]
+.center[<img src="readme-image/flow2.png" width="700">]
 
 ---
 
@@ -247,7 +247,7 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 ### 5.4 動作確認① (会員管理)
 * ここでmBaaSとMonacaが連携できたかを以下の画像のように、会員管理データのやり取りが行われることで確認していきます
 
-.center[<img src="readme-image/flow3.png" width="600">]
+.center[<img src="readme-image/flow3.png" width="700">]
 
 ---
 
@@ -351,7 +351,7 @@ layout: false
 * 今回スクリプトを実行する権限を持ったスーパーユーザーを用意します
  * このユーザー以外はスクリプトが実行できないacl設定をしていきます
 
-.center[<img src="readme-image/flow7.png" width="600">]
+.center[<img src="readme-image/flow7.png" width="700">]
 
 ---
 
@@ -359,7 +359,7 @@ layout: false
 * 今回スクリプトを実行する権限を持ったスーパーユーザーを用意します
  * このユーザー以外はスクリプトが実行できないacl設定をしていきます
 
-.center[<img src="readme-image/flow8.png" width="600">]
+.center[<img src="readme-image/flow8.png" width="700">]
 
 ---
 
