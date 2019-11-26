@@ -26,7 +26,7 @@ layout: false
 ### 目次
 .size_large[
 1.  __作成するアプリについて__
-2. __アプリ作成時に使うツール__
+2. __アプリ作成に使うツール__
 3.  __事前準備__
 4. __構成図__
 5.  __ハンズオンの準備__
@@ -48,13 +48,13 @@ layout: false
 __`サーバーレスでルーレットアプリにクーポン機能を実装します`__
 * サーバーレスとは?<br> __`サーバーを用意する必要なく`__ 、アプリ機能を作成できるということです
 
-.center[<img src="readme-image/roulette-app-basic-structure.png" width="400">]
+.center[<img src="readme-image/roulette-app-basic-structure.png" width="600">]
 
 ---
 layout: true
 class: center, middle, inverse
 ---
-# 2.アプリ作成時に使うツール
+# 2.アプリ作成に使うツール
 
 ---
 layout: false
@@ -66,7 +66,7 @@ layout: false
 * ローカル開発にも完全対応いつもの環境を __`クラウドと連携`__
 * HTMLとCSSでアプリのUIを __`誰でも簡単開発`__
 
-.center[<img src="readme-image/monacaとは.png" width="400">]
+.center[<img src="readme-image/monacaとは.png" width="600">]
 
 ---
 
@@ -77,21 +77,21 @@ layout: false
 * APIを利用するためのSDKは幅広く対応します (Swift / iOS / Android / JavaScript / Monaca / Unity)
 * mobile Backend as a Service の頭文字を取って、通称 __`mBaaS`__ 呼ばれます
 
-.center[<img src="readme-image/mBaaSとは.png" width="300">]
+.center[<img src="readme-image/mBaaSとは.png" width="400">]
 
 ---
 ### 3.事前準備
 * [Monaca](https://monaca.mobi/ja/signup)の利用登録（無料）
 * [ニフクラ mobile backend (mBaaS)](http://mbaas.nifcloud.com/signup.htm)の利用登録（無料）
 * テキストエディタお持ちでない方はご準備をお願いします
-<br>_Atomエディターはこちらから_ https://atom.io/
+<br>VSCodeはこちらから_ https://azure.microsoft.com/ja-jp/products/visual-studio-code/
 ---
 
 ### 4.構成図(全体の流れ)
 ルーレットを回してクーポンを獲得する簡単なデモゲームアプリを作ります
 
-* __`データストア機能`__ と __`スクリプト機能`__ を使ってアプリに __`ルーレット機能`__ を実装します
-構成図以下のようになっています
+* __`データストア機能`__ と __`スクリプト機能`__ を使ってアプリに __`ルーレット機能`__ を実装します  
+<br>構成図以下のようになっています
 
 .center[<img src="readme-image/introduce-structure.png" width="500">]
 ---
@@ -129,8 +129,8 @@ layout: false
     - 5.1【Monaca】アプリ側の準備
     - 5.2【mBaaS】サーバー側の準備
     - 5.3【Monaca】mBaaSを使うための準備
-    - 5.4 動作確認①
-    - 5.5 設定ファイルのDL
+    - 5.4  動作確認①
+    - 5.5  設定ファイルのDL
     - 5.6【mBaaS】クーポン画像の準備
 6. __ルーレット機能の作成(後半)__
     - 6.1【mBaaS】データストアにクラスを準備
@@ -161,60 +161,54 @@ layout: false
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入
-1. [プロジェクト](https://00m.in/WlLhX)をクリック
-2. __`インポート`__ をクリック
-3. __`クラウドIDEで開く`__  をクリック
+* SDKの導入（コンポーネントの追加）
+1. __`設定`__ をクリック
+2. __`JS/CSSコンポーネントの追加と削除`__ をクリック
 
-.center[<img src="readme-image/sdk1.png" width="500">]
+
+.center[<img src="readme-image/sdk1.png" width="300">]
 
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入
-1. [プロジェクト](https://00m.in/WlLhX)をクリック
-2. __`インポート`__ をクリック
-3. __`クラウドIDEで開く`__  をクリック
+* SDKの導入（コンポーネントの追加）
+1. __`コンポーネント名`__ に __`ncmb `__と入力
+2. __`検索する`__ をクリック
 
 .center[<img src="readme-image/sdk2.png" width="500">]
 
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入
-1. [プロジェクト](https://00m.in/WlLhX)をクリック
-2. __`インポート`__ をクリック
-3. __`クラウドIDEで開く`__  をクリック
+* SDKの導入（コンポーネントの追加）
+__`ncmb`__ が表示されるので __`追加`__
 
-.center[<img src="readme-image/sdk3.png" width="500">]
 
----
-
-### 5.1【Monaca】アプリ側の準備
-* SDKの導入
-1. [プロジェクト](https://00m.in/WlLhX)をクリック
-2. __`インポート`__ をクリック
-3. __`クラウドIDEで開く`__  をクリック
-
-.center[<img src="readme-image/sdk4.png" width="500">]
+.center[<img src="readme-image/sdk3.png" width="700">]
 
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入
-1. [プロジェクト](https://00m.in/WlLhX)をクリック
-2. __`インポート`__ をクリック
-3. __`クラウドIDEで開く`__  をクリック
+* SDKの導入（コンポーネントの追加）
+バージョンはそのままで、 __`インストール`__ をクリック
+
+
+.center[<img src="readme-image/sdk4.png" width="600">]
+
+---
+
+### 5.1【Monaca】アプリ側の準備
+* SDKの導入（コンポーネントの追加）
+必ずチェックボックスにチェックを入れて、 __`保存`__  をクリック
+
 
 .center[<img src="readme-image/sdk5.png" width="500">]
 
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入
-1. [プロジェクト](https://00m.in/WlLhX)をクリック
-2. __`インポート`__ をクリック
-3. __`クラウドIDEで開く`__  をクリック
+* SDKの導入（コンポーネントの追加）
+一覧に __`ncmb`__ が表示されればSDK導入完了です
 
 .center[<img src="readme-image/sdk6.png" width="500">]
 
@@ -249,14 +243,14 @@ layout: false
 ### 5.4 動作確認① (ログイン処理)
 * ログインしたときの実行結果
 
-.center[<img src="readme-image/loginuser.png" width="600">]
+.center[<img src="readme-image/loginuser.png" width="700">]
 
 ---
 
 ### 5.4 動作確認① (ログイン処理)
 * Monaca側には以下のようにErrorが出てきますが、そのままで大丈夫です。
 
-.center[<img src="readme-image/erroruser.png" width="600">]
+.center[<img src="readme-image/erroruser.png" width="400">]
 
 ---
 
@@ -264,17 +258,17 @@ layout: false
 * 設定ファイル --> [ダウンロード](https://kobayashi-masaya.github.io/MonacaRouletteApp_Setting.zip)
 * ファイル構成は以下の通りです。
 
-.center[<img src="readme-image/settings.png" width="600">]
+.center[<img src="readme-image/settings.png" width="700">]
 
 ---
 
 ### 5.6【mBaaS】クーポン画像の準備
 * ファイルストアへのアップロード手順
-1. ファイルストアをクリック
-2. アップロードをクリック
-3. imgフォルダの画像3つをアップロードする
+ 1. ファイルストアをクリック
+ 2. アップロードをクリック
+ 3. imgフォルダの画像3つをアップロードする
 
-.center[<img src="readme-image/file_upload.png" width="600">]
+.center[<img src="readme-image/file_upload.png" width="700">]
 
 ---
 layout: true
@@ -300,21 +294,21 @@ layout: false
 
 * Point
   * 確率の調整が可能
-    * 1等が絶対に当たらない鬼畜設定も可能…
+  * 1等が絶対に当たらない鬼畜設定も可能…
 
 ---
 
 ### 6.3【mBaaS】スーパーユーザーの準備
 * 下記の手順で実施します
 
-.center[<img src="readme-image/superuser1.png" width="600">]
+.center[<img src="readme-image/superuser1.png" width="700">]
 
 ---
 
 ### 6.3【mBaaS】スーパーユーザーの準備
 * 下記の手順で実施します
 
-.center[<img src="readme-image/superuser2.png" width="600">]
+.center[<img src="readme-image/superuser2.png" width="700">]
 
 ---
 
@@ -327,7 +321,7 @@ layout: false
 
 * Point
   * 管理者でしかPOSTできないため、セキュリティ面も安心
-    * ハッカーが勝手にユーザーを登録すること防ぐ
+  * ハッカーが勝手にユーザーを登録すること防ぐ
 
 ---
 
@@ -340,7 +334,7 @@ layout: false
 
 * Point
   * 非同期処理を使用
-    * 処理が重ならずに全ての処理の終了後に値が返される
+  * 処理が重ならずに全ての処理の終了後に値が返される
  
 ---
   
@@ -348,7 +342,9 @@ layout: false
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順
   1. app.jsにてCtrl + F にて検索窓を開き「//MARK」で検索
   2. Mark内を大きく①、②、③に分けています。
-  3. ①にてSelectReward.js、②にてUserPost.js、③にてCouponGet.jsが呼ばれています。
+  3. ①にてSelectReward.js
+  <br>②にてUserPost.js
+  <br>③にてCouponGet.jsが呼ばれています。
 
 ---
 
