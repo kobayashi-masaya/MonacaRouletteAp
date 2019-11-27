@@ -242,14 +242,15 @@ layout: false
 ---
 
 ### 5.2【mBaaS】サーバー側の準備
+* mBaaS(https://console.mbaas.nifcloud.com/)にログインする
 * 新しいアプリを作成します
 * アプリ名を __`Roulette`__ と入力し「`新規作成`」をクリックします
 
-.center[<img src="readme-image/mbaas-app-create.png" width="750">]
+.center[<img src="readme-image/mbaas-app-create.png" width="300">]
 
 * mobile backend を既に使用したことがある場合は、画面上方のメニューバーにある「`+新しいアプリ`」をクリックすると同じ画面が表示されます
 
-.center[<img src="readme-image/newapp2.png" width="750">]
+.center[<img src="readme-image/newapp2.png" width="300">]
 
 ---
 
@@ -303,8 +304,6 @@ layout: false
 var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 ```
 
-.center[<img src="readme-image/mbaas-app-apikey.png" width="600">]
-
 ---
 
 ### 5.3【Monaca】mBaaSを使うための準備
@@ -354,7 +353,7 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
  * 今回はログアウトボタンを実装していないため、画面をリロードしログイン画面に戻ります。
  * 右側のプレビュー画面にリロードボタンがございますのでクリックします
  
-.center[<img src="readme-image/reload.png" width="700">]
+.center[<img src="readme-image/reload.png" width="300">]
 
 ---
 
@@ -423,7 +422,31 @@ layout: false
 
 ---
 
-### 6.3【mBaaS】スーパーユーザーの準備
+### 6.3【mBaaS】データストアにクラスを準備する手順
+* データストアに「Roulette_Item」クラスを準備する手順
+ * このクラスではファイルストアの画像名、確率、賞の値を持たせます
+ 
+.center[<img src="readme-image/selectreward.png" width="600">]
+
+---
+
+### 6.3【mBaaS】データストアにクラスを準備する手順
+* データストアに「Reward」クラスを準備する手順
+ * 賞が当たるとユーザーがPOSTされるクラス
+ * 賞ごとに「Reward1」「Reward2」「Reward3」と用意する
+ 
+.center[<img src="readme-image/selectreward.png" width="600">]
+
+---
+
+### 6.3【mBaaS】データストアにクラスを準備する手順
+* それぞれにaclを設定する
+ 
+.center[<img src="readme-image/selectreward.png" width="600">]
+
+---
+
+### 6.4【mBaaS】スーパーユーザーの準備
 * Rewardクラスへのアクセス権限を持ったスーパーユーザーを用意します
  * このユーザー以外はアクセスできないacl設定をしていきます
 
@@ -431,7 +454,7 @@ layout: false
 
 ---
 
-### 6.3【mBaaS】スーパーユーザーの準備
+### 6.4【mBaaS】スーパーユーザーの準備
 * Rewardクラスへのアクセス権限を持ったスーパーユーザーを用意します
  * このユーザー以外はアクセスできないacl設定をしていきます
 
@@ -439,7 +462,7 @@ layout: false
 
 ---
 
-### 6.3【mBaaS】スーパーユーザーの準備
+### 6.4【mBaaS】スーパーユーザーの準備
 * Rewardクラスへのアクセス権限を持ったスーパーユーザーを用意します
  * このユーザー以外はアクセスできないacl設定をしていきます
 
@@ -447,16 +470,26 @@ layout: false
 
 ---
 
-### 6.3【mBaaS】スーパーユーザーの準備
-1. 新しい会員をクリック
-2. 新しい会員の新規作成をクリック
-3. すると入力欄が表示されます
+### 6.4【mBaaS】スーパーユーザーの準備
+ 1. 新しい会員をクリック
+ 2. 新しい会員の新規作成をクリック
+ 3. すると入力欄が表示されます
 
 .center[<img src="readme-image/superuser1.png" width="700">]
 
 ---
 
-### 6.3【mBaaS】スーパーユーザーの準備
+### 6.4【mBaaS】スーパーユーザーの準備
+ 4. userNameに superuser と入力し Enter
+ 5. passwordに super と入力し Enter
+ 6. 成功するとユーザーが追加され、passwordがhiddenになる
+ 7. objectIdが自動で割り振られ、この値をacl設定に後ほど使用します
+
+.center[<img src="readme-image/superuser2.png" width="700">]
+
+---
+
+### 6.5【mBaaS】参照権限の設定
 3. userNameに superuser と入力し Enter
 4. passwordに super と入力し Enter
 5. 成功するとユーザーが追加され、passwordがhiddenになる
@@ -466,32 +499,7 @@ layout: false
 
 ---
 
-
-### 6.4【mBaaS】データストアにクラスを準備する手順
-* データストアに「Roulette_Item」クラスを準備する手順
- * このクラスではファイルストアの画像名、確率、賞の値を持たせます
- 
-.center[<img src="readme-image/selectreward.png" width="600">]
-
----
-
-### 6.4【mBaaS】データストアにクラスを準備する手順
-* データストアに「Reward」クラスを準備する手順
- * 賞が当たるとユーザーがPOSTされるクラス
- * 賞ごとに「Reward1」「Reward2」「Reward3」と用意する
- 
-.center[<img src="readme-image/selectreward.png" width="600">]
-
----
-
-### 6.4【mBaaS】データストアにクラスを準備する手順
-* それぞれにaclを設定する
- 
-.center[<img src="readme-image/selectreward.png" width="600">]
-
----
-
-### 6.5【mBaaS】スクリプト準備①SelectReward.js
+### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * 処理内容
   1. Roulette_Itemからルーレットの確率を取得
   2. その確率から1等,2等,3等を算出
@@ -503,7 +511,7 @@ layout: false
 
 ---
 
-### 6.6【mBaaS】スクリプト準備②UserPost.js
+### 6.7【mBaaS】スクリプト準備②UserPost.js
 * 処理内容
   1. Monaca側から当たった賞をqueryより取得
   2. 管理者でログイン
@@ -516,7 +524,7 @@ layout: false
 
 ---
 
-### 6.7【mBaaS】スクリプト準備③CouponGet.js
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * 処理内容
   1. 非同期処理スタート、まずは管理者でログイン
   2. 次にReward1にユーザーがいるか検索
@@ -529,7 +537,7 @@ layout: false
  
 ---
   
-### 6.8【Monaca】アプリからスクリプトを呼び出す
+### 6.9【Monaca】アプリからスクリプトを呼び出す
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順
   1. app.jsにてCtrl + F にて検索窓を開き「//MARK」で検索
   2. Mark内を大きく①、②、③に分けています
@@ -547,7 +555,7 @@ layout: false
 
 ---
 
-### 6.10【Monaca】アプリからスクリプトを呼び出す ②
+### 6.9【Monaca】アプリからスクリプトを呼び出す ②
 * queryを指定して実行
 * POSTメソッドを使用
 
@@ -555,7 +563,7 @@ layout: false
 
 ---
 
-### 6.6【Monaca】アプリからスクリプトを呼び出す ③
+### 6.10【Monaca】アプリからスクリプトを呼び出す ③
 * 非同期処理にてスクリプトを呼び出し
 * queryを指定して実行
 * GETメソッドを使用
@@ -564,7 +572,7 @@ layout: false
 
 ---
 
-### 6.7【動作確認】
+### 6.11【動作確認】
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順
  
 
