@@ -675,6 +675,7 @@ function selectReward(probabilities) {
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * SelectReward.jsをアップロードする  
+  
 1.スクリプトをクリック  
 2.アップロードをクリック  
   
@@ -798,6 +799,7 @@ module.exports = function (req, res) {
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * UserPost.jsをアップロードする  
+  
  1.UserPost.jsをドラッグアンドドロップかファイル選択  
  2.メソッドはPOST  
  3.ファイルの状態は実行可能  
