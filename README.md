@@ -557,29 +557,29 @@ layout: false
 
 ### 6.5【mBaaS】参照権限の設定
 * 参照権限を設定することのメリットは、書き換えや参照をあるユーザーだけ実行できるように限定することによって、他のユーザーから干渉を受けず、確率の書き換えなど受けなくなる。  
- 1.会員管理をクリック  
- 2.superuserのobjectIdをコピー  
+1.会員管理をクリック  
+2.superuserのobjectIdをコピー  
 
 .center[<img src="readme-image/acl1.png" width="700">]
 
 ---
 
 ### 6.5【mBaaS】参照権限の設定
- 3.データストアをクリック  
- 4.Reward1をクリック  
- 5.クラスの編集をクリック  
- 6.パーミッションの設定をクリック  
+3.データストアをクリック  
+4.Reward1をクリック  
+5.クラスの編集をクリック  
+6.パーミッションの設定をクリック  
 
 .center[<img src="readme-image/acl2.png" width="600">]
 
 ---
 
 ### 6.5【mBaaS】参照権限の設定
- 7.新しいパーミッションをクリック  
- 8.全員 ▼ をクリック  
- 9.会員をクリック  
- 10.先ほどコピーしたobjectIdをペースト  
- 11.変更を保存をクリック  
+7.新しいパーミッションをクリック  
+8.全員 ▼ をクリック  
+9.会員をクリック  
+10.先ほどコピーしたobjectIdをペースト  
+11.変更を保存をクリック  
 
 .center[<img src="readme-image/acl3.png" width="300">]
 
@@ -684,35 +684,35 @@ function selectReward(probabilities) {
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-  3.SelectReward.jsをドラッグアンドドロップかファイル選択  
-  4.メソッドはGET  
-  5.ファイルの状態は実行可能  
-  6.アップロードするをクリック  
+3.SelectReward.jsをドラッグアンドドロップかファイル選択  
+4.メソッドはGET  
+5.ファイルの状態は実行可能  
+6.アップロードするをクリック  
   
  .center[<img src="readme-image/select2.png" width="400">]
  
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-  7.SelectReward.jsがアップロードされていることを確認  
-  8.SelectReward.jsをクリック  
-  9.実行タブをクリック  
-  10.実行をクリック  
+7.SelectReward.jsがアップロードされていることを確認  
+8.SelectReward.jsをクリック  
+9.実行タブをクリック  
+10.実行をクリック  
   
  .center[<img src="readme-image/select3.png" width="400">]
  
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-  11.以下の警告が出るが実行するをクリック  
+11.以下の警告が出るが実行するをクリック  
   
  .center[<img src="readme-image/select4.png" width="400">]
  
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-  12.実行ボタンの下に結果が出力されていることを確認  
-  13.当たった等(stopNumber)とクーポン画像名(png)が取れている 
+12.実行ボタンの下に結果が出力されていることを確認  
+13.当たった等(stopNumber)とクーポン画像名(png)が取れている 
   
  .center[<img src="readme-image/select5.png" width="400">]
  
@@ -797,44 +797,44 @@ module.exports = function (req, res) {
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * UserPost.jsをアップロードする  
- 1.UserPost.jsをドラッグアンドドロップかファイル選択  
- 2.メソッドはPOST  
- 3.ファイルの状態は実行可能  
- 4.アップロードするをクリック  
- .center[<img src="readme-image/post1.png" width="400">]
+1.UserPost.jsをドラッグアンドドロップかファイル選択  
+2.メソッドはPOST  
+3.ファイルの状態は実行可能  
+4.アップロードするをクリック  
+.center[<img src="readme-image/post1.png" width="400">]
  
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
- 5.UserPost.jsがアップロードされていることを確認  
- 6.UserPost.jsをクリック  
- 7.実行タブをクリック  
- 8.queryの欄に *user=name&stopNumber=1* を入力  
- 9.実行をクリック  
+5.UserPost.jsがアップロードされていることを確認  
+6.UserPost.jsをクリック  
+7.実行タブをクリック  
+8.queryの欄に *user=name&stopNumber=1* を入力  
+9.実行をクリック  
   
  .center[<img src="readme-image/post2.png" width="400">]
  
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
- 10.以下の警告が出るが実行するをクリック  
+10.以下の警告が出るが実行するをクリック  
   
  .center[<img src="readme-image/post3.png" width="400">]
  
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
- 11.実行ボタンの下に結果が出力されていることを確認  
- 12.POST data successfully!と出力されていれば成功
+11.実行ボタンの下に結果が出力されていることを確認  
+12.POST data successfully!と出力されていれば成功
   
  .center[<img src="readme-image/post4.png" width="400">]
  
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
- 13.データストアをクリック  
- 14.今回はstopNumberを1としたのでReward1をクリック
- 15.nameというユーザーが登録されていれば成功
+13.データストアをクリック  
+14.今回はstopNumberを1としたのでReward1をクリック
+15.nameというユーザーが登録されていれば成功
   
  .center[<img src="readme-image/post5.png" width="400">]
  
@@ -922,36 +922,36 @@ module.exports = function (req, res) {
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * CouponGet.jsをアップロードする  
- 1.CouponGet.jsをドラッグアンドドロップかファイル選択  
- 2.メソッドはGet  
- 3.ファイルの状態は実行可能  
- 4.アップロードするをクリック  
+1.CouponGet.jsをドラッグアンドドロップかファイル選択  
+2.メソッドはGet  
+3.ファイルの状態は実行可能  
+4.アップロードするをクリック  
   
  .center[<img src="readme-image/coupon1.png" width="400">]
  
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
- 5.CouponGet.jsがアップロードされていることを確認  
- 6.CouponGet.jsをクリック  
- 7.実行タブをクリック  
- 8.queryの欄に *user=name* を入力  
- 9.実行をクリック  
+5.CouponGet.jsがアップロードされていることを確認  
+6.CouponGet.jsをクリック  
+7.実行タブをクリック  
+8.queryの欄に *user=name* を入力  
+9.実行をクリック  
   
  .center[<img src="readme-image/coupon2.png" width="400">]
  
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
- 10.以下の警告が出るが実行するをクリック  
+10.以下の警告が出るが実行するをクリック  
   
  .center[<img src="readme-image/coupon3.png" width="400">]
  
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
- 10.実行ボタンの下に結果が出力されていることを確認  
- 11.現在はReward1のクラスなのでone.pngが結果として取得できている
+11.実行ボタンの下に結果が出力されていることを確認  
+12.現在はReward1のクラスなのでone.pngが結果として取得できている
   
  .center[<img src="readme-image/coupon4.png" width="400">]
  
