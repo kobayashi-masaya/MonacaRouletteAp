@@ -733,7 +733,7 @@ function selectReward(probabilities) {
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * コード確認
 
-.size_small_5[
+.size_small_7[
 ```js
 module.exports = function (req, res) {
     var NCMB = require('ncmb');
@@ -780,8 +780,9 @@ module.exports = function (req, res) {
         });
 }
 ```
-・ncmb.User.login(user_login) : ログイン処理
 ]
+
+・ncmb.User.login(user_login) : ログイン処理
 
 ---
 
@@ -857,7 +858,7 @@ module.exports = function (req, res) {
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * コード確認
 
-.size_small_5[
+.size_small_7[
 ```js
 module.exports = function (req, res) {
     var NCMB = require('ncmb');
