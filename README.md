@@ -240,7 +240,7 @@ layout: false
 ---
 
 ### 5.2【mBaaS】サーバー側の準備
-* mBaaS(https://console.mbaas.nifcloud.com/) にログインする
+* mBaaS(https://console.mbaas.nifcloud.com/) にログイン
 * 新しいアプリを作成します
 * アプリ名を __`Roulette`__ と入力し「`新規作成`」をクリックします
 
@@ -406,7 +406,7 @@ layout: false
 * ファイルストアへのアップロード手順
  1. ファイルストアをクリック
  2. アップロードをクリック
- 3. imgフォルダの画像3つをドラッグかファイルを選択する
+ 3. imgフォルダの画像3つをドラッグかファイルを選択
  4. アップロードするをクリック
 
 .center[<img src="readme-image/file_upload.png" width="700">]
@@ -445,7 +445,7 @@ layout: false
 * データストアに「Roulette_Item」クラスを準備する手順
  1. 新しいフィールドをクリック
  2. フィールド名に probability と入力し作成するをクリック
- 3. この手順で、フィールド名、rewards と png も作成する
+ 3. この手順で、フィールド名、rewards と png も作成
  
 .center[<img src="readme-image/itemclass2.png" width="600">]
 
@@ -466,9 +466,9 @@ layout: false
 * データストアに「Roulette_Item」クラスを準備する手順
  1. 新しいレコードをクリック
  2. png の下の(undefined)をダブルクリックし ["one.png","two.png","three.png"] に差し替え
- 3. 下に出てくるポップアップの 文字列▼ をクリックし 配列に変更する
- 4. 差し替えたテキストボックスをクリックした後にEnterを押す
- 5. 上記の手順と同様進め、 probabilityは [0.2,0.3]、rewardsは[1,2,3]とする
+ 3. 下に出てくるポップアップの 文字列▼ をクリックし 配列に変更
+ 4. 差し替えたテキストボックスをクリックした後にEnter
+ 5. 上記の手順と同様進め、 probabilityは [0.2,0.3]、rewardsは[1,2,3]で定義
  
 .center[<img src="readme-image/itemclass3.png" width="600">]
 
@@ -477,7 +477,7 @@ layout: false
 ### 6.3【mBaaS】データストアにクラスを準備する手順
 * データストアに「Reward」クラスを準備する手順
  * 賞が当たるとユーザーがPOSTされるクラス
- * 賞ごとに「Reward1」「Reward2」「Reward3」と用意する
+ * 賞ごとに「Reward1」「Reward2」「Reward3」と用意
  
 .center[<img src="readme-image/rewardclass0.png" width="600">]
 
@@ -489,7 +489,7 @@ layout: false
  2. 作成をクリック
  3. 新規作成をクリック
  4. クラス名に __'Reward1'__ と入力し作成するをクリック
- 5. 上記手順で同様に __'Reward2'__ と __'Reward3'__ も作成する
+ 5. 上記手順で同様に __'Reward2'__ と __'Reward3'__ も作成
 .center[<img src="readme-image/rewardclass1.png" width="600">]
 
 ---
