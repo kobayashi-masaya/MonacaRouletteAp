@@ -674,7 +674,7 @@ function selectReward(probabilities) {
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-* SelectReward.jsをアップロードする
+* SelectReward.jsをアップロードする  
 1.スクリプトをクリック  
 2.アップロードをクリック  
   
@@ -718,11 +718,11 @@ function selectReward(probabilities) {
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* 処理内容
-  1. Monaca側から当たった賞をqueryより取得
-  2. 管理者でログイン
-  3. 当たった賞のログにユーザーの名前があるか検索
-  4. 無ければ登録する(クーポンを表示できるようになる)
+* 処理内容  
+  1. Monaca側から当たった賞をqueryより取得  
+  2. 管理者でログイン  
+  3. 当たった賞のログにユーザーの名前があるか検索  
+  4. 無ければ登録する(クーポンを表示できるようになる)  
 
 * Point
   * 管理者でしかPOSTできないため、セキュリティ面も安心
@@ -797,7 +797,7 @@ module.exports = function (req, res) {
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* UserPost.jsをアップロードする
+* UserPost.jsをアップロードする  
  1.UserPost.jsをドラッグアンドドロップかファイル選択  
  2.メソッドはPOST  
  3.ファイルの状態は実行可能  
