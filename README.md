@@ -220,7 +220,7 @@ layout: false
 
 ### 5.1【Monaca】アプリ側の準備
 * SDKの導入（コンポーネントの追加）  
-  8.一覧に __`ncmb`__ が表示されればSDK導入完了です  
+  8.一覧に __`ncmb`__ が表示されればSDK導入完了  
 
 .center[<img src="readme-image/sdk6.png" width="500">]
 
@@ -243,7 +243,7 @@ layout: false
 ### 5.2【mBaaS】サーバー側の準備
 * mBaaS(https://console.mbaas.nifcloud.com/) にログイン
 * 新しいアプリを作成します
-* アプリ名を __`Roulette`__ と入力し「`新規作成`」をクリックします
+* アプリ名を __`Roulette`__ と入力し「`新規作成`」をクリック
 
 .center[<img src="readme-image/mbaas-app-create.png" width="300">]
 
