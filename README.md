@@ -667,6 +667,7 @@ function selectReward(probabilities) {
 * 3行目のAPIキーの置き換え  
  1.editorにてSelectReward.jsを開きます  
  2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします  
+ 3.各editorにて保存を実施する  
 ```js
     var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
 ```
@@ -688,7 +689,7 @@ function selectReward(probabilities) {
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * コード確認
 
-.size_small_9[
+.size_small_5[
 ```js
 module.exports = function (req, res) {
     var NCMB = require('ncmb');
@@ -744,6 +745,7 @@ module.exports = function (req, res) {
 * 3行目のAPIキーの置き換え  
  1.editorにてUserPost.jsを開きます  
  2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします  
+ 3.各editorにて保存を実施する  
 ```js
     var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
 ```
@@ -765,7 +767,7 @@ module.exports = function (req, res) {
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * コード確認
 
-.size_small_9[
+.size_small_5[
 ```js
 module.exports = function (req, res) {
     var NCMB = require('ncmb');
@@ -866,6 +868,7 @@ module.exports = function (req, res) {
 * 3行目のAPIキーの置き換え
  1.editorにてCouponGet.jsを開きます  
  2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします  
+ 3.各editorにて保存を実施する  
 ```js
     var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
 ```
