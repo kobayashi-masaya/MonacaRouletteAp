@@ -153,6 +153,7 @@ layout: false
 * アプリのインポートとMonacaSDKをMonaca側に設定し連携していきます
  * SDKの導入
  * アプリのインポート
+ 
 .center[<img src="readme-image/flow0.2.png" width="700">]
 
 ---
@@ -226,14 +227,14 @@ layout: false
 ---
 
 ### 5.2【mBaaS】サーバー側の準備
-* mBaaS側で払い出されたAPIキーをMonaca側に設定し連携していきます
+* mBaaSにアプリを作成すると払い出されるAPIキーを、Monacaで設定しSDKの初期化を行うことで連携していきます
 
 .center[<img src="readme-image/flow0.3.png" width="700">]
 
 ---
 
 ### 5.2【mBaaS】サーバー側の準備
-* mBaaS側で払い出されたAPIキーをMonaca側に設定し連携していきます
+* mBaaSにアプリを作成すると払い出されるAPIキーを、Monacaで設定しSDKの初期化を行うことで連携していきます
 
 .center[<img src="readme-image/flow2.png" width="700">]
 
