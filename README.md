@@ -250,7 +250,7 @@ layout: false
 
 * mobile backend を既に使用したことがある場合は、画面上方のメニューバーにある「`+新しいアプリ`」をクリックすると同じ画面が表示されます
 
-.center[<img src="readme-image/newapp2.png" width="300">]
+.center[<img src="readme-image/newapp2.png" width="200">]
 
 ---
 
@@ -434,13 +434,6 @@ layout: false
 * データストアに「Reward」クラスを準備する手順
  * 賞が当たるとユーザーがPOSTされるクラス
  * 賞ごとに「Reward1」「Reward2」「Reward3」と用意する
- 
-.center[<img src="readme-image/selectreward.png" width="600">]
-
----
-
-### 6.3【mBaaS】データストアにクラスを準備する手順
-* それぞれにaclを設定する
  
 .center[<img src="readme-image/selectreward.png" width="600">]
 
