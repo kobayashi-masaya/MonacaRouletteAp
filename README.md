@@ -473,6 +473,18 @@ layout: false
 ---
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
+* 登録が上手くいくと以下のように表示されます。
+ 
+.center[<img src="readme-image/itemclass4.png" width="700">]
+
+
+* もし配列の左の型(緑の3本線)がない場合以下のボタンが型を表示になっているかもしれないので、クリックし表示させるようお願いいたします。
+
+.center[<img src="readme-image/itemclass5.png" width="150">]
+
+---
+
+### 6.3【mBaaS】データストアにクラスを準備する手順
 * データストアに「Reward」クラスを準備する手順
  * 賞が当たるとユーザーがPOSTされるクラス
  * 賞ごとに「Reward1」「Reward2」「Reward3」と用意
@@ -524,25 +536,27 @@ layout: false
 ---
 
 ### 6.4【mBaaS】スーパーユーザーの準備
- 1.新しい会員をクリック  
- 2.新しい会員の新規作成をクリック  
- 3.すると入力欄が表示されます  
+ 1.データストアをクリック
+ 2.新しい会員をクリック  
+ 3.新しい会員の新規作成をクリック  
+ 4.すると入力欄が表示されます  
 
 .center[<img src="readme-image/superuser1.png" width="700">]
 
 ---
 
 ### 6.4【mBaaS】スーパーユーザーの準備
- 4.userNameに superuser と入力し Enter  
- 5.passwordに super と入力し Enter  
- 6.成功するとユーザーが追加され、passwordがhiddenになる  
- 7.objectIdが自動で割り振られ、この値をacl設定に後ほど使用します  
+ 5.userNameに superuser と入力し Enter  
+ 6.passwordに super と入力し Enter  
+ 7.成功するとユーザーが追加され、passwordがhiddenになる  
+ 8.objectIdが自動で割り振られ、この値をacl設定に後ほど使用します  
 
 .center[<img src="readme-image/superuser2.png" width="700">]
 
 ---
 
 ### 6.5【mBaaS】参照権限の設定
+* 参照権限を設定することのメリットは、書き換えや参照をあるユーザーだけ実行できるように限定することによって、他のユーザーから干渉を受けず、確率の書き換えなど受けなくなる。
  1.会員管理をクリック  
  2.superuserのobjectIdをコピー  
 
@@ -573,8 +587,16 @@ layout: false
 
 ### 6.5【mBaaS】参照権限の設定
  * パーミッションの保存が成功すると緑のポップアップが右上に表示される
+  * 手順を Reward2、Reward3に対しても実施する
+ 
+.center[<img src="readme-image/acl4.png" width="400">]
 
-.center[<img src="readme-image/acl4.png" width="500">]
+* 設定されているか確認します
+ 1.データストアをクリック  
+ 2.パーミッションの設定をクリック
+ 3.上手く登録されていれば先ほど登録した内容が反映されている
+
+.center[<img src="readme-image/acl5.png" width="400">]
 
 ---
 
