@@ -242,7 +242,7 @@ layout: false
 ---
 
 ### 5.2【mBaaS】サーバー側の準備
-* mBaaS(https://console.mbaas.nifcloud.com/)にログインする
+* mBaaS(https://console.mbaas.nifcloud.com/) にログインする
 * 新しいアプリを作成します
 * アプリ名を __`Roulette`__ と入力し「`新規作成`」をクリックします
 
