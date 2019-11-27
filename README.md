@@ -734,7 +734,7 @@ function selectReward(probabilities) {
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * コード確認
 
-.size_small_3[
+.size_small_7[
 ```js
 module.exports = function (req, res) {
     var NCMB = require('ncmb');
@@ -860,7 +860,7 @@ module.exports = function (req, res) {
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * コード確認
 
-.size_small_2[
+.size_small_7[
 ```js
 module.exports = function (req, res) {
     var NCMB = require('ncmb');
@@ -899,48 +899,10 @@ module.exports = function (req, res) {
                     .catch(function (error) {
                        res.status(500).send("Error: " + error);
                     })     
-
-                Reward2.equalTo("name", name)
-                    .fetchAll()
-                    .then(function (reward2) {
-                      if(reward2[0]==="" || reward2[0]===undefined){
-                        png2 = "";
-                      }
-                      else{
-                          Item.fetchAll()
-                              .then(function (result2) {
-                                  png2 = result2[0].png[1];
-                              })
-                              .catch(function (error) {
-                                res.status(500).send("Error: " + error);
-                              })                        
-                      }        
-                    })
-                    .catch(function (error) {
-                        res.status(500).send("Error: " + error);
-                    })     
-
-                Reward3.equalTo("name", name)
-                    .fetchAll()
-                    .then(function (reward3) {
-                      if(reward3[0]==="" || reward3[0]===undefined){
-                          png3 = "";
-                          resolve()
-                      }
-                      else{
-                          Item.fetchAll()
-                              .then(function (result3) {
-                                  png3 = result3[0].png[2];
-                                  resolve()
-                              })
-                              .catch(function (error) {
-                                  res.status(500).send("Error: " + error);
-                              })                        
-                      }    
-                    })  
-                    .catch(function (error) {
-                       res.status(500).send("Error: " + error);
-                    })     
+                //Reward1と同様な処理を2,3と行う
+                //Reward2.equalTo("name", name)
+                //Reward3.equalTo("name", name)
+  
             })    
             .catch(function (error) {
                 res.status(500).send("Error: " + error);
