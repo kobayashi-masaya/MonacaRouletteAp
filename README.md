@@ -926,7 +926,7 @@ module.exports = function (req, res) {
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* CouponGet.jsをアップロードする
+* CouponGet.jsをアップロードする  
  1.CouponGet.jsをドラッグアンドドロップかファイル選択  
  2.メソッドはGet  
  3.ファイルの状態は実行可能  
