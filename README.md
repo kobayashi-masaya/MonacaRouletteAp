@@ -567,7 +567,7 @@ layout: false
  10.先ほどコピーしたobjectIdをペースト  
  11.変更を保存をクリック  
 
-.center[<img src="readme-image/acl3.png" width="250">]
+.center[<img src="readme-image/acl3.png" width="300">]
 
 ---
 
