@@ -403,7 +403,7 @@ layout: false
 ---
 
 ### 6.1 設定ファイルのDL
-* 設定ファイルをダウンロード(https://kobayashi-masaya.github.io/MonacaRouletteApp_Setting.zip)
+* 設定ファイルをダウンロード(http://u0u1.net/RONw)
 * ファイル構成は以下の通りです
 
 .center[<img src="readme-image/settings.png" width="700">]
@@ -414,7 +414,8 @@ layout: false
 * ファイルストアへのアップロード手順
  1. ファイルストアをクリック
  2. アップロードをクリック
- 3. imgフォルダの画像3つをアップロードする
+ 3. imgフォルダの画像3つをドラッグアンドかファイルを選択する
+ 4. アップロードするをクリック
 
 .center[<img src="readme-image/file_upload.png" width="700">]
 
