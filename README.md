@@ -874,11 +874,9 @@ module.exports = function (req, res) {
 
     const promise = new Promise((resolve, reject) => {
         //管理者でログイン
-        ncmb.User.login(user_login)
-            .then(function (data) {
+        ncmb.User.login(user_login).then(function (data) {
                 Reward1.equalTo("name", name)
-                    .fetchAll()
-                    .then(function (reward1) {
+                    .fetchAll().then(function (reward1) {
                         if(reward1[0]==="" || reward1[0]===undefined){
                             png1 = "";
                         }
@@ -895,10 +893,7 @@ module.exports = function (req, res) {
                     .catch(function (error) {
                        res.status(500).send("Error: " + error);
                     })     
-                //Reward1と同様な処理を2,3と行う
-                //Reward2.equalTo("name", name)
-                //Reward3.equalTo("name", name)
-  
+                //Reward1と同様な処理を2,3と行うが以下省略
             })    
             .catch(function (error) {
                 res.status(500).send("Error: " + error);
