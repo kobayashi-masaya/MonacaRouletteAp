@@ -675,11 +675,11 @@ function selectReward(probabilities) {
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * SelectReward.jsをアップロードする  
-  
-  1.スクリプトをクリック  
-  2.アップロードをクリック  
-  
- .center[<img src="readme-image/select1.png" width="400">]
+
+1.スクリプトをクリック  
+2.アップロードをクリック  
+
+.center[<img src="readme-image/select1.png" width="400">]
  
 ---
 
