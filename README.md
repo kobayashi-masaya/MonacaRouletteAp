@@ -590,6 +590,62 @@ layout: false
 
 ---
 
+
+### 6.6【mBaaS】スクリプト準備①SelectReward.js
+* コード確認
+```js
+module.exports = function (req, res) {
+    var NCMB = require('ncmb');
+    var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
+    var Roulette_Item = ncmb.DataStore('Roulette_Item');
+
+    //Roulette_Itemから確率を取得
+    Roulette_Item.fetchAll().then(function (results) {
+        //何等が当たったか算出
+        var rewardNum = selectReward(results[0].probability);
+        if (rewardNum == -1) {
+            res.status(500).json({
+                "message": "Probabilities of rewards must be defined as Array(length=2)"
+            });
+        }
+        var stopNumber = results[0].rewards[rewardNum];
+        var png = results[0].png[rewardNum];
+        res.status(200).json({stopNumber,png});
+    })
+    .catch(function (error) {
+        res.status(500).send("Error: " + error);
+    });
+}
+
+function selectReward(probabilities) {
+    // probabilities は Array か
+    if (!(Array.isArray(probabilities))) return -1;
+    // probabilities の要素数は２か
+    if (probabilities.length != 2) return -1;
+
+    const p0 = Number(probabilities[0]); // rewards[0]が選択される確率
+    const p1 = Number(probabilities[1]); // rewards[1]が   〃
+
+    // 今回はp0(1等の確率)とp1(2等の確率),から残り(3等の確率)を出している
+    var randNum = Math.random();
+    if (randNum <= p0) return 0;
+    else if (randNum <= p0 + p1) return 1;
+    else return 2;
+}
+```
+・fetchAll() : 全件検索取得
+
+---
+
+### 6.6【mBaaS】スクリプト準備①SelectReward.js
+* 3行目のAPIキーの置き換え
+ 1.editorにてSelectReward.jsを開きます
+ 2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします
+```js
+    var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
+```
+---
+
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * 処理内容
   1. Monaca側から当たった賞をqueryより取得
@@ -601,6 +657,67 @@ layout: false
   * 管理者でしかPOSTできないため、セキュリティ面も安心
   * ハッカーが勝手にユーザーを登録すること防ぐ
 
+---
+
+### 6.7【mBaaS】スクリプト準備②UserPost.js
+* コード確認
+```js
+module.exports = function (req, res) {
+    var NCMB = require('ncmb');
+    var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
+    
+    var name = String(req.query.user);
+    var stopNumber = req.query.stopNumber;
+    var StoreName = 'Reward' + String(stopNumber);
+    var Reward = ncmb.DataStore(StoreName);
+    var user_login = new ncmb.User({userName: "superuser",password: "super"});
+
+    //管理者でログイン
+    ncmb.User.login(user_login)
+        .then(function (data) {
+            //当たった賞がすでにあるか検索
+            Reward.equalTo('name', name)
+                .fetchAll()
+                .then(function(results) {
+                    if(results[0]==="" || results[0]===undefined){
+                        var nameAdd = new Reward();
+                        nameAdd.set("name", name)
+                            .save() 
+                            .then(function (nameAdd) {
+                                nameAdd.set("name", name);
+                                return nameAdd.update();
+                            })
+                            .then(function (success) {
+                                res.send("POST data successfully!");   
+                            })
+                            .catch(function (error) {
+                                res.status(500).send("Error: " + error);
+                            });
+                    }
+                    else{
+                        res.send("POST data already");
+                    }      
+                })
+                .catch(function (error) {
+                    res.status(500).send("Error: " + error);
+                });       
+        })
+        .catch(function (err) {
+            res.status(500).send("Error: " + error);
+        });
+}
+```
+・ncmb.User.login(user_login) : ログイン処理
+
+---
+
+### 6.7【mBaaS】スクリプト準備②UserPost.js
+* 3行目のAPIキーの置き換え
+ 1.editorにてUserPost.jsを開きます
+ 2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします
+```js
+    var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
+```
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
@@ -615,7 +732,112 @@ layout: false
   * 処理が重ならずに全ての処理の終了後に値が返される
  
 ---
-  
+
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+* コード確認
+```js
+module.exports = function (req, res) {
+    var NCMB = require('ncmb');
+    var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
+
+    var Item = ncmb.DataStore('Roulette_Item');
+    var Reward1 = ncmb.DataStore('Reward1');
+    var Reward2 = ncmb.DataStore('Reward2');
+    var Reward3 = ncmb.DataStore('Reward3');
+    var name = req.query.user;
+    var png1 = "";
+    var png2 = "";
+    var png3 = "";
+    var user_login = new ncmb.User({userName: "superuser",password: "super"});
+
+    const promise = new Promise((resolve, reject) => {
+        //管理者でログイン
+        ncmb.User.login(user_login)
+            .then(function (data) {
+                Reward1.equalTo("name", name)
+                    .fetchAll()
+                    .then(function (reward1) {
+                        if(reward1[0]==="" || reward1[0]===undefined){
+                            png1 = "";
+                        }
+                        else{
+                            Item.fetchAll()
+                                .then(function (result1) {
+                                    png1 = result1[0].png[0];
+                                })
+                                .catch(function (error) {
+                                    res.status(500).send("Error: " + error);
+                                })                        
+                        }
+                    })
+                    .catch(function (error) {
+                       res.status(500).send("Error: " + error);
+                    })     
+
+                Reward2.equalTo("name", name)
+                    .fetchAll()
+                    .then(function (reward2) {
+                      if(reward2[0]==="" || reward2[0]===undefined){
+                        png2 = "";
+                      }
+                      else{
+                          Item.fetchAll()
+                              .then(function (result2) {
+                                  png2 = result2[0].png[1];
+                              })
+                              .catch(function (error) {
+                                res.status(500).send("Error: " + error);
+                              })                        
+                      }        
+                    })
+                    .catch(function (error) {
+                        res.status(500).send("Error: " + error);
+                    })     
+
+                Reward3.equalTo("name", name)
+                    .fetchAll()
+                    .then(function (reward3) {
+                      if(reward3[0]==="" || reward3[0]===undefined){
+                          png3 = "";
+                          resolve()
+                      }
+                      else{
+                          Item.fetchAll()
+                              .then(function (result3) {
+                                  png3 = result3[0].png[2];
+                                  resolve()
+                              })
+                              .catch(function (error) {
+                                  res.status(500).send("Error: " + error);
+                              })                        
+                      }    
+                    })  
+                    .catch(function (error) {
+                       res.status(500).send("Error: " + error);
+                    })     
+            })    
+            .catch(function (error) {
+                res.status(500).send("Error: " + error);
+            });
+    });
+    promise.then(() => setTimeout(function () {
+        res.status(200).json({png1,png2,png3});
+    }, 1000));
+}
+```
+・Reward1.equalTo("name", name) : 完全一致検索
+
+---
+
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+* 3行目のAPIキーの置き換え
+ 1.editorにてCouponGet.jsを開きます
+ 2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします
+```js
+    var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
+```
+---
+
 ### 6.9【Monaca】アプリからスクリプトを呼び出す
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順
   1. app.jsにてCtrl + F にて検索窓を開き「//MARK」で検索
