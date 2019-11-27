@@ -543,36 +543,36 @@ layout: false
 ---
 
 ### 6.5【mBaaS】参照権限の設定
- 1.会員管理をクリック
- 2.superuserのobjectIdをコピー
+ 1.会員管理をクリック  
+ 2.superuserのobjectIdをコピー  
 
 .center[<img src="readme-image/acl1.png" width="700">]
 
 ---
 
 ### 6.5【mBaaS】参照権限の設定
- 3.データストアをクリック
- 4.Reward1をクリック
- 5.クラスの編集をクリック
- 6.パーミッションの設定をクリック
+ 3.データストアをクリック  
+ 4.Reward1をクリック  
+ 5.クラスの編集をクリック  
+ 6.パーミッションの設定をクリック  
 
 .center[<img src="readme-image/acl2.png" width="700">]
 
 ---
 
 ### 6.5【mBaaS】参照権限の設定
- 7.新しいパーミッションをクリック
- 8.全員 ▼ をクリック
- 9.会員をクリック
- 10.先ほどコピーしたobjectIdをペースト
- 11.変更を保存をクリック
+ 7.新しいパーミッションをクリック  
+ 8.全員 ▼ をクリック  
+ 9.会員をクリック  
+ 10.先ほどコピーしたobjectIdをペースト  
+ 11.変更を保存をクリック  
 
 .center[<img src="readme-image/acl3.png" width="600">]
 
 ---
 
 ### 6.5【mBaaS】参照権限の設定
- * パーミッションの保存が成功すると以下の緑のポップアップが右上に表示される
+ * パーミッションの保存が成功すると緑のポップアップが右上に表示される
 
 .center[<img src="readme-image/acl4.png" width="700">]
 
