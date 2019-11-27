@@ -308,7 +308,7 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 ### 5.3【Monaca】mBaaSを使うための準備
 * 設定完了後は以下の画像のようになります
 
-.center[<img src="readme-image/apikeyset.png" width="600">]
+.center[<img src="readme-image/apikeyset.png" width="700">]
 
 ---
 
