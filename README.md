@@ -327,7 +327,7 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 
 ---
 ### 5.4 動作確認① (新規登録処理)
-* プレビュー画面に、ユーザー名を __`name`__ 、 パスワードを好きな文字で入力し、 __`新規ユーザー登録`__ をクリックします
+* プレビュー画面に、ユーザー名を __`name`__ 、 パスワードを好きな文字で入力し、 __`新規ユーザー登録`__ をクリック
 
 .center[<img src="readme-image/adduser1.png" width="600">]
 
@@ -339,18 +339,16 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 
 ---
 ### 5.4 動作確認① (新規登録処理)
-* mBaaSの管理画面へ行き、会員管理をクリック
- * 新規登録に成功していると以下の画像のように追加されます
- * Passwordはセキュリティ上hiddenとなっています
+* 新規登録に成功していると以下の画像のように追加されます
+* Passwordはセキュリティ上hiddenとなっています
 
 .center[<img src="readme-image/adduser2.png" width="600">]
 
 ---
 
 ### 5.4 動作確認① (ログイン処理)
-* 先ほど新規会員登録したユーザー―でログインをします
- * 今回はログアウトボタンを実装していないため、画面をリロードしログイン画面に戻る
- * 右側のプレビュー画面にリロードボタンをクリック
+* 今回はログアウトボタンを実装していないため、画面をリロードしログイン画面に戻ります
+* 右側のプレビュー画面にリロードボタンをクリック
  
 .center[<img src="readme-image/reload.png" width="300">]
 
@@ -367,7 +365,6 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 
 ### 5.4 動作確認① (ログイン処理)
 * Monaca側には以下のようにErrorが出てきますが、そのままで大丈夫です
-
 
 .center[<img src="readme-image/erroruser.png" width="300">]
 
@@ -437,7 +434,7 @@ layout: false
  3. 新規作成をクリック
  4. クラス名に __'Roulette_Item'__ と入力し作成するをクリック
  
-.center[<img src="readme-image/itemclass1.png" width="600">]
+.center[<img src="readme-image/itemclass1.png" width="700">]
 
 ---
 
@@ -448,16 +445,16 @@ layout: false
  2. フィールド名に probability と入力し作成するをクリック
  3. この手順で、フィールド名、rewards と png も作成
  
-.center[<img src="readme-image/itemclass2.png" width="600">]
+.center[<img src="readme-image/itemclass2.png" width="500">]
 
 ---
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
 * 3つのフィールドの作成に成功すると以下の図のような構成になる
  * それぞれのフィールドは以下の用途で用意しています
- * probability: 確率の値
- * rewards: 何等の値か
- * png: クーポン画像名
+ * probability: 確率
+ * rewards: 賞の値
+ * png: ファイルストアの画像名
  
 .center[<img src="readme-image/itemclass2.5.png" width="600">]
 
@@ -489,22 +486,22 @@ layout: false
  1. データストアをクリック
  2. 作成をクリック
  3. 新規作成をクリック
- 4. クラス名に __'Reward1'__ と入力し作成するをクリック
- 5. 上記手順で同様に __'Reward2'__ と __'Reward3'__ も作成
-.center[<img src="readme-image/rewardclass1.png" width="600">]
+ 4. クラス名に __Reward1__ と入力し作成するをクリック
+ 5. 上記手順で同様に __Reward2__ と __Reward3__ も作成
+.center[<img src="readme-image/rewardclass1.png" width="700">]
 
 ---
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
 * 作成に成功すると以下の画像のようになる
  
-.center[<img src="readme-image/rewardclass2.png" width="600">]
+.center[<img src="readme-image/rewardclass2.png" width="700">]
 
 ---
 
 ### 6.4【mBaaS】スーパーユーザーの準備
 * Rewardクラスへのアクセス権限を持ったスーパーユーザーを用意します
- * このユーザー以外はアクセス誰もアクセスできない設定をします
+ * スーパーユーザー以外は誰もアクセスできないacl設定を施します
 
 .center[<img src="readme-image/flow6.png" width="700">]
 
@@ -512,8 +509,8 @@ layout: false
 
 ### 6.4【mBaaS】スーパーユーザーの準備
 * Rewardクラスへのアクセス権限を持ったスーパーユーザーを用意します
- * このユーザー以外はアクセス誰もアクセスできない設定をします
-
+ * スーパーユーザー以外は誰もアクセスできないacl設定を施します
+ 
 .center[<img src="readme-image/flow7.png" width="700">]
 
 ---
@@ -527,28 +524,57 @@ layout: false
 ---
 
 ### 6.4【mBaaS】スーパーユーザーの準備
- 1. 新しい会員をクリック
- 2. 新しい会員の新規作成をクリック
- 3. すると入力欄が表示されます
+ 1.新しい会員をクリック
+ 2.新しい会員の新規作成をクリック
+ 3.すると入力欄が表示されます
 
 .center[<img src="readme-image/superuser1.png" width="700">]
 
 ---
 
 ### 6.4【mBaaS】スーパーユーザーの準備
- 4. userNameに superuser と入力し Enter
- 5. passwordに super と入力し Enter
- 6. 成功するとユーザーが追加され、passwordがhiddenになる
- 7. objectIdが自動で割り振られ、この値をacl設定に後ほど使用します
+ 4.userNameに superuser と入力し Enter
+ 5.passwordに super と入力し Enter
+ 6.成功するとユーザーが追加され、passwordがhiddenになる
+ 7.objectIdが自動で割り振られ、この値をacl設定に後ほど使用します
 
 .center[<img src="readme-image/superuser2.png" width="700">]
 
 ---
 
 ### 6.5【mBaaS】参照権限の設定
+ 1.会員管理をクリック
+ 2.superuserのobjectIdをコピー
 
+.center[<img src="readme-image/acl1.png" width="700">]
 
-.center[<img src="readme-image/superuser2.png" width="700">]
+---
+
+### 6.5【mBaaS】参照権限の設定
+ 3.データストアをクリック
+ 4.Reward1をクリック
+ 5.クラスの編集をクリック
+ 6.パーミッションの設定をクリック
+
+.center[<img src="readme-image/acl2.png" width="700">]
+
+---
+
+### 6.5【mBaaS】参照権限の設定
+ 7.新しいパーミッションをクリック
+ 8.全員 ▼ をクリック
+ 9.会員をクリック
+ 10.先ほどコピーしたobjectIdをペースト
+ 11.変更を保存をクリック
+
+.center[<img src="readme-image/acl3.png" width="600">]
+
+---
+
+### 6.5【mBaaS】参照権限の設定
+ * パーミッションの保存が成功すると以下の緑のポップアップが右上に表示される
+
+.center[<img src="readme-image/acl4.png" width="700">]
 
 ---
 
