@@ -355,7 +355,7 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 ---
 
 ### 5.4 動作確認① (ログイン処理)
-* 先ほど新規会員登録したユーザー―でログインをします
+* 先ほど新規会員登録したユーザーでログインをします
  * 先ほど登録したユーザー名とパスワードを入力し __`ログイン `__ をクリック
  * ログインに成功するとルーレット画面が表示されます
 
@@ -404,7 +404,7 @@ layout: false
 * ファイルストアへのアップロード手順
  1. ファイルストアをクリック
  2. アップロードをクリック
- 3. imgフォルダの画像3つをドラッグかファイルを選択
+ 3. imgフォルダの画像をファイルをドラッグしてくださいの点線内にドラッグアンドドロップかファイルを指定
  4. アップロードするをクリック
 
 .center[<img src="readme-image/file_upload.png" width="700">]
@@ -412,7 +412,7 @@ layout: false
 ---
 
 ### 6.2【mBaaS】クーポン画像の準備
-* アップロードに成功すると以下の画像が表示されます
+* アップロードに成功すると以下のように表示されます
 
 .center[<img src="readme-image/filestore.png" width="700">]
 
@@ -517,26 +517,26 @@ layout: false
 
 ### 6.4【mBaaS】スーパーユーザーの準備
 * Rewardクラスへのアクセス権限を持ったスーパーユーザーを用意します
- * このユーザー以外はアクセスできないacl設定をしていきます
+ * スーパーユーザー以外は誰もアクセスできないacl設定を施します
 
 .center[<img src="readme-image/flow8.png" width="700">]
 
 ---
 
 ### 6.4【mBaaS】スーパーユーザーの準備
- 1.新しい会員をクリック
- 2.新しい会員の新規作成をクリック
- 3.すると入力欄が表示されます
+ 1.新しい会員をクリック  
+ 2.新しい会員の新規作成をクリック  
+ 3.すると入力欄が表示されます  
 
 .center[<img src="readme-image/superuser1.png" width="700">]
 
 ---
 
 ### 6.4【mBaaS】スーパーユーザーの準備
- 4.userNameに superuser と入力し Enter
- 5.passwordに super と入力し Enter
- 6.成功するとユーザーが追加され、passwordがhiddenになる
- 7.objectIdが自動で割り振られ、この値をacl設定に後ほど使用します
+ 4.userNameに superuser と入力し Enter  
+ 5.passwordに super と入力し Enter  
+ 6.成功するとユーザーが追加され、passwordがhiddenになる  
+ 7.objectIdが自動で割り振られ、この値をacl設定に後ほど使用します  
 
 .center[<img src="readme-image/superuser2.png" width="700">]
 
