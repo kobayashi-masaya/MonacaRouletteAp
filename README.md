@@ -615,6 +615,8 @@ layout: false
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * コード確認
+
+.size_small_7[
 ```js
 module.exports = function (req, res) {
     var NCMB = require('ncmb');
@@ -655,6 +657,8 @@ function selectReward(probabilities) {
     else return 2;
 }
 ```
+]
+
 ・fetchAll() : 全件検索取得
 
 ---
