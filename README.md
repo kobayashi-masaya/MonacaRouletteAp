@@ -675,43 +675,43 @@ function selectReward(probabilities) {
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * SelectReward.jsをアップロードする
- 1.スクリプトをクリック  
- 2.アップロードをクリック  
+1.スクリプトをクリック  
+2.アップロードをクリック  
   
  .center[<img src="readme-image/select1.png" width="400">]
  
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
- 3.SelectReward.jsをドラッグアンドドロップかファイル選択  
- 4.メソッドはGET  
- 5.ファイルの状態は実行可能  
- 6.アップロードするをクリック  
+3.SelectReward.jsをドラッグアンドドロップかファイル選択  
+4.メソッドはGET  
+5.ファイルの状態は実行可能  
+6.アップロードするをクリック  
   
  .center[<img src="readme-image/select2.png" width="400">]
  
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
- 7.SelectReward.jsがアップロードされていることを確認  
- 8.SelectReward.jsをクリック  
- 9.実行タブをクリック  
- 10.実行をクリック  
+7.SelectReward.jsがアップロードされていることを確認  
+8.SelectReward.jsをクリック  
+9.実行タブをクリック  
+10.実行をクリック  
   
  .center[<img src="readme-image/select3.png" width="400">]
  
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
- 11.以下の警告が出るが実行するをクリック  
+11.以下の警告が出るが実行するをクリック  
   
  .center[<img src="readme-image/select4.png" width="400">]
  
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
- 12.実行ボタンの下に結果が出力されていることを確認  
- 13.当たった等(stopNumber)とクーポン画像名(png)が取れている 
+12.実行ボタンの下に結果が出力されていることを確認  
+13.当たった等(stopNumber)とクーポン画像名(png)が取れている 
   
  .center[<img src="readme-image/select5.png" width="400">]
  
