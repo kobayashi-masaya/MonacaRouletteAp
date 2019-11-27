@@ -673,6 +673,50 @@ function selectReward(probabilities) {
 ```
 ---
 
+### 6.6【mBaaS】スクリプト準備①SelectReward.js
+* SelectReward.jsをアップロードする
+ 1.スクリプトをクリック  
+ 2.アップロードをクリック  
+  
+ .center[<img src="readme-image/select1.png" width="400">]
+ 
+---
+
+### 6.6【mBaaS】スクリプト準備①SelectReward.js
+ 3.SelectReward.jsをドラッグアンドドロップかファイル選択  
+ 4.メソッドはGET  
+ 5.ファイルの状態は実行可能  
+ 6.アップロードするをクリック  
+  
+ .center[<img src="readme-image/select2.png" width="400">]
+ 
+---
+
+### 6.6【mBaaS】スクリプト準備①SelectReward.js
+ 7.SelectReward.jsがアップロードされていることを確認  
+ 8.SelectReward.jsをクリック  
+ 9.実行タブをクリック  
+ 10.実行をクリック  
+  
+ .center[<img src="readme-image/select3.png" width="400">]
+ 
+---
+
+### 6.6【mBaaS】スクリプト準備①SelectReward.js
+ 11.以下の警告が出るが実行するをクリック  
+  
+ .center[<img src="readme-image/select4.png" width="400">]
+ 
+---
+
+### 6.6【mBaaS】スクリプト準備①SelectReward.js
+ 12.実行ボタンの下に結果が出力されていることを確認  
+ 13.当たった等(stopNumber)とクーポン画像名(png)が取れている 
+  
+ .center[<img src="readme-image/select5.png" width="400">]
+ 
+---
+
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * 処理内容
   1. Monaca側から当たった賞をqueryより取得
@@ -749,6 +793,52 @@ module.exports = function (req, res) {
 ```js
     var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
 ```
+---
+
+### 6.7【mBaaS】スクリプト準備②UserPost.js
+* UserPost.jsをアップロードする
+ 1.UserPost.jsをドラッグアンドドロップかファイル選択  
+ 2.メソッドはPOST  
+ 3.ファイルの状態は実行可能  
+ 4.アップロードするをクリック  
+  
+ .center[<img src="readme-image/post1.png" width="400">]
+ 
+---
+
+### 6.7【mBaaS】スクリプト準備②UserPost.js
+ 5.UserPost.jsがアップロードされていることを確認  
+ 6.UserPost.jsをクリック  
+ 7.実行タブをクリック  
+ 8.queryの欄に *user=name&stopNumber=1* を入力  
+ 9.実行をクリック  
+  
+ .center[<img src="readme-image/post2.png" width="400">]
+ 
+---
+
+### 6.7【mBaaS】スクリプト準備②UserPost.js
+ 10.以下の警告が出るが実行するをクリック  
+  
+ .center[<img src="readme-image/post3.png" width="400">]
+ 
+---
+
+### 6.7【mBaaS】スクリプト準備②UserPost.js
+ 10.実行ボタンの下に結果が出力されていることを確認  
+ 11.POST data successfully!と出力されていれば成功
+  
+ .center[<img src="readme-image/post4.png" width="400">]
+ 
+---
+
+### 6.7【mBaaS】スクリプト準備②UserPost.js
+ 12.データストアをクリック  
+ 13.今回はstopNumberを1としたのでReward1をクリック
+ 14.nameというユーザーが登録されていれば成功
+  
+ .center[<img src="readme-image/post5.png" width="400">]
+ 
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
@@ -872,6 +962,43 @@ module.exports = function (req, res) {
 ```js
     var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
 ```
+---
+
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+* CouponGet.jsをアップロードする
+ 1.CouponGet.jsをドラッグアンドドロップかファイル選択  
+ 2.メソッドはGet  
+ 3.ファイルの状態は実行可能  
+ 4.アップロードするをクリック  
+  
+ .center[<img src="readme-image/coupon1.png" width="400">]
+ 
+---
+
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+ 5.CouponGet.jsがアップロードされていることを確認  
+ 6.CouponGet.jsをクリック  
+ 7.実行タブをクリック  
+ 8.queryの欄に *user=name* を入力  
+ 9.実行をクリック  
+  
+ .center[<img src="readme-image/coupon2.png" width="400">]
+ 
+---
+
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+ 10.以下の警告が出るが実行するをクリック  
+  
+ .center[<img src="readme-image/coupon3.png" width="400">]
+ 
+---
+
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+ 10.実行ボタンの下に結果が出力されていることを確認  
+ 11.現在はReward1のクラスなのでone.pngが結果として取得できている
+  
+ .center[<img src="readme-image/coupon4.png" width="400">]
+ 
 ---
 
 ### 6.9【Monaca】アプリからスクリプトを呼び出す
