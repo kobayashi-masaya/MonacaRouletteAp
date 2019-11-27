@@ -179,8 +179,8 @@ layout: false
 
 ### 5.1【Monaca】アプリ側の準備
 * SDKの導入（コンポーネントの追加）  
-  1. 上タブの __`設定`__ をクリック
-  2. __`JS/CSSコンポーネントの追加と削除`__ をクリック
+  1. 上タブの __`設定`__ をクリック  
+  2. __`JS/CSSコンポーネントの追加と削除`__ をクリック  
 
 .center[<img src="readme-image/sdk1.png" width="300">]
 
@@ -188,8 +188,8 @@ layout: false
 
 ### 5.1【Monaca】アプリ側の準備
 * SDKの導入（コンポーネントの追加）  
-  3. __`コンポーネント名`__ に __`ncmb `__ と入力
-  4. __`検索する`__ をクリック
+  3. __`コンポーネント名`__ に __`ncmb `__ と入力  
+  4. __`検索する`__ をクリック  
 
 .center[<img src="readme-image/sdk2.png" width="500">]
 
@@ -197,8 +197,7 @@ layout: false
 
 ### 5.1【Monaca】アプリ側の準備
 * SDKの導入（コンポーネントの追加）  
-  5.__`ncmb`__ が表示されるので __`追加`__ をクリック
-
+  5.__`ncmb`__ が表示されるので __`追加`__ をクリック  
 
 .center[<img src="readme-image/sdk3.png" width="700">]
 
@@ -206,7 +205,7 @@ layout: false
 
 ### 5.1【Monaca】アプリ側の準備
 * SDKの導入（コンポーネントの追加）  
-  6.バージョンはそのままで、 __`インストール`__ をクリック
+  6.バージョンはそのままで、 __`インストール`__ をクリック  
 
 .center[<img src="readme-image/sdk4.png" width="600">]
 
@@ -214,7 +213,7 @@ layout: false
 
 ### 5.1【Monaca】アプリ側の準備
 * SDKの導入（コンポーネントの追加）  
-  7.必ずチェックボックスにチェックを入れて、 __`保存`__  をクリック
+  7.必ずチェックボックスにチェックを入れて、 __`保存`__  をクリック  
 
 .center[<img src="readme-image/sdk5.png" width="500">]
 
@@ -222,7 +221,7 @@ layout: false
 
 ### 5.1【Monaca】アプリ側の準備
 * SDKの導入（コンポーネントの追加）  
-  8.一覧に __`ncmb`__ が表示されればSDK導入完了です
+  8.一覧に __`ncmb`__ が表示されればSDK導入完了です  
 
 .center[<img src="readme-image/sdk6.png" width="500">]
 
