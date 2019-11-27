@@ -556,7 +556,7 @@ layout: false
  5.クラスの編集をクリック  
  6.パーミッションの設定をクリック  
 
-.center[<img src="readme-image/acl2.png" width="700">]
+.center[<img src="readme-image/acl2.png" width="600">]
 
 ---
 
@@ -567,7 +567,7 @@ layout: false
  10.先ほどコピーしたobjectIdをペースト  
  11.変更を保存をクリック  
 
-.center[<img src="readme-image/acl3.png" width="600">]
+.center[<img src="readme-image/acl3.png" width="400">]
 
 ---
 
