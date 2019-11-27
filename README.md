@@ -12,8 +12,6 @@ class: center, middle, inverse
  20191203作成
 ]
 
-
-
 ---
 layout: true
 class: center, middle, inverse
@@ -96,7 +94,6 @@ layout: false
 <br>VSCodeはこちらから https://azure.microsoft.com/ja-jp/products/visual-studio-code/
 ---
 
----
 layout: true
 class: center, middle, inverse
 ---
@@ -124,10 +121,11 @@ layout: false
     - 5.4  動作確認①
 6. __ルーレット機能の作成(後半)__
     - 6.1  設定ファイルのDL
-    - 6.3【mBaaS】クーポン画像の準備
-    - 6.4【mBaaS】データストアにクラスを準備
-    - 6.5【mBaaS】スクリプト準備①SelectReward.js
-    - 6.6【mBaaS】スーパーユーザーの準備
+    - 6.2【mBaaS】クーポン画像の準備
+    - 6.3【mBaaS】データストアにクラスを準備
+    - 6.4【mBaaS】スーパーユーザーの準備
+    - 6.5【mBaaS】参照権限の設定
+    - 6.6【mBaaS】スクリプト準備①SelectReward.js
     - 6.7【mBaaS】スクリプト準備②UserPost.js
     - 6.8【mBaaS】スクリプト準備③CouponGet.js
     - 6.9【Monaca】アプリからスクリプトを呼び出す
