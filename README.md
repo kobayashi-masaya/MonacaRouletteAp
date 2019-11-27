@@ -154,7 +154,7 @@ layout: false
  * SDKの導入
  * アプリのインポート
  
-.center[<img src="readme-image/flow0.2.png" width="700">]
+.center[<img src="readme-image/flow0..png" width="700">]
 
 ---
 
