@@ -567,14 +567,14 @@ layout: false
  10.先ほどコピーしたobjectIdをペースト  
  11.変更を保存をクリック  
 
-.center[<img src="readme-image/acl3.png" width="400">]
+.center[<img src="readme-image/acl3.png" width="200">]
 
 ---
 
 ### 6.5【mBaaS】参照権限の設定
  * パーミッションの保存が成功すると緑のポップアップが右上に表示される
 
-.center[<img src="readme-image/acl4.png" width="700">]
+.center[<img src="readme-image/acl4.png" width="600">]
 
 ---
 
