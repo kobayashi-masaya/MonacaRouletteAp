@@ -159,7 +159,7 @@ layout: false
 
 ### 5.1【Monaca】アプリ側の準備
 * Monacaアプリケーションをimportします
-1. Monaca(https://monaca.mobi/ja/signup)にログインする
+1. Monaca(https://monaca.mobi/ja/signup) にログイン
 2. importリンク (https://00m.in/WlLhX) をクリック
 3. __`インポート`__ をクリック
 4. __`クラウドIDEで開く`__  をクリック
