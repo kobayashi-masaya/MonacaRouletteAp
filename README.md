@@ -783,8 +783,6 @@ module.exports = function (req, res) {
 ```
 ]
 
-・ncmb.User.login(user_login) : ログイン処理
-
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
@@ -799,12 +797,10 @@ module.exports = function (req, res) {
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * UserPost.jsをアップロードする  
-  
  1.UserPost.jsをドラッグアンドドロップかファイル選択  
  2.メソッドはPOST  
  3.ファイルの状態は実行可能  
  4.アップロードするをクリック  
-  
  .center[<img src="readme-image/post1.png" width="400">]
  
 ---
