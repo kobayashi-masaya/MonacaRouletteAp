@@ -797,6 +797,7 @@ module.exports = function (req, res) {
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * UserPost.jsをアップロードする  
+
 1.UserPost.jsをドラッグアンドドロップかファイル選択  
 2.メソッドはPOST  
 3.ファイルの状態は実行可能  
@@ -922,6 +923,7 @@ module.exports = function (req, res) {
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * CouponGet.jsをアップロードする  
+
 1.CouponGet.jsをドラッグアンドドロップかファイル選択  
 2.メソッドはGet  
 3.ファイルの状態は実行可能  
