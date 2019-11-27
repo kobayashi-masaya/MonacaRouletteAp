@@ -638,9 +638,9 @@ function selectReward(probabilities) {
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-* 3行目のAPIキーの置き換え
- 1.editorにてSelectReward.jsを開きます
- 2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします
+* 3行目のAPIキーの置き換え  
+ 1.editorにてSelectReward.jsを開きます  
+ 2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします  
 ```js
     var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
 ```
@@ -712,20 +712,20 @@ module.exports = function (req, res) {
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* 3行目のAPIキーの置き換え
- 1.editorにてUserPost.jsを開きます
- 2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします
+* 3行目のAPIキーの置き換え  
+ 1.editorにてUserPost.jsを開きます  
+ 2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします  
 ```js
     var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
 ```
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* 処理内容
-  1. 非同期処理スタート、まずは管理者でログイン
-  2. 次にReward1にユーザーがいるか検索
-  3. 存在していれば画像名をRoulette_Itemから取得
-  4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる
+* 処理内容  
+  1. 非同期処理スタート、まずは管理者でログイン  
+  2. 次にReward1にユーザーがいるか検索  
+  3. 存在していれば画像名をRoulette_Itemから取得  
+  4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
 
 * Point
   * 非同期処理を使用
@@ -831,20 +831,20 @@ module.exports = function (req, res) {
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * 3行目のAPIキーの置き換え
- 1.editorにてCouponGet.jsを開きます
- 2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします
+ 1.editorにてCouponGet.jsを開きます  
+ 2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします  
 ```js
     var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
 ```
 ---
 
 ### 6.9【Monaca】アプリからスクリプトを呼び出す
-* 管理画面上で動作確認（実行してただしくログがでるか）の手順
-  1. app.jsにてCtrl + F にて検索窓を開き「//MARK」で検索
-  2. Mark内を大きく①、②、③に分けています
-  3. ①にてSelectReward.js
-  <br>②にてUserPost.js
-  <br>③にてCouponGet.jsが呼ばれています
+* 管理画面上で動作確認（実行してただしくログがでるか）の手順  
+  1. app.jsにてCtrl + F にて検索窓を開き「//MARK」で検索  
+  2. Mark内を大きく①、②、③に分けています  
+  3. ①にてSelectReward.js  
+  <br>②にてUserPost.js  
+  <br>③にてCouponGet.jsが呼ばれています  
 
 ---
 
