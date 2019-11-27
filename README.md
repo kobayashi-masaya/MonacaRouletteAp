@@ -9,7 +9,7 @@ class: center, middle, inverse
 @ 富士通クラウドテクノロジーズ 株式会社
 
 .footnote[
- 20191125作成
+ 20191203作成
 ]
 
 
@@ -28,7 +28,7 @@ layout: false
 1.  __作成するアプリについて__
 2. __アプリ作成に使うツール__
 3.  __事前準備__
-4. __構成図__
+4. __ハンズオンの内容__
 5.  __ハンズオンの準備__
 6. __ルーレット機能の作成__
     ]
@@ -59,14 +59,14 @@ class: center, middle, inverse
 ---
 layout: false
 
-### 2.1[Monaca](https://ja.monaca.io/) 紹介
-* __`開発環境の構築は不要`__ 全ての時間をアプリ開発へサービス
-* __`アプリ開発専用エディタ`__ でいつでも、どこでも快適に
+### 2.1 Monaca 紹介
+* クラウド環境にアクセスするだけで __`開発環境の構築は不要`__  
+* ブラウザ上でコーディングができる高機能なエディタ
 * __`無料`__ で体験頂けます
 * ローカル開発にも完全対応いつもの環境を __`クラウドと連携`__
-* HTMLとCSSでアプリのUIを __`誰でも簡単開発`__
+* HTMLとCSSでアプリのUIを誰でも __`簡単に開発`__ できます
 
-.center[<img src="readme-image/monacaとは.png" width="600">]
+.center[<img src="readme-image/monaca.png" width="600">]
 
 ---
 
@@ -80,6 +80,13 @@ layout: false
 .center[<img src="readme-image/mBaaSとは.png" width="400">]
 
 ---
+layout: true
+class: center, middle, inverse
+---
+# 3.事前準備
+---
+layout: false
+
 ### 3.事前準備
 * Monacaの利用登録（無料）
 <br>https://monaca.mobi/ja/signup
@@ -89,12 +96,20 @@ layout: false
 <br>VSCodeはこちらから https://azure.microsoft.com/ja-jp/products/visual-studio-code/
 ---
 
-### 4.構成図(全体の流れ)
+---
+layout: true
+class: center, middle, inverse
+---
+# 4.ハンズオンの内容
+---
+layout: false
+
+### 4.ハンズオンの内容
 ルーレットを回してクーポンを獲得する簡単なデモゲームアプリを作ります
 
-* __`データストア機能`__ と __`スクリプト機能`__ を使って
+* __`スクリプト機能`__ をはじめとするmBaaSの機能を使って
 <br>アプリに __`ルーレット機能`__ を実装します
-<br>構成図以下のようになっています
+<br>画面遷移図は以下のようになっています
 
 .center[<img src="readme-image/UIstructure.png" width="700">]
 ---
@@ -128,25 +143,25 @@ class: center, middle, inverse
 layout: false
 
 ### 5.1【Monaca】アプリ側の準備
-* mBaaS側で払い出されたAPIキーとMonacaSDKをMonaca側に設定し連携していきます
+* アプリのインポートとMonacaSDKをMonaca側に設定し連携していきます
 
-.center[<img src="readme-image/flow1.png" width="700">]
+.center[<img src="readme-image/flow0.1.png" width="700">]
 
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* mBaaS側で払い出されたAPIキーとMonacaSDKをMonaca側に設定し連携していきます
+* アプリのインポートとMonacaSDKをMonaca側に設定し連携していきます
 
-.center[<img src="readme-image/flow2.png" width="700">]
+.center[<img src="readme-image/flow0.2.png" width="700">]
 
 ---
-
 
 ### 5.1【Monaca】アプリ側の準備
 * Monacaアプリケーションをimportします
-1. importリンク (https://00m.in/WlLhX) をクリック
-2. __`インポート`__ をクリック
-3. __`クラウドIDEで開く`__  をクリック
+1. Monaca(https://monaca.mobi/ja/signup)にログインする
+2. importリンク (https://00m.in/WlLhX) をクリック
+3. __`インポート`__ をクリック
+4. __`クラウドIDEで開く`__  をクリック
 
 .center[<img src="readme-image/import.png" width="800">]
 
@@ -160,7 +175,7 @@ layout: false
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入（コンポーネントの追加）
+* SDKの導入（コンポーネントの追加）  
 1. 上タブの __`設定`__ をクリック
 2. __`JS/CSSコンポーネントの追加と削除`__ をクリック
 
@@ -169,17 +184,17 @@ layout: false
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入（コンポーネントの追加）
-1. __`コンポーネント名`__ に __`ncmb `__ と入力
-2. __`検索する`__ をクリック
+* SDKの導入（コンポーネントの追加）  
+3. __`コンポーネント名`__ に __`ncmb `__ と入力
+4. __`検索する`__ をクリック
 
 .center[<img src="readme-image/sdk2.png" width="500">]
 
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入（コンポーネントの追加）
-__`ncmb`__ が表示されるので __`追加`__
+* SDKの導入（コンポーネントの追加）  
+5. __`ncmb`__ が表示されるので __`追加`__ をクリック
 
 
 .center[<img src="readme-image/sdk3.png" width="700">]
@@ -187,28 +202,40 @@ __`ncmb`__ が表示されるので __`追加`__
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入（コンポーネントの追加）
-バージョンはそのままで、 __`インストール`__ をクリック
-
+* SDKの導入（コンポーネントの追加）  
+6. バージョンはそのままで、 __`インストール`__ をクリック
 
 .center[<img src="readme-image/sdk4.png" width="600">]
 
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入（コンポーネントの追加）
-必ずチェックボックスにチェックを入れて、 __`保存`__  をクリック
-
+* SDKの導入（コンポーネントの追加）  
+7. 必ずチェックボックスにチェックを入れて、 __`保存`__  をクリック
 
 .center[<img src="readme-image/sdk5.png" width="500">]
 
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入（コンポーネントの追加）
-一覧に __`ncmb`__ が表示されればSDK導入完了です
+* SDKの導入（コンポーネントの追加）  
+8. 一覧に __`ncmb`__ が表示されればSDK導入完了です
 
 .center[<img src="readme-image/sdk6.png" width="500">]
+
+---
+
+### 5.2【mBaaS】サーバー側の準備
+* mBaaS側で払い出されたAPIキーをMonaca側に設定し連携していきます
+
+.center[<img src="readme-image/flow0.3.png" width="700">]
+
+---
+
+### 5.2【mBaaS】サーバー側の準備
+* mBaaS側で払い出されたAPIキーをMonaca側に設定し連携していきます
+
+.center[<img src="readme-image/flow2.png" width="700">]
 
 ---
 
@@ -219,31 +246,79 @@ __`ncmb`__ が表示されるので __`追加`__
  * アプリ名は __`Roulette`__ とします
  * `新規作成`ボタンをクリックしてアプリを作成します
 
+### アプリの新規作成
+* 新しいアプリを作成します
+* アプリ名を __`Roulette`__ と入力し「`新規作成`」をクリックします
+
 .center[<img src="readme-image/mbaas-app-create.png" width="750">]
+
+* mobile backend を既に使用したことがある場合は、画面上方のメニューバーにある「`+新しいアプリ`」をクリックすると同じ画面が表示されます
+
+.center[<img src="readme-image/newapp2.png" width="750">]
 
 ---
 
 ### 5.2【mBaaS】サーバー側の準備
-* アプリ作成が成功すると以下の画像が表示されます。
- * この __`アプリケーションキー`__ と __`クライアントキー`__ を合わせてアプリAPIキーと呼びます。
+* アプリ作成が成功すると以下の画像が表示されます
+ * この __`アプリケーションキー`__ と __`クライアントキー`__ を合わせてアプリAPIキーと呼びます
 
 .center[<img src="readme-image/apikey.png" width="600">]
 
 ---
 
+
 ### 5.3【Monaca】mBaaSを使うための準備
 * MonacaSDKにアプリAPIキーを設定します
-* js/app.js を開きます
-* __`APPLICATION_KEY`__ と __`CLIENT_KEY`__ を mobile backend でアプリ作成時に発行された２つの APIキー （アプリケーションキーとクライアントキー）に貼り替えます
+ * js/app.js を開きます
+  * 左のファイル一覧より ▶ www の ▶をクリック
+.center[<img src="readme-image/jsopen1.png" width="600">]
 
-<pre>
+---
+
+### 5.3【Monaca】mBaaSを使うための準備
+* MonacaSDKにアプリAPIキーを設定します
+ * js/app.js を開きます
+  * 左のファイル一覧より ▶ js の ▶をクリック
+.center[<img src="readme-image/jsopen2.png" width="600">]
+
+---
+
+### 5.3【Monaca】mBaaSを使うための準備
+* MonacaSDKにアプリAPIキーを設定します
+ * js/app.js を開きます
+  * 左のファイル一覧より app.js をダブルクリック
+.center[<img src="readme-image/jsopen3.png" width="600">]
+
+---
+
+### 5.3【Monaca】mBaaSを使うための準備
+* MonacaSDKにアプリAPIキーを設定します
+ * js/app.js を開きます
+  * 黒い画面にapp.jsが映し出される
+.center[<img src="readme-image/jsopen4.png" width="600">]
+
+---
+
+### 5.3【Monaca】mBaaSを使うための準備
+* MonacaSDKにアプリAPIキーを設定します
+ * __`APPLICATION_KEY`__ と __`CLIENT_KEY`__ を mobile backend でアプリ作成時に発行された２つの APIキー （アプリケーションキーとクライアントキー）に貼り替えます
+ * 張り替え後、Ctrl + s で変更を保存
+```js
 // 【NCMB】SDKの初期化
 var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
-</pre>
+```
 
 .center[<img src="readme-image/mbaas-app-apikey.png" width="600">]
 
 ---
+
+### 5.3【Monaca】mBaaSを使うための準備
+* 設定完了後は以下の画像のようになります
+
+.center[<img src="readme-image/apikeyset.png" width="600">]
+
+---
+
 ### 5.4 動作確認① (会員管理)
 * ここでmBaaSとMonacaが連携できたかを以下の画像のように、会員管理データのやり取りが行われることで確認していきます
 
@@ -251,7 +326,8 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 
 ---
 ### 5.4 動作確認① (新規登録処理)
-* Monacaのプレビュー画面にてアプリを新規会員登録をしましょう。プレビュー画面は以下の画像の赤線の枠内です。
+* Monacaのプレビュー画面にてアプリを新規会員登録をしましょう
+* プレビュー画面は以下の画像の赤線の枠内です
 
 .center[<img src="readme-image/preview.png" width="600">]
 
@@ -264,7 +340,15 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 
 ---
 ### 5.4 動作確認① (新規登録処理)
-* 新規登録に成功すると以下の画像のように追加されます
+* mBaaSの管理画面へ行き、会員管理をクリック
+
+.center[<img src="readme-image/adduser1.5.png" width="600">]
+
+---
+### 5.4 動作確認① (新規登録処理)
+* mBaaSの管理画面へ行き、会員管理をクリック
+ * 新規登録に成功していると以下の画像のように追加されます
+ * Passwordはセキュリティ上hiddenとなっています
 
 .center[<img src="readme-image/adduser2.png" width="600">]
 
@@ -272,7 +356,15 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 
 ### 5.4 動作確認① (ログイン処理)
 * 先ほど新規会員登録したユーザー―でログインをします
- * ログイン画面に戻るために、Chroomをリロードします
+ * 今回はログアウトボタンを実装していないため、画面をリロードしログイン画面に戻ります。
+ * 右側のプレビュー画面にリロードボタンがございますのでクリックします
+ 
+.center[<img src="readme-image/reload.png" width="700">]
+
+---
+
+### 5.4 動作確認① (ログイン処理)
+* 先ほど新規会員登録したユーザー―でログインをします
  * 先ほど登録したユーザー名とパスワードを入力し __`ログイン `__ をクリック
  * ログインに成功するとルーレット画面が表示されます
 
@@ -281,7 +373,8 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 ---
 
 ### 5.4 動作確認① (ログイン処理)
-* Monaca側には以下のようにErrorが出てきますが、そのままで大丈夫です。
+* Monaca側には以下のようにErrorが出てきますが、そのままで大丈夫です
+
 
 .center[<img src="readme-image/erroruser.png" width="300">]
 
@@ -311,7 +404,7 @@ layout: false
 
 ### 6.1 設定ファイルのDL
 * 設定ファイルをダウンロード(https://kobayashi-masaya.github.io/MonacaRouletteApp_Setting.zip)
-* ファイル構成は以下の通りです。
+* ファイル構成は以下の通りです
 
 .center[<img src="readme-image/settings.png" width="700">]
 
@@ -443,10 +536,10 @@ layout: false
 ### 6.8【Monaca】アプリからスクリプトを呼び出す
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順
   1. app.jsにてCtrl + F にて検索窓を開き「//MARK」で検索
-  2. Mark内を大きく①、②、③に分けています。
+  2. Mark内を大きく①、②、③に分けています
   3. ①にてSelectReward.js
   <br>②にてUserPost.js
-  <br>③にてCouponGet.jsが呼ばれています。
+  <br>③にてCouponGet.jsが呼ばれています
 
 ---
 
