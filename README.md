@@ -1072,26 +1072,26 @@ const promise = new Promise((resolve, reject) => {
   2.正常にログインできると、このルーレット画面に遷移  
   3.スタートボタンを押してルーレット開始  
 
-.center[<img src="readme-image/check2.png" width="300">]
+.center[<img src="readme-image/check2.png" width="200">]
 
 ---
 
 ### 6.11【動作確認】
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順  
-  4.ルーレット回転(この時回転までに数秒の間があります)
-  5.ルーレット停止すると結果を表示
+  4.ルーレット回転(この時回転までに数秒の間があります)  
+  5.ルーレット停止すると結果を表示  
 
-.center[<img src="readme-image/check3.png" width="300">]
+.center[<img src="readme-image/check3.png" width="200">]
 
 ---
 
 ### 6.11【動作確認】
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順  
-  6.クーポンページに遷移
-  7.Reloadボタンを押す
-  8.当たったクーポンが表示される
+  6.クーポンページに遷移  
+  7.Reloadボタンを押す  
+  8.当たったクーポンが表示される  
   
-.center[<img src="readme-image/check4.png" width="300">]
+.center[<img src="readme-image/check4.png" width="600">]
 
 ---
 
