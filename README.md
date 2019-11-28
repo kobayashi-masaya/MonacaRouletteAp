@@ -560,7 +560,8 @@ layout: false
 
 ### 6.5【mBaaS】参照権限の設定
 * 参照権限を設定することのメリットは、書き換えや参照をあるユーザーだけ実行できるように限定することによって、他のユーザーから干渉を受けず、確率の書き換えなど受けなくなる。 
-* permissionの設定
+
+* permissionの設定  
   1.会員管理をクリック  
   2.superuserのobjectIdをコピー  
 
@@ -569,7 +570,7 @@ layout: false
 ---
 
 ### 6.5【mBaaS】参照権限の設定
-* permissionの設定
+* permissionの設定  
   3.データストアをクリック  
   4.Reward1をクリック  
   5.クラスの編集をクリック  
@@ -580,7 +581,7 @@ layout: false
 ---
 
 ### 6.5【mBaaS】参照権限の設定
-* permissionの設定
+* permissionの設定  
   7.新しいパーミッションをクリック  
   8.全員 ▼ をクリック  
   9.会員をクリック  
@@ -696,7 +697,7 @@ function selectReward(probabilities) {
   5.ファイルの状態は実行可能  
   6.アップロードするをクリック  
   
- .center[<img src="readme-image/select2.png" width="400">]
+.center[<img src="readme-image/select2.png" width="400">]
  
 ---
 
@@ -707,7 +708,7 @@ function selectReward(probabilities) {
   9.実行タブをクリック  
   10.実行をクリック  
   
- .center[<img src="readme-image/select3.png" width="400">]
+.center[<img src="readme-image/select3.png" width="400">]
  
 ---
 
@@ -715,7 +716,7 @@ function selectReward(probabilities) {
 * SelectReward.jsを実行  
   11.以下の警告が出るが実行するをクリック  
   
- .center[<img src="readme-image/select4.png" width="400">]
+.center[<img src="readme-image/select4.png" width="400">]
  
 ---
 
@@ -724,7 +725,7 @@ function selectReward(probabilities) {
   12.実行ボタンの下に結果が出力されていることを確認  
   13.当たった等(stopNumber)とクーポン画像名(png)が取れている  
   
- .center[<img src="readme-image/select5.png" width="400">]
+.center[<img src="readme-image/select5.png" width="400">]
  
 ---
 
@@ -831,9 +832,9 @@ module.exports = function (req, res) {
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * UserPost.jsを実行  
-10.以下の警告が出るが実行するをクリック  
+  10.以下の警告が出るが実行するをクリック  
   
- .center[<img src="readme-image/post3.png" width="400">]
+.center[<img src="readme-image/post3.png" width="400">]
  
 ---
 
@@ -927,10 +928,11 @@ module.exports = function (req, res) {
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* 3行目のAPIキーの置き換え
+* 3行目のAPIキーの置き換え  
  1.editorにてCouponGet.jsを開きます  
  2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします  
  3.各editorにて保存を実施する  
+ 
 ```js
     var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
 ```
@@ -943,7 +945,7 @@ module.exports = function (req, res) {
   3.ファイルの状態は実行可能  
   4.アップロードするをクリック  
   
- .center[<img src="readme-image/coupon1.png" width="400">]
+.center[<img src="readme-image/coupon1.png" width="400">]
  
 ---
 
@@ -955,7 +957,7 @@ module.exports = function (req, res) {
   8.queryの欄に *user=name* を入力  
   9.実行をクリック  
   
- .center[<img src="readme-image/coupon2.png" width="400">]
+.center[<img src="readme-image/coupon2.png" width="400">]
  
 ---
 
@@ -963,7 +965,7 @@ module.exports = function (req, res) {
 * CouponGet.jsを実行  
   10.以下の警告が出るが実行するをクリック  
   
- .center[<img src="readme-image/coupon3.png" width="400">]
+.center[<img src="readme-image/coupon3.png" width="400">]
  
 ---
 
@@ -972,7 +974,7 @@ module.exports = function (req, res) {
   11.実行ボタンの下に結果が出力されていることを確認  
   12.現在はReward1のクラスなのでone.pngが結果として取得できている
   
- .center[<img src="readme-image/coupon4.png" width="400">]
+.center[<img src="readme-image/coupon4.png" width="400">]
  
 ---
 
