@@ -233,23 +233,23 @@ layout: false
 ---
 
 ### 5.2【mBaaS】サーバー側の準備
-* mBaaSにアプリを作成すると払い出されるAPIキーを、Monacaで設定しSDKの初期化を行うことで連携していきます
+* mBaaSにもアプリを作成し、払い出されるAPIキーをMonacaに設定、SDKの初期化を行うことで連携していきます
 
 .center[<img src="readme-image/flow0.3.png" width="700">]
 
 ---
 
 ### 5.2【mBaaS】サーバー側の準備
-* mBaaSにアプリを作成すると払い出されるAPIキーを、Monacaで設定しSDKの初期化を行うことで連携していきます
+* mBaaSにもアプリを作成し、払い出されるAPIキーをMonacaに設定、SDKの初期化を行うことで連携していきます
 
 .center[<img src="readme-image/flow2.png" width="700">]
 
 ---
 
 ### 5.2【mBaaS】サーバー側の準備
-* mBaaS(https://console.mbaas.nifcloud.com/) にログイン
-* 新しいアプリを作成します
-* アプリ名を __`Roulette`__ と入力し「`新規作成`」をクリック
+* mBaaS(https://console.mbaas.nifcloud.com/) にログインします
+  * 新しいアプリを作成します
+  * アプリ名を __`Roulette`__ と入力し「`新規作成`」をクリック
 
 .center[<img src="readme-image/mbaas-app-create.png" width="300">]
 
@@ -261,52 +261,58 @@ layout: false
 
 ### 5.2【mBaaS】サーバー側の準備
 * アプリ作成が成功すると以下の画像が表示されます
- * この __`アプリケーションキー`__ と __`クライアントキー`__ を合わせてアプリAPIキーと呼びます
 
 .center[<img src="readme-image/apikey.png" width="600">]
+
+* この __`アプリケーションキー`__ と __`クライアントキー`__ を合わせてアプリAPIキーと呼びます
 
 ---
 
 
 ### 5.3【Monaca】mBaaSを使うための準備
-* MonacaSDKにアプリAPIキーを設定します
- * js/app.js を開きます
-  * 左のファイル一覧より ▶ www の ▶をクリック
+* 3.2で発行されたAPIキーを設定します
+ * js/app.js を開く
+ * 左のファイル一覧より __`▶ www`__ の __`▶`__ をクリック
 .center[<img src="readme-image/jsopen1.png" width="600">]
 
 ---
 
 ### 5.3【Monaca】mBaaSを使うための準備
-* MonacaSDKにアプリAPIキーを設定します
- * js/app.js を開きます
-  * 左のファイル一覧より ▶ js の ▶をクリック
+* 3.2で発行されたAPIキーを設定します
+  * 左のファイル一覧より __`▶ js`__ の __`▶`__ をクリック
 .center[<img src="readme-image/jsopen2.png" width="600">]
 
 ---
 
 ### 5.3【Monaca】mBaaSを使うための準備
-* MonacaSDKにアプリAPIキーを設定します
- * js/app.js を開きます
-  * 左のファイル一覧より app.js をダブルクリック
+* 3.2で発行されたAPIキーを設定します
+  * 左のファイル一覧より __`app.js`__ をダブルクリック
 .center[<img src="readme-image/jsopen3.png" width="600">]
 
 ---
 
 ### 5.3【Monaca】mBaaSを使うための準備
-* MonacaSDKにアプリAPIキーを設定します
- * js/app.js を開きます
-  * 黒い画面にapp.jsが映し出される
+* 3.2で発行されたAPIキーを設定します
+  * 画面に __`app.js`__ が表示されることを確認
 .center[<img src="readme-image/jsopen4.png" width="600">]
 
 ---
 
 ### 5.3【Monaca】mBaaSを使うための準備
-* MonacaSDKにアプリAPIキーを設定します
- * __`APPLICATION_KEY`__ と __`CLIENT_KEY`__ を mobile backend でアプリ作成時に発行された２つの APIキー （アプリケーションキーとクライアントキー）に貼り替えます
- * 張り替え後、Ctrl + s で変更を保存
+* 3.2で発行されたAPIキーを設定します
+ * __`APPLICATION_KEY`__ と __`CLIENT_KEY`__ をAPIキー （アプリケーションキーとクライアントキー）に貼り替える
+ * メニューバーの __`ファイル`__ > __`保存`__ をクリックしてプロジェクトを保存
+  * Windowsでは__`Ctrl + s`__ 、Macは __`Command + s`__ でも保存できます
+* 入力前
 ```js
 // 【NCMB】SDKの初期化
 var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
+```
+
+* 入力後
+```js
+// 【NCMB】SDKの初期化
+var ncmb = new NCMB("7612fe7----------------", "5a2efeb----------------");
 ```
 
 ---
@@ -319,42 +325,49 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 ---
 
 ### 5.4 動作確認① (会員管理)
-* ここでmBaaSとMonacaが連携できたかを以下の画像のように、会員管理データのやり取りが行われることで確認していきます
+* ここでmBaaSとMonacaが連携できたことを確認します
+* まず、ログイン処理が正しく行われることで確認します
 
 .center[<img src="readme-image/flow3.png" width="700">]
 
 ---
 ### 5.4 動作確認① (新規登録処理)
-* Monacaのプレビュー画面にてアプリを新規会員登録をしましょう
-* プレビュー画面は以下の画像の赤線の枠内です
+* Monacaのプレビュー画面で動作確認をしましょう
+* プレビュー画面は赤枠部分です
 
 .center[<img src="readme-image/preview.png" width="600">]
 
 
 ---
 ### 5.4 動作確認① (新規登録処理)
-* プレビュー画面に、ユーザー名を __`name`__ 、 パスワードを好きな文字で入力し、 __`新規ユーザー登録`__ をクリック
-
+* 新規会員登録をします
+ * テキストフィールドにそれぞれ、ユーザー名と、パスワードを好きな文字で入力
+ * 新規ユーザー登録をクリック
+ 
 .center[<img src="readme-image/adduser1.png" width="600">]
 
 ---
 ### 5.4 動作確認① (新規登録処理)
-* mBaaSの管理画面へ行き、会員管理をクリック
+* 新規会員登録をします
+ * mBaaSの管理画面を開く
+ * __`会員管理`__ をクリック
 
 .center[<img src="readme-image/adduser1.5.png" width="600">]
 
 ---
 ### 5.4 動作確認① (新規登録処理)
-* 新規登録に成功していると以下の画像のように追加されます
-* Passwordはセキュリティ上hiddenとなっています
+* 新規会員登録をします
+ * 新規登録に成功していると会員情報が追加、ルーレット画面が表示されます
+ * __`Password`__　はセキュリティ上　__`hidden`__　となっています
 
 .center[<img src="readme-image/adduser2.png" width="600">]
 
 ---
 
 ### 5.4 動作確認① (ログイン処理)
-* 今回はログアウトボタンを実装していないため、画面をリロードしログイン画面に戻ります
-* 右側のプレビュー画面にリロードボタンをクリック
+* 次にログインをします
+ * 今回はログアウトボタンを実装していないため、画面をリロードしログイン画面に戻る
+ * 右側のプレビュー画面にリロードボタンをクリック
  
 .center[<img src="readme-image/reload.png" width="300">]
 
@@ -362,7 +375,8 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 
 ### 5.4 動作確認① (ログイン処理)
 * 先ほど新規会員登録したユーザーでログインをします
- * 先ほど登録したユーザー名とパスワードを入力し __`ログイン `__ をクリック
+ * 先ほど登録したユーザー名とパスワードを入力
+ * __`ログイン`__ をクリック
  * ログインに成功するとルーレット画面が表示されます
 
 .center[<img src="readme-image/loginuser.png" width="700">]
@@ -370,7 +384,7 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 ---
 
 ### 5.4 動作確認① (ログイン処理)
-* Monaca側には以下のようにErrorが出てきますが、そのままで大丈夫です
+* ログイン処理後、表示されるルーレット画面では以下のようにErrorが出てきますが、ここではそのままで大丈夫です
 
 .center[<img src="readme-image/erroruser.png" width="300">]
 
@@ -391,27 +405,28 @@ layout: false
 
 ---
 
-### 6.ルーレット機能の作成
-* データストアとファイルストアに今回使用するデータをアップしていきます
-
-.center[<img src="readme-image/flow5.png" width="700">]
-
----
-
 ### 6.1 設定ファイルのDL
-* 設定ファイルをダウンロード(http://u0u1.net/RONw)
-* ファイル構成は以下の通りです
+* 必要なファイルをダウンロードします
+ * 設定ファイルをダウンロード(http://u0u1.net/RONw)
+  * ファイル構成は以下の通りです
 
 .center[<img src="readme-image/settings.png" width="700">]
 
 ---
 
 ### 6.2【mBaaS】クーポン画像の準備
-* ファイルストアへのアップロード手順
- 1. ファイルストアをクリック
- 2. アップロードをクリック
- 3. imgフォルダの画像をファイルをドラッグしてくださいの点線内にドラッグアンドドロップかファイルを指定
- 4. アップロードするをクリック
+* ファイルストアに今回使用するデータをしていきます
+
+.center[<img src="readme-image/flow5.png" width="700">]
+
+---
+
+### 6.2【mBaaS】クーポン画像の準備
+* ファイルをアップロードします  
+ 1. ファイルストアをクリック  
+ 2. アップロードをクリック  
+ 3. 6.1でダウンロードしたimgフォルダの画像ファイルを点線内にドラッグアンドドロップまたは __`ファイルを指定選択`__ をクリックして指定  
+ 4. __`アップロード`__ するをクリック  
 
 .center[<img src="readme-image/file_upload.png" width="700">]
 
@@ -425,8 +440,8 @@ layout: false
 ---
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* データストアに「Roulette_Item」クラスを準備する手順
- * このクラスではファイルストアの画像名、確率、賞の値を持たせます
+* データストアに「Roulette_Item」クラスを準備します
+* このクラスにはファイルストアに格納した画像名や、確率、賞の値を持たせます
  
 .center[<img src="readme-image/itemclass0.png" width="600">]
 
@@ -434,11 +449,12 @@ layout: false
 
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* データストアに「Roulette_Item」クラスを準備する手順  
-  1. データストアをクリック  
-  2. 作成をクリック  
-  3. 新規作成をクリック  
-  4. クラス名に __Roulette_Item__ と入力し作成するをクリック  
+* データストアに「Roulette_Item」クラスを準備します  
+  1.__`データストア`__ をクリック  
+  2.__`作成`__ をクリック  
+  3.__`新規作成`__ をクリック  
+  4.クラス名に __Roulette_Item__ と入力  
+  5.__`作成する`__ をクリック  
  
 .center[<img src="readme-image/itemclass1.png" width="700">]
 
@@ -446,18 +462,19 @@ layout: false
 
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* データストアに「Roulette_Item」クラスを準備する手順  
-  5. 新しいフィールドをクリック  
-  6. フィールド名に probability と入力し作成するをクリック  
-  7. この手順で、フィールド名、rewards と png も作成  
+* データストアに「Roulette_Item」クラスを準備します
+  6.__`新しいフィールド`__ をクリック  
+  7.フィールド名に __`probability`__ と入力
+  8.__`作成する`__ をクリック    
+  9.この手順で、フィールド名__`rewards`__ と __`png`__ も作成  
  
 .center[<img src="readme-image/itemclass2.png" width="500">]
 
 ---
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* 3つのフィールドの作成に成功すると以下の図のような構成になる
- * それぞれのフィールドは以下の用途で用意しています
+* 3つのフィールドの作成に成功すると以下のように表示されます
+* それぞれのフィールドは以下の用途で使います
  * probability: 確率
  * rewards: 賞の値
  * png: ファイルストアの画像名
@@ -467,12 +484,12 @@ layout: false
 ---
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* データストアに「Roulette_Item」クラスを準備する手順  
-  1. 新しいレコードをクリック  
-  2. png の下の(undefined)をダブルクリックし ["one.png","two.png","three.png"] に差し替え  
-  3. 下に出てくるポップアップの 文字列▼ をクリックし 配列に変更  
-  4. 差し替えたテキストボックスをクリックした後にEnter  
-  5. 上記の手順と同様進め、 probabilityは [0.2,0.3]、rewardsは[1,2,3]で定義  
+* フィールドに値を用意します 
+  1. __`新しいレコード`__ をクリック  
+  2. png の下の　__`(undefined)`__ をダブルクリックし __`["one.png","two.png","three.png"] `__ に差し替え  
+  3. 下に出てくるポップアップの __`文字列▼ `__ をクリックし 配列に変更  
+  4. 差し替えたテキストボックスをクリックした後に __`Enter`__  を押下
+  5. 上記の手順と同様に、 __`probability `__は __`[0.2,0.3]`__ 、rewardsは[1,2,3]で定義`__  
  
 .center[<img src="readme-image/itemclass3.png" width="600">]
 
@@ -484,16 +501,16 @@ layout: false
 .center[<img src="readme-image/itemclass4.png" width="700">]
 
 
-* もし配列の左の型(緑の3本線)がない場合以下のボタンが型を表示になっているかもしれないので、クリックし表示させるようお願いいたします。
+* 配列アイコン(緑の3本線)がない場合、右端の「型を表示」ボタンを押すと表示されます
 
 .center[<img src="readme-image/itemclass5.png" width="150">]
 
 ---
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* データストアに「Reward」クラスを準備する手順
+* データストアに「Reward」クラスを準備します
  * 賞が当たるとユーザーがPOSTされるクラス
- * 賞ごとに「Reward1」「Reward2」「Reward3」と用意
+ * 賞ごとに「Reward1」「Reward2」「Reward3」を用意
  
 .center[<img src="readme-image/rewardclass0.png" width="600">]
 
@@ -501,26 +518,30 @@ layout: false
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
 * データストアに「Reward」クラスを準備する手順  
-  1. データストアをクリック  
-  2. 作成をクリック  
-  3. 新規作成をクリック  
-  4. クラス名に __Reward1__ と入力し作成するをクリック      
-  5. 上記手順で同様に __Reward2__ と __Reward3__ も作成    
+  1. __`データストア`__をクリック  
+  2. __`作成を`__クリック  
+  3. __`新規作成`__をクリック  
+  4. クラス名に __Reward1__ と入力
+  5. 作成するをクリック      
+  6. 上記手順で同様に __Reward2__ と __Reward3__ も作成    
   
 .center[<img src="readme-image/rewardclass1.png" width="700">]
 
 ---
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* 作成に成功すると以下の画像のようになる
+* 作成に成功すると以下のように表示されます
  
 .center[<img src="readme-image/rewardclass2.png" width="700">]
 
 ---
 
 ### 6.4【mBaaS】スーパーユーザーの準備
+* スーパーユーザーの役割
+ * セキュリティを担保するために、このユーザーしかクラスにアクセスできないように工夫しています
 * Rewardクラスへのアクセス権限を持ったスーパーユーザーを用意します
  * スーパーユーザー以外は誰もアクセスできないacl設定を施します
+ * acl(アクセスコントロールリスト):ユーザーの役割に応じてアクセス可能なデータを制限する際に、ユーザー名とデータとのひも付けを確認するためのリスト
 
 .center[<img src="readme-image/flow6.png" width="700">]
 
@@ -543,22 +564,22 @@ layout: false
 ---
 
 ### 6.4【mBaaS】スーパーユーザーの準備
-* スーパーユーザーの用意  
+* スーパーユーザーを用意する  
   1.データストアをクリック  
   2.新しい会員をクリック  
   3.新しい会員の新規作成をクリック  
-  4.すると入力欄が表示されます  
+  4.入力欄が表示されることを確認する   
 
 .center[<img src="readme-image/superuser1.png" width="700">]
 
 ---
 
 ### 6.4【mBaaS】スーパーユーザーの準備
-* スーパーユーザーの用意  
-  5.userNameに superuser と入力し Enter  
-  6.passwordに super と入力し Enter  
-  7.成功するとユーザーが追加され、passwordがhiddenになる  
-  8.objectIdが自動で割り振られ、この値をacl設定に後ほど使用します  
+* スーパーユーザーを用意する  
+  5.userNameに superuser と入力し Enterを押下  
+  6.passwordに super と入力し Enterを押下  
+* 成功するとユーザーが追加され、passwordがhiddenになります  
+* objectIdが自動で割り振られ、この値をacl設定に後ほど使用します  
 
 .center[<img src="readme-image/superuser2.png" width="700">]
 
