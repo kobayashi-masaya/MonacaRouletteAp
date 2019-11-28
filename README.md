@@ -59,11 +59,9 @@ class: center, middle, inverse
 layout: false
 
 ### 2.1 Monaca 紹介
-* HTML5/JavaScript/CSS3でスマホアプリが開発できる開発環境です
-* 開発スタイル／コーディング環境は選択できます
-* __`無料`__ で体験可能です
-
-* クラウド環境にアクセスするだけで __`開発環境の構築は不要`__  です
+* HTML5/JavaScript/CSS3でスマホアプリが開発できる開発環境です  
+* 開発スタイル／コーディング環境は選択できます  
+* __`無料`__ で体験可能です  
 
 .center[<img src="readme-image/monaca.png" width="600">]
 
@@ -111,7 +109,7 @@ layout: false
 
 .center[<img src="readme-image/UIstructure.png" width="700">]
 
-既にコーディングを完了させたサンプルアプリを使って作業していきます
+* 既にコーディングを完了させたサンプルアプリを使って作業していきます
 
 ---
 
@@ -326,7 +324,7 @@ var ncmb = new NCMB("7612fe7----------------", "5a2efeb----------------");
 
 ### 5.4 動作確認① (会員管理)
 * ここでmBaaSとMonacaが連携できたことを確認します
-* まず、ログイン処理が正しく行われることで確認します
+* まず、ログイン処理が正しく行われることの確認をしましょう
 
 .center[<img src="readme-image/flow3.png" width="700">]
 
@@ -358,7 +356,7 @@ var ncmb = new NCMB("7612fe7----------------", "5a2efeb----------------");
 ### 5.4 動作確認① (新規登録処理)
 * 新規会員登録をします
  * 新規登録に成功していると会員情報が追加、ルーレット画面が表示されます
- * __`Password`__　はセキュリティ上　__`hidden`__　となっています
+ * __`Password`__ はセキュリティ上 __`hidden`__ となっています
 
 .center[<img src="readme-image/adduser2.png" width="600">]
 
@@ -453,8 +451,8 @@ layout: false
   1.__`データストア`__ をクリック  
   2.__`作成`__ をクリック  
   3.__`新規作成`__ をクリック  
-  4.クラス名に __Roulette_Item__ と入力  
-  5.__`作成する`__ をクリック  
+  4.クラス名に __`Roulette_Item`__ と入力  
+  5. __`作成する`__ をクリック  
  
 .center[<img src="readme-image/itemclass1.png" width="700">]
 
@@ -466,7 +464,7 @@ layout: false
   6.__`新しいフィールド`__ をクリック  
   7.フィールド名に __`probability`__ と入力
   8.__`作成する`__ をクリック    
-  9.この手順で、フィールド名__`rewards`__ と __`png`__ も作成  
+  9.この手順で、フィールド名 __`rewards`__ と __`png`__ も作成  
  
 .center[<img src="readme-image/itemclass2.png" width="500">]
 
