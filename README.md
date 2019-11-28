@@ -25,10 +25,11 @@ layout: false
 .size_large[
 1.  __作成するアプリについて__
 2. __アプリ作成に使うツール__
-3.  __事前準備__
+3.  __アカウント準備__
 4. __ハンズオンの内容__
 5.  __ハンズオンの準備__
 6. __ルーレット機能の作成__
+7. __まとめと振り返り__
     ]
 
 ---
@@ -44,7 +45,7 @@ layout: false
 ### 概要
 * ニフクラ mobile backendの『スクリプト機能』を利用して<br>
 __`サーバーレスでルーレットアプリにクーポン機能を実装します`__
-* サーバーレスとは?<br> __`サーバーを用意する必要なく`__ 、アプリ機能を作成できるということです
+* サーバーレスとは?<br> __`サーバーを用意しないで`__ 、アプリのバックエンド機能を実装することです
 
 .center[<img src="readme-image/roulette-app-basic-structure.png" width="600">]
 
@@ -58,22 +59,22 @@ class: center, middle, inverse
 layout: false
 
 ### 2.1 Monaca 紹介
-* クラウド環境にアクセスするだけで __`開発環境の構築は不要`__  
-* ブラウザ上でコーディングができる高機能なエディタ
-* __`無料`__ で体験頂けます
-* ローカル開発にも完全対応いつもの環境を __`クラウドと連携`__
-* HTMLとCSSでアプリのUIを誰でも __`簡単に開発`__ できます
+* HTML5/JavaScript/CSS3でスマホアプリが開発できる開発環境です
+* 開発スタイル／コーディング環境は選択できます
+* __`無料`__ で体験可能です
+
+* クラウド環境にアクセスするだけで __`開発環境の構築は不要`__  です
 
 .center[<img src="readme-image/monaca.png" width="600">]
 
 ---
 
 ### 2.2 ニフクラ mobile backend 紹介
-* スマートフォンアプリに必要なバックエンド機能が __`開発不要で利用できる`__ クラウドサービス
-* クラウド上に用意された機能を __`APIを呼び出すだけで利用できます`__
-* __`無料`__ で体験頂けます
-* APIを利用するためのSDKは幅広く対応します (Swift / iOS / Android / JavaScript / Monaca / Unity)
-* mobile Backend as a Service の頭文字を取って、通称 __`mBaaS`__ 呼ばれます
+* スマートフォンアプリに必要なバックエンド機能が __`開発不要で利用できる`__ クラウドサービスです
+* クラウド上に用意された機能を __`APIを呼び出すだけで利用可能`__ です。
+* __`無料`__ で体験可能です
+* APIを利用するためのSDKは幅広く対応 (Swift / iOS / Android / JavaScript / Monaca / Unity)
+* mobile Backend as a Service の頭文字を取って、通称 __`mBaaS`__ と呼びます
 
 .center[<img src="readme-image/mBaaSとは.png" width="400">]
 
@@ -81,14 +82,14 @@ layout: false
 layout: true
 class: center, middle, inverse
 ---
-# 3.事前準備
+# 3.アカウント準備
 ---
 layout: false
 
-### 3.事前準備
+### 3.アカウント準備
 * Monacaの利用登録（無料）
 <br>https://monaca.mobi/ja/signup
-* ニフクラ mobile backend (mBaaS) の利用登録（無料） 
+* ニフクラ mobile backend (mBaaS) の利用登録（無料:Basicプラン/SNSID） 
 <br> http://mbaas.nifcloud.com/signup.htm
 * テキストエディタお持ちでない方はご準備をお願いします
 <br>VSCodeはこちらから https://azure.microsoft.com/ja-jp/products/visual-studio-code/
@@ -101,7 +102,7 @@ class: center, middle, inverse
 ---
 layout: false
 
-### 4.ハンズオンの内容
+### 4.1作成するアプリの内容
 ルーレットを回してクーポンを獲得する簡単なデモゲームアプリを作ります
 
 * __`スクリプト機能`__ をはじめとするmBaaSの機能を使って
@@ -109,10 +110,13 @@ layout: false
 <br>画面遷移図は以下のようになっています
 
 .center[<img src="readme-image/UIstructure.png" width="700">]
+
+既にコーディングを完了させたサンプルアプリを使って作業していきます
+
 ---
 
 
-### ハンズオンの流れ
+### 4.2ハンズオンの流れ
 .size_large[
 5.  __ハンズオンの準備(前半)__
     - 5.1【Monaca】アプリ側の準備
@@ -141,27 +145,27 @@ class: center, middle, inverse
 layout: false
 
 ### 5.1【Monaca】アプリ側の準備
-* アプリのインポートとMonacaSDKをMonaca側に設定し連携していきます
- * SDKの導入
+* アプリをインポートしてJavaScriptSDKの導入をしていきます
  * アプリのインポート
+ * SDKの導入
  
 .center[<img src="readme-image/flow0.1.png" width="700">]
 
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* アプリのインポートとMonacaSDKをMonaca側に設定し連携していきます
- * SDKの導入
+* アプリのインポートとJavaScriptSDKをMonaca側に設定し連携していきます
  * アプリのインポート
+ * SDKの導入
  
 .center[<img src="readme-image/flow0.2.png" width="700">]
 
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* Monacaアプリケーションをimportします
+* Monacaアプリケーションをインポートします
 1. Monaca(https://monaca.mobi/ja/signup) にログイン
-2. importリンク (https://00m.in/WlLhX) をクリック
+2. インポートリンク (https://00m.in/WlLhX) をクリック
 3. __`インポート`__ をクリック
 4. __`クラウドIDEで開く`__  をクリック
 
@@ -170,15 +174,15 @@ layout: false
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* importに成功すると以下の画面が表示されます
+* インポートに成功すると以下の画面が表示されます
 
 .center[<img src="readme-image/display.png" width="500">]
 
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入（コンポーネントの追加）  
-  1.上タブの __`設定`__ をクリック  
+* SDKの導入（コンポーネントの追加）をします   
+  1.メニューバーの __`設定`__ をクリックします  
   2.__`JS/CSSコンポーネントの追加と削除`__ をクリック  
 
 .center[<img src="readme-image/sdk1.png" width="300">]
@@ -186,7 +190,7 @@ layout: false
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入（コンポーネントの追加）  
+* SDKの導入（コンポーネントの追加）をします  
   3.__`コンポーネント名`__ に __`ncmb `__ と入力    
   4.__`検索する`__ をクリック  
 
@@ -195,7 +199,7 @@ layout: false
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入（コンポーネントの追加）  
+* SDKの導入（コンポーネントの追加）をします   
   5.__`ncmb`__ が表示されるので __`追加`__ をクリック  
 
 .center[<img src="readme-image/sdk3.png" width="700">]
@@ -203,7 +207,7 @@ layout: false
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入（コンポーネントの追加）  
+* SDKの導入（コンポーネントの追加）をします   
   6.バージョンはそのままで、 __`インストール`__ をクリック  
 
 .center[<img src="readme-image/sdk4.png" width="600">]
@@ -211,7 +215,7 @@ layout: false
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入（コンポーネントの追加）  
+* SDKの導入（コンポーネントの追加）をします   
   7.必ずチェックボックスにチェックを入れて、 __`保存`__  をクリック  
 
 .center[<img src="readme-image/sdk5.png" width="500">]
@@ -219,10 +223,12 @@ layout: false
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* SDKの導入（コンポーネントの追加）  
-  8.一覧に __`ncmb`__ が表示されればSDK導入完了  
+* SDKの導入（コンポーネントの追加）をします   
+  8.一覧に __`ncmb`__ が表示ていることを確認する  
 
 .center[<img src="readme-image/sdk6.png" width="500">]
+
+* これでSDKの導入は完了です
 
 ---
 
