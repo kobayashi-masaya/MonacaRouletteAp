@@ -1057,15 +1057,13 @@ const promise = new Promise((resolve, reject) => {
 ```
 ]
 
-・fetchAll() : 全件検索取得
-
 ---
 
 ### 6.10【動作確認】
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順  
   1.好きなユーザー名と、パスワードを入力し新規ログイン  
 
-.center[<img src="readme-image/check1.png" width="600">]
+.center[<img src="readme-image/check1.png" width="300">]
 
 ---
 
@@ -1074,7 +1072,7 @@ const promise = new Promise((resolve, reject) => {
   2.正常にログインできると、このルーレット画面に遷移  
   3.スタートボタンを押してルーレット開始  
 
-.center[<img src="readme-image/check2.png" width="600">]
+.center[<img src="readme-image/check2.png" width="300">]
 
 ---
 
@@ -1083,7 +1081,7 @@ const promise = new Promise((resolve, reject) => {
   4.ルーレット回転(この時回転までに数秒の間があります)
   5.ルーレット停止すると結果を表示
 
-.center[<img src="readme-image/check3.png" width="600">]
+.center[<img src="readme-image/check3.png" width="300">]
 
 ---
 
@@ -1093,7 +1091,7 @@ const promise = new Promise((resolve, reject) => {
   7.Reloadボタンを押す
   8.当たったクーポンが表示される
   
-.center[<img src="readme-image/check4.png" width="600">]
+.center[<img src="readme-image/check4.png" width="300">]
 
 ---
 
