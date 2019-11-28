@@ -428,11 +428,11 @@ layout: false
 
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* データストアに「Roulette_Item」クラスを準備する手順
- 1. データストアをクリック
- 2. 作成をクリック
- 3. 新規作成をクリック
- 4. クラス名に __'Roulette_Item'__ と入力し作成するをクリック
+* データストアに「Roulette_Item」クラスを準備する手順  
+  1. データストアをクリック  
+  2. 作成をクリック  
+  3. 新規作成をクリック  
+  4. クラス名に __Roulette_Item__ と入力し作成するをクリック  
  
 .center[<img src="readme-image/itemclass1.png" width="700">]
 
@@ -440,10 +440,10 @@ layout: false
 
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* データストアに「Roulette_Item」クラスを準備する手順
- 1. 新しいフィールドをクリック
- 2. フィールド名に probability と入力し作成するをクリック
- 3. この手順で、フィールド名、rewards と png も作成
+* データストアに「Roulette_Item」クラスを準備する手順  
+  5. 新しいフィールドをクリック  
+  6. フィールド名に probability と入力し作成するをクリック  
+  7. この手順で、フィールド名、rewards と png も作成  
  
 .center[<img src="readme-image/itemclass2.png" width="500">]
 
@@ -461,12 +461,12 @@ layout: false
 ---
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* データストアに「Roulette_Item」クラスを準備する手順
- 1. 新しいレコードをクリック
- 2. png の下の(undefined)をダブルクリックし ["one.png","two.png","three.png"] に差し替え
- 3. 下に出てくるポップアップの 文字列▼ をクリックし 配列に変更
- 4. 差し替えたテキストボックスをクリックした後にEnter
- 5. 上記の手順と同様進め、 probabilityは [0.2,0.3]、rewardsは[1,2,3]で定義
+* データストアに「Roulette_Item」クラスを準備する手順  
+  1. 新しいレコードをクリック  
+  2. png の下の(undefined)をダブルクリックし ["one.png","two.png","three.png"] に差し替え  
+  3. 下に出てくるポップアップの 文字列▼ をクリックし 配列に変更  
+  4. 差し替えたテキストボックスをクリックした後にEnter  
+  5. 上記の手順と同様進め、 probabilityは [0.2,0.3]、rewardsは[1,2,3]で定義  
  
 .center[<img src="readme-image/itemclass3.png" width="600">]
 
