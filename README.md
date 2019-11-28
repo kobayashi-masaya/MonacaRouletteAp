@@ -696,7 +696,7 @@ function selectReward(probabilities) {
   5.ファイルの状態は実行可能  
   6.アップロードするをクリック  
   
-.center[<img src="readme-image/select2.png" width="400">]
+.center[<img src="readme-image/select2.png" width="300">]
  
 ---
 
@@ -707,7 +707,7 @@ function selectReward(probabilities) {
   9.実行タブをクリック  
   10.実行をクリック  
   
-.center[<img src="readme-image/select3.png" width="400">]
+.center[<img src="readme-image/select3.png" width="500">]
  
 ---
 
@@ -813,7 +813,7 @@ module.exports = function (req, res) {
   3.ファイルの状態は実行可能  
   4.アップロードするをクリック  
 
-.center[<img src="readme-image/post1.png" width="400">]
+.center[<img src="readme-image/post1.png" width="300">]
  
 ---
 
@@ -825,7 +825,7 @@ module.exports = function (req, res) {
   8.queryの欄に *user=name&stopNumber=1* を入力  
   9.実行をクリック  
   
-.center[<img src="readme-image/post2.png" width="400">]
+.center[<img src="readme-image/post2.png" width="500">]
  
 ---
 
@@ -849,10 +849,10 @@ module.exports = function (req, res) {
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * UserPost.jsを実行  
   13.データストアをクリック  
-  14.今回はstopNumberを1としたのでReward1をクリック
-  15.nameというユーザーが登録されていれば成功
+  14.今回はstopNumberを1としたのでReward1をクリック  
+  15.nameというユーザーが登録されていれば成功  
   
-.center[<img src="readme-image/post5.png" width="400">]
+.center[<img src="readme-image/post5.png" width="500">]
  
 ---
 
@@ -944,7 +944,7 @@ module.exports = function (req, res) {
   3.ファイルの状態は実行可能  
   4.アップロードするをクリック  
   
-.center[<img src="readme-image/coupon1.png" width="400">]
+.center[<img src="readme-image/coupon1.png" width="300">]
  
 ---
 
@@ -956,7 +956,7 @@ module.exports = function (req, res) {
   8.queryの欄に *user=name* を入力  
   9.実行をクリック  
   
-.center[<img src="readme-image/coupon2.png" width="400">]
+.center[<img src="readme-image/coupon2.png" width="500">]
  
 ---
 
@@ -1011,7 +1011,7 @@ const promise = new Promise((resolve, reject) => {
 
 ---
 
-### 6.9【Monaca】アプリからスクリプトを呼び出す ①
+### 6.9【Monaca】アプリからスクリプトを呼び出す ②
 * UserPost.js呼び出しコード確認  
   * queryを指定して実行  
   * POSTメソッドを使用  
