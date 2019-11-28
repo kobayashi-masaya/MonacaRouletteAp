@@ -487,8 +487,8 @@ layout: false
   2. png の下の　__`(undefined)`__ をダブルクリックし __`["one.png","two.png","three.png"] `__ に差し替え  
   3. 下に出てくるポップアップの __`文字列▼ `__ をクリックし 配列に変更  
   4. 差し替えたテキストボックスをクリックした後に __`Enter`__  を押下
-  5. 上記の手順と同様に、 __`probability `__は __`[0.2,0.3]`__ 、rewardsは[1,2,3]で定義`__  
- 
+  5. 上記の手順と同様に、 __`probability `__は __`[0.2,0.3]`__ 、rewardsは __`[1,2,3]`__ で定義 
+  
 .center[<img src="readme-image/itemclass3.png" width="600">]
 
 ---
