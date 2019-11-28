@@ -494,12 +494,13 @@ layout: false
 ---
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* データストアに「Reward」クラスを準備する手順
- 1. データストアをクリック
- 2. 作成をクリック
- 3. 新規作成をクリック
- 4. クラス名に __Reward1__ と入力し作成するをクリック
- 5. 上記手順で同様に __Reward2__ と __Reward3__ も作成
+* データストアに「Reward」クラスを準備する手順  
+  1. データストアをクリック  
+  2. 作成をクリック  
+  3. 新規作成をクリック  
+  4. クラス名に __Reward1__ と入力し作成するをクリック      
+  5. 上記手順で同様に __Reward2__ と __Reward3__ も作成    
+  
 .center[<img src="readme-image/rewardclass1.png" width="700">]
 
 ---
@@ -536,50 +537,55 @@ layout: false
 ---
 
 ### 6.4【mBaaS】スーパーユーザーの準備
- 1.データストアをクリック  
- 2.新しい会員をクリック  
- 3.新しい会員の新規作成をクリック  
- 4.すると入力欄が表示されます  
+* スーパーユーザーの用意  
+  1.データストアをクリック  
+  2.新しい会員をクリック  
+  3.新しい会員の新規作成をクリック  
+  4.すると入力欄が表示されます  
 
 .center[<img src="readme-image/superuser1.png" width="700">]
 
 ---
 
 ### 6.4【mBaaS】スーパーユーザーの準備
- 5.userNameに superuser と入力し Enter  
- 6.passwordに super と入力し Enter  
- 7.成功するとユーザーが追加され、passwordがhiddenになる  
- 8.objectIdが自動で割り振られ、この値をacl設定に後ほど使用します  
+* スーパーユーザーの用意  
+  5.userNameに superuser と入力し Enter  
+  6.passwordに super と入力し Enter  
+  7.成功するとユーザーが追加され、passwordがhiddenになる  
+  8.objectIdが自動で割り振られ、この値をacl設定に後ほど使用します  
 
 .center[<img src="readme-image/superuser2.png" width="700">]
 
 ---
 
 ### 6.5【mBaaS】参照権限の設定
-* 参照権限を設定することのメリットは、書き換えや参照をあるユーザーだけ実行できるように限定することによって、他のユーザーから干渉を受けず、確率の書き換えなど受けなくなる。  
-1.会員管理をクリック  
-2.superuserのobjectIdをコピー  
+* 参照権限を設定することのメリットは、書き換えや参照をあるユーザーだけ実行できるように限定することによって、他のユーザーから干渉を受けず、確率の書き換えなど受けなくなる。 
+* permissionの設定
+  1.会員管理をクリック  
+  2.superuserのobjectIdをコピー  
 
 .center[<img src="readme-image/acl1.png" width="700">]
 
 ---
 
 ### 6.5【mBaaS】参照権限の設定
-3.データストアをクリック  
-4.Reward1をクリック  
-5.クラスの編集をクリック  
-6.パーミッションの設定をクリック  
+* permissionの設定
+  3.データストアをクリック  
+  4.Reward1をクリック  
+  5.クラスの編集をクリック  
+  6.パーミッションの設定をクリック  
 
 .center[<img src="readme-image/acl2.png" width="600">]
 
 ---
 
 ### 6.5【mBaaS】参照権限の設定
-7.新しいパーミッションをクリック  
-8.全員 ▼ をクリック  
-9.会員をクリック  
-10.先ほどコピーしたobjectIdをペースト  
-11.変更を保存をクリック  
+* permissionの設定
+  7.新しいパーミッションをクリック  
+  8.全員 ▼ をクリック  
+  9.会員をクリック  
+  10.先ほどコピーしたobjectIdをペースト  
+  11.変更を保存をクリック  
 
 .center[<img src="readme-image/acl3.png" width="300">]
 
@@ -592,9 +598,9 @@ layout: false
 .center[<img src="readme-image/acl4.png" width="400">]
 
 * 設定されているか確認します  
- 1.データストアをクリック  
- 2.パーミッションの設定をクリック  
- 3.上手く登録されていれば先ほど登録した内容が反映されている  
+  1.データストアをクリック  
+  2.パーミッションの設定をクリック  
+  3.上手く登録されていれば先ほど登録した内容が反映されている    
 
 .center[<img src="readme-image/acl5.png" width="400">]
 
@@ -665,54 +671,58 @@ function selectReward(probabilities) {
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * 3行目のAPIキーの置き換え  
- 1.editorにてSelectReward.jsを開きます  
- 2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします  
- 3.各editorにて保存を実施する  
+  1.editorにてSelectReward.jsを開きます  
+  2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします   
+  3.各editorにて保存を実施する  
+  
 ```js
     var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
 ```
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-* SelectReward.jsをアップロードする  
-
-1.スクリプトをクリック  
-2.アップロードをクリック  
+* SelectReward.jsをアップロード  
+  1.スクリプトをクリック  
+  2.アップロードをクリック  
 
 .center[<img src="readme-image/select1.png" width="400">]
  
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-3.SelectReward.jsをドラッグアンドドロップかファイル選択  
-4.メソッドはGET  
-5.ファイルの状態は実行可能  
-6.アップロードするをクリック  
+* SelectReward.jsをアップロード  
+  3.SelectReward.jsをドラッグアンドドロップかファイル選択  
+  4.メソッドはGET  
+  5.ファイルの状態は実行可能  
+  6.アップロードするをクリック  
   
  .center[<img src="readme-image/select2.png" width="400">]
  
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-7.SelectReward.jsがアップロードされていることを確認  
-8.SelectReward.jsをクリック  
-9.実行タブをクリック  
-10.実行をクリック  
+* SelectReward.jsを実行  
+  7.SelectReward.jsがアップロードされていることを確認  
+  8.SelectReward.jsをクリック  
+  9.実行タブをクリック  
+  10.実行をクリック  
   
  .center[<img src="readme-image/select3.png" width="400">]
  
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-11.以下の警告が出るが実行するをクリック  
+* SelectReward.jsを実行  
+  11.以下の警告が出るが実行するをクリック  
   
  .center[<img src="readme-image/select4.png" width="400">]
  
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-12.実行ボタンの下に結果が出力されていることを確認  
-13.当たった等(stopNumber)とクーポン画像名(png)が取れている 
+* SelectReward.jsを実行  
+  12.実行ボタンの下に結果が出力されていることを確認  
+  13.当たった等(stopNumber)とクーポン画像名(png)が取れている  
   
  .center[<img src="readme-image/select5.png" width="400">]
  
@@ -787,37 +797,40 @@ module.exports = function (req, res) {
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * 3行目のAPIキーの置き換え  
- 1.editorにてUserPost.jsを開きます  
- 2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします  
- 3.各editorにて保存を実施する  
+  1.editorにてUserPost.jsを開きます  
+  2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします  
+  3.各editorにて保存を実施する
+  
 ```js
     var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
 ```
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* UserPost.jsをアップロードする  
+* UserPost.jsをアップロード  
+  1.UserPost.jsをドラッグアンドドロップかファイル選択  
+  2.メソッドはPOST  
+  3.ファイルの状態は実行可能  
+  4.アップロードするをクリック  
 
-1.UserPost.jsをドラッグアンドドロップかファイル選択  
-2.メソッドはPOST  
-3.ファイルの状態は実行可能  
-4.アップロードするをクリック  
 .center[<img src="readme-image/post1.png" width="400">]
  
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-5.UserPost.jsがアップロードされていることを確認  
-6.UserPost.jsをクリック  
-7.実行タブをクリック  
-8.queryの欄に *user=name&stopNumber=1* を入力  
-9.実行をクリック  
+* UserPost.jsを実行  
+  5.UserPost.jsがアップロードされていることを確認  
+  6.UserPost.jsをクリック  
+  7.実行タブをクリック  
+  8.queryの欄に *user=name&stopNumber=1* を入力  
+  9.実行をクリック  
   
- .center[<img src="readme-image/post2.png" width="400">]
+.center[<img src="readme-image/post2.png" width="400">]
  
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
+* UserPost.jsを実行  
 10.以下の警告が出るが実行するをクリック  
   
  .center[<img src="readme-image/post3.png" width="400">]
@@ -825,19 +838,21 @@ module.exports = function (req, res) {
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-11.実行ボタンの下に結果が出力されていることを確認  
-12.POST data successfully!と出力されていれば成功
+* UserPost.jsを実行  
+  11.実行ボタンの下に結果が出力されていることを確認  
+  12.POST data successfully!と出力されていれば成功
   
- .center[<img src="readme-image/post4.png" width="400">]
+.center[<img src="readme-image/post4.png" width="400">]
  
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-13.データストアをクリック  
-14.今回はstopNumberを1としたのでReward1をクリック
-15.nameというユーザーが登録されていれば成功
+* UserPost.jsを実行  
+  13.データストアをクリック  
+  14.今回はstopNumberを1としたのでReward1をクリック
+  15.nameというユーザーが登録されていれば成功
   
- .center[<img src="readme-image/post5.png" width="400">]
+.center[<img src="readme-image/post5.png" width="400">]
  
 ---
 
@@ -922,38 +937,40 @@ module.exports = function (req, res) {
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* CouponGet.jsをアップロードする  
-
-1.CouponGet.jsをドラッグアンドドロップかファイル選択  
-2.メソッドはGet  
-3.ファイルの状態は実行可能  
-4.アップロードするをクリック  
+* CouponGet.jsをアップロード  
+  1.CouponGet.jsをドラッグアンドドロップかファイル選択  
+  2.メソッドはGet  
+  3.ファイルの状態は実行可能  
+  4.アップロードするをクリック  
   
  .center[<img src="readme-image/coupon1.png" width="400">]
  
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-5.CouponGet.jsがアップロードされていることを確認  
-6.CouponGet.jsをクリック  
-7.実行タブをクリック  
-8.queryの欄に *user=name* を入力  
-9.実行をクリック  
+* CouponGet.jsを実行  
+  5.CouponGet.jsがアップロードされていることを確認  
+  6.CouponGet.jsをクリック  
+  7.実行タブをクリック  
+  8.queryの欄に *user=name* を入力  
+  9.実行をクリック  
   
  .center[<img src="readme-image/coupon2.png" width="400">]
  
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-10.以下の警告が出るが実行するをクリック  
+* CouponGet.jsを実行  
+  10.以下の警告が出るが実行するをクリック  
   
  .center[<img src="readme-image/coupon3.png" width="400">]
  
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-11.実行ボタンの下に結果が出力されていることを確認  
-12.現在はReward1のクラスなのでone.pngが結果として取得できている
+* CouponGet.jsを実行  
+  11.実行ボタンの下に結果が出力されていることを確認  
+  12.現在はReward1のクラスなのでone.pngが結果として取得できている
   
  .center[<img src="readme-image/coupon4.png" width="400">]
  
