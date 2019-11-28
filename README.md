@@ -979,11 +979,11 @@ module.exports = function (req, res) {
 
 ### 6.9【Monaca】アプリからスクリプトを呼び出す
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順  
-  1. app.jsにてCtrl + F にて検索窓を開き「//MARK」で検索  
+  1. app.jsを開きCtrl + F にて検索窓で「//MARK」と検索  
   2. Mark内を大きく①、②、③に分けています  
-  3. ①にてSelectReward.js  
-  <br>②にてUserPost.js  
-  <br>③にてCouponGet.jsが呼ばれています  
+  3. MARK①にてSelectReward.js  
+  <br>MARK②にてUserPost.js  
+  <br>MARK③にてCouponGet.jsが呼ばれています  
 
 ---
 
@@ -1013,10 +1013,41 @@ module.exports = function (req, res) {
 ---
 
 ### 6.11【動作確認】
-* 管理画面上で動作確認（実行してただしくログがでるか）の手順
- 
+* 管理画面上で動作確認（実行してただしくログがでるか）の手順  
+  1.好きなユーザー名と、パスワードを入力し新規ログイン  
+
+.center[<img src="readme-image/check1.png" width="600">]
 
 ---
+
+### 6.11【動作確認】
+* 管理画面上で動作確認（実行してただしくログがでるか）の手順  
+  2.正常にログインできると、このルーレット画面に遷移  
+  3.スタートボタンを押してルーレット開始  
+
+.center[<img src="readme-image/check2.png" width="600">]
+
+---
+
+### 6.11【動作確認】
+* 管理画面上で動作確認（実行してただしくログがでるか）の手順  
+  4.ルーレット回転(この時回転までに数秒の間があります)
+  5.ルーレット停止すると結果を表示
+
+.center[<img src="readme-image/check3.png" width="600">]
+
+---
+
+### 6.11【動作確認】
+* 管理画面上で動作確認（実行してただしくログがでるか）の手順  
+  6.クーポンページに遷移
+  7.Reloadボタンを押す
+  8.当たったクーポンが表示される
+  
+.center[<img src="readme-image/check4.png" width="600">]
+
+---
+
 layout: true
 class: center, middle, inverse
 ---
