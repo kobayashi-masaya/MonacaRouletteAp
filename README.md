@@ -509,8 +509,8 @@ layout: false
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
 * データストアに「Reward」クラスを準備します
- * 賞が当たるとユーザーがPOSTされるクラス
  * 賞ごとに「Reward1」「Reward2」「Reward3」を用意
+ * 当たった賞のクラスにユーザー名を登録
  
 .center[<img src="readme-image/rewardclass0.png" width="600">]
 
