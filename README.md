@@ -981,38 +981,87 @@ module.exports = function (req, res) {
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順  
   1. app.jsを開きCtrl + F にて検索窓で「//MARK」と検索  
   2. Mark内を大きく①、②、③に分けています  
-  3. MARK①にてSelectReward.js  
-  <br>MARK②にてUserPost.js  
-  <br>MARK③にてCouponGet.jsが呼ばれています  
+  3. スクリプト①にてSelectReward.js  
+  <br>スクリプト②にてUserPost.js  
+  <br>スクリプト③にてCouponGet.jsが呼ばれています  
 
 ---
 
 ### 6.9【Monaca】アプリからスクリプトを呼び出す ①
-* 非同期処理にてスクリプトを呼び出し
-* GETメソッドを使用
+* SelectReward.js呼び出しコード確認  
+  * 非同期処理にてスクリプトを呼び出し  
+  * GETメソッドを使用  
 
-.center[<img src="readme-image/script1.png" width="600">]
+.size_small_7[
+```js
+const promise = new Promise((resolve, reject) => {
+        //MARK: 【NCMB】スクリプト①：ルーレットの当たりを取得
+        ncmb.Script.exec("GET", "SelectReward.js")
+            .then(function (res) {
+                /* スクリプトの実行成功時の処理 */
+                resolve();
+            })
+            .catch(function (err) {
+                /* スクリプトの実行失敗時の処理 */
+            });
+    });
+    promise.then(() => setTimeout(function () {
+```
+]
 
 ---
 
-### 6.9【Monaca】アプリからスクリプトを呼び出す ②
-* queryを指定して実行
-* POSTメソッドを使用
+### 6.9【Monaca】アプリからスクリプトを呼び出す ①
+* UserPost.js呼び出しコード確認  
+  * queryを指定して実行  
+  * POSTメソッドを使用  
 
-.center[<img src="readme-image/script2.png" width="600">]
+.size_small_7[
+```js
+ncmb.Script.query({"user": user.userName,"stopNumber": stopNumber})
+                .exec("POST", "UserPost.js")
+                .then(function (res) {
+                    /* スクリプトの実行成功時の処理 */
+                })
+                .catch(function (err) {
+                    /* スクリプトの実行失敗時の処理 */
+                });
+```
+]
 
 ---
 
-### 6.10【Monaca】アプリからスクリプトを呼び出す ③
-* 非同期処理にてスクリプトを呼び出し
-* queryを指定して実行
-* GETメソッドを使用
+### 6.9【Monaca】アプリからスクリプトを呼び出す ③
+* CouponGet.js呼び出しコード確認  
+  * 非同期処理にてスクリプトを呼び出し  
+  * GETメソッドを使用  
+  * queryを指定して実行  
 
-.center[<img src="readme-image/script3.png" width="600">]
+.size_small_7[
+```js
+const promise = new Promise((resolve, reject) => {
+        //MARK: 【NCMB】スクリプト③：当たったクーポン画像を取得
+        ncmb.Script.query({"user": user.userName})
+            .exec("GET", "CouponGet.js")
+            .then(function (res) {
+                /* スクリプトの実行成功時の処理 */
+                resolve();
+            })
+            .catch(function (err) {
+                /* スクリプトの実行失敗時の処理 */
+            });
+    });
+    // クーポンページの画像をロードする
+    promise.then(() => setTimeout(function () {
+}
+```
+]
+
+・fetchAll() : 全件検索取得
 
 ---
 
-### 6.11【動作確認】
+### 6.10【動作確認】
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順  
   1.好きなユーザー名と、パスワードを入力し新規ログイン  
 
