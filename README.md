@@ -3,7 +3,7 @@ layout: true
 class: center, middle, inverse
 
 ---
-# <span style="font-size: 60%">【Monacaハンズオン】</span>
+# <span style="font-size: 60%">【初めてのスクリプト講座】</span>
 # <span style="font-size: 70%">サーバーレスでルーレットアプリに<br>クーポン機能を実装してみよう！</span>
 
 @ 富士通クラウドテクノロジーズ 株式会社
