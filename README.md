@@ -938,21 +938,11 @@ module.exports = function (req, res) {
   2. 次にReward1にユーザーがいるか検索  
   3. 存在していれば画像名をItemから取得  
   4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
-
 * Point
   * 非同期処理を使用
   * 処理が重ならずに全ての処理の終了後に値が返される
  
----
-
-### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* 処理内容  
-  1. 非同期処理スタート、まずは管理者でログイン  
-  2. 次にReward1にユーザーがいるか検索  
-  3. 存在していれば画像名をItemから取得  
-  4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
-
-.center[<img src="readme-image/script3.png" width="00">]
+ .center[<img src="readme-image/script3.png" width="400">]
  
 ---
 
@@ -963,7 +953,7 @@ module.exports = function (req, res) {
   3. 存在していれば画像名をItemから取得  
   4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
 
-.center[<img src="readme-image/script31.png" width="00">]
+.center[<img src="readme-image/script31.png" width="500">]
  
 ---
 
@@ -974,7 +964,7 @@ module.exports = function (req, res) {
   3. 存在していれば画像名をItemから取得  
   4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
 
-.center[<img src="readme-image/script32.png" width="00">]
+.center[<img src="readme-image/script32.png" width="500">]
  
 ---
 
@@ -985,7 +975,7 @@ module.exports = function (req, res) {
   3. 存在していれば画像名をItemから取得  
   4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
 
-.center[<img src="readme-image/script33.png" width="00">]
+.center[<img src="readme-image/script33.png" width="500">]
  
 ---
 
@@ -996,7 +986,7 @@ module.exports = function (req, res) {
   3. 存在していれば画像名をItemから取得  
   4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
 
-.center[<img src="readme-image/script34.png" width="00">]
+.center[<img src="readme-image/script34.png" width="500">]
  
 ---
 
