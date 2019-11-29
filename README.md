@@ -41,9 +41,9 @@ layout: false
 * ニフクラ mobile backendの『スクリプト機能』を利用して<br>
 __`サーバーレスでルーレットアプリにクーポン機能を実装します`__
 * 既にコーディングを完了させたサンプルアプリを使って作業していきます
- * 今回する作業としては、確率などのデータの入ったクラスや当たったログを蓄積、クーポン画像のアップロード、3つのスクリプト連携方法を実際に体験していいただきます
+ * 確率などのデータをいれたクラスと、当たったユーザーログクラスの準備、クーポン画像のアップロード、3つのスクリプト連携方法を実際に体験していただきます
 
-.center[<img src="readme-image/roulette-app-basic-structure.png" width="600">]
+.center[<img src="readme-image/roulette-app-basic-structure.png" width="500">]
 
 * サーバーレスとは?<br> __`サーバーを用意しないで`__ 、アプリのバックエンド機能を実装することです
 
@@ -62,10 +62,10 @@ layout: false
 * クラウド上で開発できる 
 * __`無料`__ で体験可能です  
 
-.center[<img src="readme-image/monaca.png" width="600">]
+.center[<img src="readme-image/monaca.png" width="500">]
 
 * MonacaをはJavaScriptSDKを利用して連携しています
- * 初めての方でも使いやすい設計なので今回のハンズオンに採用いたしました
+ * 初めての方でも使いやすい設計なので今回のハンズオンに採用しました
 
 ---
 
@@ -112,8 +112,7 @@ layout: false
 
 .center[<img src="readme-image/UIstructure.png" width="700">]
 
-* 主にスクリプトの機能説明メインで進めてまいります
-* ログインページなどは動作確認のみです
+* 主にスクリプトの機能の説明をメインで、ログイン機能のコード確認はせず進めてまいります
 
 ---
 
@@ -135,7 +134,7 @@ layout: false
     - 6.8【mBaaS】スクリプト準備③CouponGet.js
     - 6.9【Monaca】アプリからスクリプトを呼び出す
     - 6.10【mBaaS】動作確認②
-7.  __まとめと振り返り__
+    - 7 まとめと振り返り
     ]
 ---
 layout: true
@@ -271,14 +270,14 @@ layout: false
 .center[<img src="readme-image/apikey.png" width="600">]
 
 * この __`アプリケーションキー`__ と __`クライアントキー`__ を合わせてアプリAPIキーと呼びます
-* ここまでで連携にmBaaS側で最低限必要なものを用意できました
+* ここまでで、mBaaS側の連携に必要なものを用意できました
 
 ---
 
 
 ### 5.3【Monaca】mBaaSを使うための準備
 * 3.2で発行されたAPIキーを設定します
- * www/js/app.js を開く
+ * __`www/js/app.js`__ を開く
  * 左のファイル一覧より __`▶ www`__ の __`▶`__ をクリック
 .center[<img src="readme-image/jsopen1.png" width="600">]
 
@@ -307,20 +306,20 @@ layout: false
 
 ### 5.3【Monaca】mBaaSを使うための準備
 * 5.2で発行されたAPIキーを設定します
- * __`APPLICATION_KEY`__ と __`CLIENT_KEY`__ をAPIキー （アプリケーションキーとクライアントキー）に貼り替える
+ * __`APPLICATION_KEY`__ と __`CLIENT_KEY`__ をAPIキー （アプリケーションキーとクライアントキー）に貼り替え
  * メニューバーの __`ファイル`__ > __`保存`__ をクリックしてプロジェクトを保存
-  * Windowsでは__`Ctrl + s`__ 、Macは __`Command + s`__ でも保存できます
+  * Windowsでは__`Ctrl + s`__ 、Macは __`Command + s`__ でも保存できる
 .center[<img src="readme-image/APIキーとMOなかんの連携画像.png" width="600">]
- * 入力前
- ```js
- // 【NCMB】SDKの初期化
- var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
- ```
- * 入力後
- ```js
- // 【NCMB】SDKの初期化
- var ncmb = new NCMB("7612fe7----------------", "5a2efeb----------------");
- ```
+* 入力前
+```js
+// 【NCMB】SDKの初期化
+var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
+```
+* 入力後
+```js
+// 【NCMB】SDKの初期化
+var ncmb = new NCMB("7612fe7----------------", "5a2efeb----------------");
+```
  
 ---
 
@@ -329,12 +328,12 @@ layout: false
 
 .center[<img src="readme-image/apikeyset.png" width="700">]
 
-* ここまでで、SDKの初期化が完了しMonacaとmBaaSの連携が出来ました
+* ここまでで、__`SDKの初期化`__ が完了しMonacaとmBaaSの連携が出来ました
 
 ---
 
 ### 5.4 動作確認① (会員管理)
-* ここでMonacaとmBaaSがログイン処理が正しく行われることで連携できたことを確認していきます
+* ここでログイン処理が正しく行われることでMonacaとmBaaSが連携できたことを確認していきます
 
 .center[<img src="readme-image/flow3.png" width="700">]
 
@@ -348,16 +347,16 @@ layout: false
 
 ---
 ### 5.4 動作確認① (新規登録処理)
-* 新規会員登録をします
- * テキストフィールドにそれぞれ、ユーザー名と、パスワードを好きな文字で入力
- * 新規ユーザー登録をクリック
+* __`新規会員登録`__ をします
+ * __`ユーザー名`__ 、__`パスワード`__ を好きな文字で入力
+ * __`新規会員登録`__ をクリック
  
 .center[<img src="readme-image/adduser1.png" width="600">]
 
 ---
 
 ### 5.4 動作確認① (新規登録処理)
-* 新規会員登録をします
+* __`新規会員登録`__ をします
  * ログイン処理後、表示されるルーレット画面では以下のようにErrorが出てきますが、ここではそのままで大丈夫です
 
 .center[<img src="readme-image/erroruser.png" width="250">]
@@ -365,7 +364,7 @@ layout: false
 ---
 
 ### 5.4 動作確認① (新規登録処理)
-* 新規会員登録をします
+* __`新規会員登録`__ をします
  * mBaaSの管理画面を開く
  * __`会員管理`__ をクリック
 
@@ -374,7 +373,7 @@ layout: false
 ---
 
 ### 5.4 動作確認① (新規登録処理)
-* 新規会員登録をします
+* __`新規会員登録`__ をします
  * 新規登録に成功していると会員情報が追加、ルーレット画面が表示されます
  * __`Password`__ はセキュリティ上 __`hidden`__ となっています
 
