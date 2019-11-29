@@ -11,6 +11,7 @@ class: center, middle, inverse
 .footnote[
  20191203作成
 ]
+
 ---
 layout: true
 class: center, middle, inverse
@@ -22,14 +23,14 @@ layout: false
 ### 目次
 .size_large[
 ・前半  
-1.  __作成するアプリについて__  
-2. __アプリ作成に使うツール__  
-3.  __アカウント準備__  
-4. __ハンズオンの内容__  
+ 1.  __作成するアプリについて__  
+ 2. __アプリ作成に使うツール__  
+ 3.  __アカウント準備__  
+ 4. __ハンズオンの内容__  
 ・後半  
-5.  __ハンズオンの準備__  
-6. __ルーレット機能の作成__  
-7. __まとめと振り返り__  
+ 5.  __ハンズオンの準備__  
+ 6. __ルーレット機能の作成__  
+ 7. __まとめと振り返り__  
 ]
 
 ---
@@ -80,9 +81,9 @@ layout: false
 * __`無料`__ で体験可能です
 * APIを利用するためのSDKは幅広く対応 (Swift / iOS / Android / JavaScript / Monaca / Unity)
 * mobile Backend as a Service の頭文字を取って、通称 __`mBaaS`__ と呼びます
- * この後でてくる __`ニフクラ mobile backend`__ を __`mBaaS`__ と置き換えてお話していきます
+ * この後 __`ニフクラ mobile backend`__ を __`mBaaS`__ と置き換えてお話しします
 
-.center[<img src="readme-image/mBaaSとは.png" width="400">]
+.center[<img src="readme-image/mBaaSとは.png" width="300">]
 
 ---
 layout: true
