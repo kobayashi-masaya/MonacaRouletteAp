@@ -737,8 +737,8 @@ function selectReward(probabilities) {
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * SelectReward.jsをアップロードする  
-  1.スクリプトをクリック  
-  2.アップロードをクリック  
+  1.__`スクリプト`__ をクリック  
+  2.__`アップロード`__ をクリック  
 
 .center[<img src="readme-image/select1.png" width="400">]
  
@@ -747,9 +747,9 @@ function selectReward(probabilities) {
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * SelectReward.jsをアップロードする  
   3.SelectReward.jsをドラッグ＆ドロップかファイル選択  
-  4.メソッドはGETを選択  
-  5.ファイルの状態は実行可能を選択  
-  6.アップロードするをクリック  
+  4.メソッドは__`GET`__ を選択  
+  5.ファイルの状態は__`実行可能`__ を選択  
+  6.__`アップロードする`__ をクリック  
   
 .center[<img src="readme-image/select2.png" width="300">]
  
@@ -759,8 +759,8 @@ function selectReward(probabilities) {
 * SelectReward.jsをテストしてみましょう  
   7.SelectReward.jsがアップロードされていることを確認  
   8.SelectReward.jsをクリック  
-  9.実行タブをクリック  
-  10.実行をクリック  
+  9.__`実行タブ`__ をクリック  
+  10.__`実行`__ をクリック  
   
 .center[<img src="readme-image/select3.png" width="500">]
  
@@ -768,7 +768,7 @@ function selectReward(probabilities) {
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * SelectReward.jsをテストしてみましょう  
-  11.以下の警告が出るが実行するをクリック   
+  11.以下の警告が出るが __`実行する`__ をクリック   
 .center[<img src="readme-image/select5.png" width="200">]
   12.実行ボタンの下に結果が出力されていることを確認  
   13.当たった等(stopNumber)とクーポン画像名(png)が取れている  
@@ -891,9 +891,9 @@ module.exports = function (req, res) {
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * UserPost.jsをアップロードする  
   1.UserPost.jsをドラッグ＆ドロップかファイル選択  
-  2.メソッドはPOSTを選択  
-  3.ファイルの状態は実行可能を選択  
-  4.アップロードするをクリック  
+  2.メソッドは __`POST`__ を選択  
+  3.ファイルの状態は __`実行可能`__ を選択  
+  4.__`アップロードする`__ をクリック  
 
 .center[<img src="readme-image/post1.png" width="300">]
  
@@ -903,9 +903,9 @@ module.exports = function (req, res) {
 * UserPost.jsをテストしてみましょう 
   5.UserPost.jsがアップロードされていることを確認  
   6.UserPost.jsをクリック  
-  7.実行タブをクリック  
+  7.__`実行タブ`__ をクリック  
   8.queryの欄に __`user=name&stopNumber=1`__ を入力(nameは好きな文字、stopNumberは1,2,3のどれかを指定)  
-  9.実行をクリック  
+  9.__`実行`__ をクリック  
   
 .center[<img src="readme-image/post2.png" width="500">]
  
@@ -913,18 +913,18 @@ module.exports = function (req, res) {
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * UserPost.jsのテストをしてみましょう  
-  10.以下の警告が出るが実行するをクリック  
+  10.以下の警告が出るが__`実行する`__ をクリック  
 .center[<img src="readme-image/post3.png" width="200">]
 * UserPost.jsを実行  
   11.実行ボタンの下に結果が出力されていることを確認  
 .center[<img src="readme-image/post4.png" width="300">]
-* POST data successfully!と出力されていれば成功です
+* __`POST data successfully!`__ と出力されていれば成功です
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * UserPost.jsのテストをしてみましょう  
-  13.データストアをクリック  
-  14.今回はstopNumberを1としたのでReward1をクリック  
+  13.__`データストア`__ をクリック  
+  14.今回はstopNumberを1としたので__`Reward1をクリック  
   
 .center[<img src="readme-image/post5.png" width="500">]
  
@@ -1061,9 +1061,9 @@ module.exports = function (req, res) {
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * CouponGet.jsをアップロードする  
   1.CouponGet.jsをドラッグ＆ドロップかファイル選択  
-  2.メソッドはGetを選択  
-  3.ファイルの状態は実行可能を選択  
-  4.アップロードするをクリック  
+  2.メソッドは__`Get`__ を選択  
+  3.ファイルの状態は__`実行可能`__ を選択  
+  4.__`アップロードする`__ をクリック  
   
 .center[<img src="readme-image/coupon1.png" width="300">]
  
@@ -1073,9 +1073,9 @@ module.exports = function (req, res) {
 * CouponGet.jsをテストしてみましょう  
   5.CouponGet.jsがアップロードされていることを確認  
   6.CouponGet.jsをクリック  
-  7.実行タブをクリック  
+  7.__`実行タブ`__ をクリック  
   8.queryの欄に __`user=name`__ を入力(nameは好きな文字列)  
-  9.実行をクリック  
+  9.__`実行`__ をクリック  
   
 .center[<img src="readme-image/coupon2.png" width="500">]
  
@@ -1083,7 +1083,7 @@ module.exports = function (req, res) {
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * CouponGet.jsをテストしてみましょう  
-  10.以下の警告が出るが実行するをクリック  
+  10.以下の警告が出るが __`実行する`__ をクリック  
 .center[<img src="readme-image/coupon3.png" width="400">]
   11.実行ボタンの下に結果が出力されていることを確認  
 .center[<img src="readme-image/coupon4.png" width="400">]
