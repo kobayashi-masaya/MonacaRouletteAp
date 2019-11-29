@@ -682,45 +682,86 @@ layout: false
 .size_small_7[
 ```js
 module.exports = function (req, res) {
-    var NCMB = require('ncmb');
-    var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
-    var Roulette_Item = ncmb.DataStore('Item');
-
-    //Roulette_Itemから確率を取得
-    Roulette_Item.fetchAll().then(function (results) {
-        //何等が当たったか算出
-        var rewardNum = selectReward(results[0].rate);
-        if (rewardNum == -1) {
-            res.status(500).json({
-                "message": "Probabilities of rewards must be defined as Array(length=2)"
-            });
-        }
-        var stopNumber = results[0].rewards[rewardNum];
-        var png = results[0].png[rewardNum];
-        res.status(200).json({stopNumber,png});
-    })
-    .catch(function (error) {
-        res.status(500).send("Error: " + error);
-    });
+    var name = req.query.user;
+    
+    // 【NCMB】SDKインポート
+    var NCMB = require("ncmb");
+    
+    // 【NCMB】SDKの初期化
+    var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY"); 
 }
+```
+]
+* module.exports : モジュール化をし、さまざまな機能を持ったプログラムを個別のファイルに分割することができる
+* require('ncmb') : モジュール化されたncmbを読み込み
 
+---
+
+### 6.6【mBaaS】スクリプト準備①SelectReward.js
+* コード確認
+
+.size_small_7[
+```js
+/* 【NCMB】データストアから確率を取得する */
+    // 保存先クラスの指定
+    var Item = ncmb.DataStore("Item");
+    // 全件取得
+    Item.fetchAll()
+        .then(function (results) {
+            /* 取得成功時の処理 */
+            // 確率によりクーポンを決定
+            var rewardNum = selectReward(results[0].rate);
+            // データに不備があった場合の処理
+            if (rewardNum == -1) {
+                res.status(500).json({
+                    "message": "Probabilities of rewards must be defined as Array(length=2)"
+                });
+            }
+            // クーポン番号と画像情報を返却
+            var stopNumber = results[0].rewards[rewardNum];
+            var png = results[0].png[rewardNum];
+            res.status(200).json({stopNumber,png});
+        })
+        .catch(function (error) {
+            /* 取得失敗時の処理 */
+            res.status(500).send("Error: " + error);
+        });
+```
+]
+
+* .fetchAll() :オブジェクトをデータストアから取得(クエリ条件を指定しない場合は全件取得)
+* res.status(status) :引数として渡された数値をステータスコードとして指定
+* res.send(data)	:引数として渡された文字列をレスポンスボディとして返却
+* res.json(data)	:引数として渡されたJSONをレスポンスボディとして返却
+
+---
+
+### 6.6【mBaaS】スクリプト準備①SelectReward.js
+* コード確認
+
+.size_small_7[
+```js
+// クーポンの決定処理
 function selectReward(probabilities) {
-    // probabilities は Array か
+    // probabilitiesが配列かどうか確認
     if (!(Array.isArray(probabilities))) return -1;
-    // probabilities の要素数は２か
+    
+    // probabilities の要素数の確認
     if (probabilities.length != 2) return -1;
-
+    
     const p0 = Number(probabilities[0]); // rewards[0]が選択される確率
-    const p1 = Number(probabilities[1]); // rewards[1]が   〃
-
-    // 今回はp0(1等の確率)とp1(2等の確率),から残り(3等の確率)を出している
+    const p1 = Number(probabilities[1]); // rewards[1]が選択される確率
+    
+    // 乱数の生成
     var randNum = Math.random();
+    // クーポンの決定
     if (randNum <= p0) return 0;
     else if (randNum <= p0 + p1) return 1;
     else return 2;
 }
 ```
 ]
+* 何等賞が当たったかを算出して、1,2,3のどれかをreturnしている関数
 
 ---
 
@@ -829,53 +870,92 @@ function selectReward(probabilities) {
 .size_small_7[
 ```js
 module.exports = function (req, res) {
-    var NCMB = require('ncmb');
-    var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
-    
     var name = String(req.query.user);
     var stopNumber = req.query.stopNumber;
-    var StoreName = 'Reward' + String(stopNumber);
-    var Reward = ncmb.DataStore(StoreName);
-    var user_login = new ncmb.User({userName: "superuser",password: "super"});
+    var className = "Reward" + String(stopNumber);
+    
+    // 【NCMB】SDKインポート
+    var NCMB = require("ncmb");
+    // 【NCMB】SDKの初期化
+    var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
+```
+]
 
-    //管理者でログイン
-    ncmb.User.login(user_login)
-        .then(function (data) {
-            //当たった賞がすでにあるか検索
-            Reward.equalTo('name', name)
-                .fetchAll()
-                .then(function(results) {
-                    if(results[0]==="" || results[0]===undefined){
-                        var nameAdd = new Reward();
-                        nameAdd.set("name", name)
-                            .save() 
-                            .then(function (nameAdd) {
-                                nameAdd.set("name", name);
-                                return nameAdd.update();
-                            })
-                            .then(function (success) {
-                                res.send("POST data successfully!");   
-                            })
-                            .catch(function (error) {
-                                res.status(500).send("Error: " + error);
-                            });
-                    }
-                    else{
-                        res.send("POST data already");
-                    }      
-                })
-                .catch(function (error) {
-                    res.status(500).send("Error: " + error);
-                });       
+---
+
+### 6.7【mBaaS】スクリプト準備②UserPost.js
+* コード確認
+
+.size_small_7[
+```js
+    // 【NCMB】あらかじめ準備したsuperuserユーザーでログイン
+    ncmb.User.login("superuser", "super")
+        .then(function (superuser) {
+            /* ログイン成功時の処理 */
         })
         .catch(function (err) {
+            /* ログイン失敗時の処理 */
             res.status(500).send("Error: " + error);
         });
+```
+]
+
+---
+
+### 6.7【mBaaS】スクリプト準備②UserPost.js
+* コード確認
+
+.size_small_7[
+```js
+// 【NCMB】ルーレットの結果毎にユーザー名を保存する
+// 保存先クラスの生成
+var Reward = ncmb.DataStore(className);
+// 一致する情報を取得する
+Reward.equalTo("name", name)
+        .fetchAll()
+        .then(function(results) {
+            /* 取得成功時の処理 */
+            var objectId = "";
+            if (results[0]==="" || results[0]===undefined) {
+                objectId = "";
+            }else{
+                objectId = results[0].objectId;
+            }
+        })
+        .catch(function (error) {
+            /* 取得失敗時の処理 */
+            res.status(500).send("Error: " + error);
+        });  
 }
 ```
 ]
 
 ---
+
+### 6.7【mBaaS】スクリプト準備②UserPost.js
+* コード確認
+
+.size_small_7[
+```js
+// 新規登録または更新をする
+var reward = new Reward();
+reward.set("name", name);
+(objectId == "" ? reward.save() : reward.set("objectId", objectId).update())
+    .then(function (success) {
+        /* 保存または更新成功時の処理 */
+        res.send("POST data successfully!");
+    })
+    .catch(function (error) {
+        /* 保存または更新失敗時の処理 */
+        res.status(500).send("Error: " + error);
+    });
+}
+```
+]
+*
+
+---
+
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * 3行目のAPIキーの置き換え  
@@ -994,46 +1074,43 @@ module.exports = function (req, res) {
 .size_small_7[
 ```js
 module.exports = function (req, res) {
-    var NCMB = require('ncmb');
-    var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
-
-    var Item = ncmb.DataStore('Item');
-    var Reward1 = ncmb.DataStore('Reward1');
-    var Reward2 = ncmb.DataStore('Reward2');
-    var Reward3 = ncmb.DataStore('Reward3');
     var name = req.query.user;
-    var png1 = "";
-    var png2 = "";
-    var png3 = "";
-    var user_login = new ncmb.User({userName: "superuser",password: "super"});
+    var png1;
+    var png2;
+    var png3;
+    
+    // 【NCMB】SDKインポート
+    var NCMB = require("ncmb");
+    // 【NCMB】SDKの初期化
+    var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
+    
+    // 【NCMB】各種保存先クラスの生成
+    var Item = ncmb.DataStore("Roulette_Item");
+    var Reward1 = ncmb.DataStore("Reward1");
+    var Reward2 = ncmb.DataStore("Reward2");
+    var Reward3 = ncmb.DataStore("Reward3"); 
+}
+```
+]
 
+---
+
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+* コード確認
+
+.size_small_7[
+```js
+// 【NCMB】あらかじめ準備したsuperuserユーザーでログイン
     const promise = new Promise((resolve, reject) => {
-        //管理者でログイン
-        ncmb.User.login(user_login).then(function (data) {
-                Reward1.equalTo("name", name)
-                    .fetchAll().then(function (reward1) {
-                        if(reward1[0]==="" || reward1[0]===undefined){
-                            png1 = "";
-                        }
-                        else{
-                            Item.fetchAll()
-                                .then(function (result1) {
-                                    png1 = result1[0].png[0];
-                                })
-                                .catch(function (error) {
-                                    res.status(500).send("Error: " + error);
-                                })                        
-                        }
-                    })
-                    .catch(function (error) {
-                       res.status(500).send("Error: " + error);
-                    })     
-                //Reward1と同様な処理を2,3と行うが以下省略
+        ncmb.User.login("superuser", "super")
+            .then(function (superuser) {
+                /* ログイン成功時の処理 */
             })    
             .catch(function (error) {
                 res.status(500).send("Error: " + error);
             });
     });
+    
     promise.then(() => setTimeout(function () {
         res.status(200).json({png1,png2,png3});
     }, 1000));
@@ -1041,9 +1118,96 @@ module.exports = function (req, res) {
 ```
 ]
 
-・Reward1.equalTo("name", name) : 完全一致検索
+---
+
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+* コード確認
+
+.size_small_7[
+```js
+Reward1.equalTo("name", name)
+    .fetchAll()
+    .then(function (reward1) {
+        if(reward1[0]==="" || reward1[0]===undefined){
+            png1 = "";
+        }else{
+            // 【NCMB】Roulette_Itemクラスを全件検索する
+            Item.fetchAll()
+                .then(function (result1) {
+                    png1 = result1[0].png[0];
+                })
+                .catch(function (error) {
+                    res.status(500).json({error: 500});
+                });
+        }
+    })
+    .catch(function (error) {
+        res.status(500).send("Error: " + error);
+    });
+    
+// 以下Reward2,Reward3クラスも同様に
+
+}
+```
+]
 
 ---
+
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+* コード確認
+
+.size_small_7[
+```js
+// 【NCMB】SDKインポート
+    var NCMB = require("ncmb");
+    // 【NCMB】SDKの初期化
+    var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
+    // 【NCMB】あらかじめ準備したsuperuserユーザーでログイン
+    ncmb.User.login("superuser", "super")
+        .then(function (superuser) {
+            /* ログイン成功時の処理 */
+            // 【NCMB】ルーレットの結果毎にユーザー名を保存する
+            // 保存先クラスの生成
+            var Reward = ncmb.DataStore(className);
+            // 致する情報を取得する
+            Reward.equalTo("name", name)
+                  .fetchAll()
+                  .then(function(results) {
+                      /* 取得成功時の処理 */
+                      var objectId = "";
+                      if (results[0]==="" || results[0]===undefined) {
+                          objectId = "";
+                      }else{
+                          objectId = results[0].objectId;
+                      }
+                      // 新規登録または更新をする
+                      var reward = new Reward();
+                      reward.set("name", name);
+                      (objectId == "" ? reward.save() : reward.set("objectId", objectId).update())
+                          .then(function (success) {
+                              /* 保存または更新成功時の処理 */
+                              res.send("POST data successfully!");
+                          })
+                          .catch(function (error) {
+                              /* 保存または更新失敗時の処理 */
+                              res.status(500).send("Error: " + error);
+                          });
+                  })
+                  .catch(function (error) {
+                      /* 取得失敗時の処理 */
+                      res.status(500).send("Error: " + error);
+                  });
+        })
+        .catch(function (err) {
+            /* ログイン失敗時の処理 */
+            res.status(500).send("Error: " + error);
+        });
+```
+]
+
+---
+
+
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * 3行目のAPIキーの置き換え  
