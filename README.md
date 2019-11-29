@@ -919,16 +919,15 @@ module.exports = function (req, res) {
   11.実行ボタンの下に結果が出力されていることを確認  
 .center[<img src="readme-image/post4.png" width="300">]
 * __`POST data successfully!`__ と出力されていれば成功です
+
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * UserPost.jsのテストをしてみましょう  
   13.__`データストア`__ をクリック  
-  14.今回はstopNumberを1としたので__`Reward1をクリック  
-  
+  14.今回はstopNumberを1としたので __`Reward1`__ をクリック  
 .center[<img src="readme-image/post5.png" width="500">]
- 
- * 指定したuserが登録されていれば成功です  
+* 指定したuserが登録されていれば成功です  
  
 ---
 
@@ -941,8 +940,7 @@ module.exports = function (req, res) {
 * Point  
   * 非同期処理を使用   
   * 処理が重ならずに全ての処理の終了後に値が返される  
- 
- .center[<img src="readme-image/script3.png" width="400">]
+.center[<img src="readme-image/script3.png" width="400">]
  
 ---
 
