@@ -11,12 +11,16 @@ class: center, middle, inverse
 .footnote[
  20191203作成
 ]
-
 ---
 layout: true
 class: center, middle, inverse
 ---
-[
+# 0.目次
+---
+layout: false
+
+### 目次
+.size_large[
 ・前半  
 1.  __作成するアプリについて__  
 2. __アプリ作成に使うツール__  
