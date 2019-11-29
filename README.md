@@ -769,10 +769,10 @@ function selectReward(probabilities) {
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * SelectReward.jsをテストしてみましょう  
   11.以下の警告が出るが実行するをクリック   
-.center[<img src="readme-image/select5.png" width="400">]
+.center[<img src="readme-image/select5.png" width="200">]
   12.実行ボタンの下に結果が出力されていることを確認  
   13.当たった等(stopNumber)とクーポン画像名(png)が取れている  
-.center[<img src="readme-image/select4.png" width="400">]
+.center[<img src="readme-image/select4.png" width="300">]
  * ここでDBの入力値などの間違いが出てくる
 ---
 
@@ -914,10 +914,10 @@ module.exports = function (req, res) {
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * UserPost.jsのテストをしてみましょう  
   10.以下の警告が出るが実行するをクリック  
-.center[<img src="readme-image/post3.png" width="400">]
+.center[<img src="readme-image/post3.png" width="200">]
 * UserPost.jsを実行  
   11.実行ボタンの下に結果が出力されていることを確認  
-.center[<img src="readme-image/post4.png" width="400">]
+.center[<img src="readme-image/post4.png" width="300">]
 * POST data successfully!と出力されていれば成功です
 ---
 
