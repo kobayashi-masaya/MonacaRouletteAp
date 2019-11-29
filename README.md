@@ -148,7 +148,7 @@ class: center, middle, inverse
 layout: false
 
 ### 5.1【Monaca】アプリ側の準備
-* プロジェクトをインポートして、JavaScriptSDKの導入をしていきます
+* プロジェクトのインポートとJavaScriptSDKをMonaca側に設定し連携します
  * プロジェクトのインポート
  * SDKの導入
  
@@ -157,7 +157,7 @@ layout: false
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* プロジェクトのインポートとJavaScriptSDKをMonaca側に設定し連携していきます
+* プロジェクトのインポートとJavaScriptSDKをMonaca側に設定し連携します
  * プロジェクトのインポート
  * SDKの導入
  
@@ -278,7 +278,7 @@ layout: false
 
 
 ### 5.3【Monaca】mBaaSを使うための準備
-* 3.2で発行されたAPIキーを設定します
+* 5.2で発行されたAPIキーを設定します
  * __`www/js/app.js`__ を開く
  * 左のファイル一覧より __`▶ www`__ の __`▶`__ をクリック
 .center[<img src="readme-image/jsopen1.png" width="600">]
@@ -567,12 +567,12 @@ layout: false
 
 ### 6.4【mBaaS】スーパーユーザーの準備
 * スーパーユーザーを用意する  
-  5.userNameに superuser と入力し Enterを押下  
-  6.passwordに super と入力し Enterを押下  
+  5.userNameに __`superuser`__ と入力し Enterを押下  
+  6.passwordに __`super`__ と入力し Enterを押下  
 
 .center[<img src="readme-image/superuser2.png" width="700">]
 
-* 成功するとユーザーが追加され、passwordがhiddenになります  
+* 成功するとユーザーが追加され、passwordが __`hidden`__ になります  
 * objectIdが自動で割り振られ、この値をacl設定に後ほど使用します
   * objectId: mBaaSのデータ1つ1つに払い出された、世界中で重複しないことになっているID
 
@@ -603,7 +603,7 @@ layout: false
 * パーミッションの設定をします  
   7.__`新しいパーミッション`__ をクリック  
   8.__`全員 ▼`__ をクリック  
-  9.__`会員`__ を選択 
+  9.__`会員`__ を選択  
   10.先ほどコピーした __`objectId`__ をペースト  
   11.__`変更を保存`__ をクリック  
 
@@ -618,8 +618,8 @@ layout: false
 .center[<img src="readme-image/acl4.png" width="400">]
 
 * 設定されているか確認します  
-  1.__`データストア`__　をクリック  
-  2.__`パーミッションの設定`__　をクリック  
+  1.__`データストア`__ をクリック  
+  2.__`パーミッションの設定`__ をクリック  
 * 登録されると次のように表示されます  
 
 .center[<img src="readme-image/acl5.png" width="400">]
@@ -642,7 +642,7 @@ layout: false
   * 確率の調整が可能
   * 1等が絶対に当たらない鬼畜設定も可能…
 
-.center[<img src="readme-image/script1.png" width="400">]
+.center[<img src="readme-image/script1.png" width="500">]
 
 ---
 
@@ -652,7 +652,7 @@ layout: false
   2. その確率から1等,2等,3等を算出
   3. 当たった賞の値をItemから取得しMonaca側へ返す
 
-.center[<img src="readme-image/script11.png" width="400">]
+.center[<img src="readme-image/script11.png" width="500">]
 
 ---
 
@@ -662,7 +662,7 @@ layout: false
   2. その確率から1等,2等,3等を算出
   3. 当たった賞の値をItemから取得しMonaca側へ返す
 
-.center[<img src="readme-image/script12.png" width="400">]
+.center[<img src="readme-image/script12.png" width="500">]
 
 ---
 
@@ -672,7 +672,7 @@ layout: false
   2. その確率から1等,2等,3等を算出
   3. 当たった賞の値をItemから取得しMonaca側へ返す
 
-.center[<img src="readme-image/script13.png" width="400">]
+.center[<img src="readme-image/script13.png" width="500">]
 
 ---
 
@@ -770,12 +770,10 @@ function selectReward(probabilities) {
 * SelectReward.jsをテストしてみましょう  
   11.以下の警告が出るが実行するをクリック   
 .center[<img src="readme-image/select5.png" width="400">]
-* ここでDBの入力値などの間違いが出てくる
-
   12.実行ボタンの下に結果が出力されていることを確認  
   13.当たった等(stopNumber)とクーポン画像名(png)が取れている  
 .center[<img src="readme-image/select4.png" width="400">]
- 
+ * ここでDBの入力値などの間違いが出てくる
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
@@ -784,21 +782,11 @@ function selectReward(probabilities) {
   2. 管理者でログイン  
   3. 当たった賞のログにユーザーの名前があるか検索  
   4. 無ければ登録する(クーポンを表示できるようになる)  
-
 * Point
   * 管理者でしか登録できないため、セキュリティ面も安心
   * 悪意のあるユーザーが勝手に登録すること防ぐ
 
----
-
-### 6.7【mBaaS】スクリプト準備②UserPost.js
-* 処理内容  
-  1. Monaca側から当たった賞をqueryより取得  
-  2. 管理者でログイン  
-  3. 当たった賞のログにユーザーの名前があるか検索  
-  4. 無ければ登録する(クーポンを表示できるようになる)  
-
-.center[<img src="readme-image/script2.png" width="400">]
+.center[<img src="readme-image/script2.png" width="500">]
 
 ---
 
@@ -809,7 +797,7 @@ function selectReward(probabilities) {
   3. 当たった賞のログにユーザーの名前があるか検索  
   4. 無ければ登録する(クーポンを表示できるようになる)  
 
-.center[<img src="readme-image/script21.png" width="400">]
+.center[<img src="readme-image/script21.png" width="500">]
 
 ---
 
@@ -820,7 +808,7 @@ function selectReward(probabilities) {
   3. 当たった賞のログにユーザーの名前があるか検索  
   4. 無ければ登録する(クーポンを表示できるようになる)  
 
-.center[<img src="readme-image/script22.png" width="400">]
+.center[<img src="readme-image/script22.png" width="500">]
 
 ---
 
@@ -831,7 +819,7 @@ function selectReward(probabilities) {
   3. 当たった賞のログにユーザーの名前があるか検索  
   4. 無ければ登録する(クーポンを表示できるようになる)  
 
-.center[<img src="readme-image/script23.png" width="400">]
+.center[<img src="readme-image/script23.png" width="500">]
 
 ---
 
