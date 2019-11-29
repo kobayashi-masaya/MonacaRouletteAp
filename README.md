@@ -452,7 +452,7 @@ layout: false
   2.__`作成`__ をクリック  
   3.__`新規作成`__ をクリック  
   4.クラス名に __`Roulette_Item`__ と入力  
-  5. __`作成する`__ をクリック  
+  5.__`作成する`__ をクリック  
  
 .center[<img src="readme-image/itemclass1.png" width="700">]
 
@@ -460,9 +460,9 @@ layout: false
 
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* データストアに「Roulette_Item」クラスを準備します
+* データストアに「Roulette_Item」クラスを準備します  
   6.__`新しいフィールド`__ をクリック  
-  7.フィールド名に __`probability`__ と入力
+  7.フィールド名に __`probability`__ と入力  
   8.__`作成する`__ をクリック    
   9.この手順で、フィールド名 __`rewards`__ と __`png`__ も作成  
  
