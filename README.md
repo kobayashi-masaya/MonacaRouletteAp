@@ -519,8 +519,8 @@ layout: false
   1. __`データストア`__をクリック  
   2. __`作成を`__クリック  
   3. __`新規作成`__をクリック  
-  4. クラス名に __Reward1__ と入力
-  5. 作成するをクリック      
+  4. クラス名に __Reward1__ と入力  
+  5. 作成するをクリック  
   6. 上記手順で同様に __Reward2__ と __Reward3__ も作成    
   
 .center[<img src="readme-image/rewardclass1.png" width="700">]
