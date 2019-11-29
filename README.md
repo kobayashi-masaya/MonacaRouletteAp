@@ -1082,13 +1082,11 @@ module.exports = function (req, res) {
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * CouponGet.jsをテストしてみましょう  
   10.以下の警告が出るが __`実行する`__ をクリック  
-.center[<img src="readme-image/coupon3.png" width="400">]
+.center[<img src="readme-image/coupon3.png" width="400">]  
   11.実行ボタンの下に結果が出力されていることを確認  
-.center[<img src="readme-image/coupon4.png" width="400">]
- 
+.center[<img src="readme-image/coupon4.png" width="400">]  
 * 現在はReward1のクラスなのでone.pngが結果として取得できている
 
- 
 ---
 
 ### 6.9【Monaca】アプリからスクリプトを呼び出す
