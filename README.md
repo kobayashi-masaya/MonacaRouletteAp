@@ -114,7 +114,7 @@ layout: false
 
 .center[<img src="readme-image/UIstructure.png" width="700">]
 
-* 主にスクリプトの機能の説明をメインで、ログイン機能のコード確認はせず進めてまいります
+* スクリプト機能の説明をメインで、その他のコードの説明は割愛いたします
 
 ---
 
