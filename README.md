@@ -938,9 +938,9 @@ module.exports = function (req, res) {
   2. 次にReward1にユーザーがいるか検索  
   3. 存在していれば画像名をItemから取得  
   4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
-* Point
-  * 非同期処理を使用
-  * 処理が重ならずに全ての処理の終了後に値が返される
+* Point  
+  * 非同期処理を使用   
+  * 処理が重ならずに全ての処理の終了後に値が返される  
  
  .center[<img src="readme-image/script3.png" width="400">]
  
