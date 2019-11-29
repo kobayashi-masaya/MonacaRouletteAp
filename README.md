@@ -16,13 +16,6 @@ class: center, middle, inverse
 layout: true
 class: center, middle, inverse
 ---
-# 0.目次
-
----
-layout: false
-
-### 目次
-.size_large[
 ・前半  
 　1.  __作成するアプリについて__  
 　2. __アプリ作成に使うツール__  
@@ -47,9 +40,13 @@ layout: false
 ### 概要
 * ニフクラ mobile backendの『スクリプト機能』を利用して<br>
 __`サーバーレスでルーレットアプリにクーポン機能を実装します`__
-* サーバーレスとは?<br> __`サーバーを用意しないで`__ 、アプリのバックエンド機能を実装することです
+* 既にコーディングを完了させたサンプルアプリを使って作業していきます
+ * 今回する作業としては、確率などのデータの入ったクラスや当たったログを蓄積、クーポン画像のアップロード、3つのスクリプト連携方法を実際に体験していいただきます
 
 .center[<img src="readme-image/roulette-app-basic-structure.png" width="600">]
+
+* サーバーレスとは?<br> __`サーバーを用意しないで`__ 、アプリのバックエンド機能を実装することです
+
 
 ---
 layout: true
@@ -61,20 +58,24 @@ class: center, middle, inverse
 layout: false
 
 ### 2.1 Monaca 紹介
-* HTML5/JavaScript/CSS3でスマホアプリが開発できる開発環境です  
-* 開発スタイル／コーディング環境は選択できます  
+* HTML5/JavaScript/CSS3でiOSとAndroidの両OSに対してスマホアプリが開発できる開発環境です  
+* クラウド上で開発できる 
 * __`無料`__ で体験可能です  
 
 .center[<img src="readme-image/monaca.png" width="600">]
+
+* MonacaをはJavaScriptSDKを利用して連携しています
+ * 初めての方でも使いやすい設計なので今回のハンズオンに採用いたしました
 
 ---
 
 ### 2.2 ニフクラ mobile backend 紹介
 * スマートフォンアプリに必要なバックエンド機能が __`開発不要で利用できる`__ クラウドサービスです
-* クラウド上に用意された機能を __`APIを呼び出すだけで利用可能`__ です。
+* クラウド上に用意された機能を __`APIを呼び出すだけで利用可能`__ です
 * __`無料`__ で体験可能です
 * APIを利用するためのSDKは幅広く対応 (Swift / iOS / Android / JavaScript / Monaca / Unity)
 * mobile Backend as a Service の頭文字を取って、通称 __`mBaaS`__ と呼びます
+ * この後でてくる __`ニフクラ mobile backend`__ を __`mBaaS`__ と置き換えてお話していきます
 
 .center[<img src="readme-image/mBaaSとは.png" width="400">]
 
@@ -111,10 +112,10 @@ layout: false
 
 .center[<img src="readme-image/UIstructure.png" width="700">]
 
-* 既にコーディングを完了させたサンプルアプリを使って作業していきます
+* 主にスクリプトの機能説明メインで進めてまいります
+* ログインページなどは動作確認のみです
 
 ---
-
 
 ### 4.2ハンズオンの流れ
 .size_large[
@@ -134,6 +135,7 @@ layout: false
     - 6.8【mBaaS】スクリプト準備③CouponGet.js
     - 6.9【Monaca】アプリからスクリプトを呼び出す
     - 6.10【mBaaS】動作確認②
+7.  __まとめと振り返り__
     ]
 ---
 layout: true
@@ -145,8 +147,8 @@ class: center, middle, inverse
 layout: false
 
 ### 5.1【Monaca】アプリ側の準備
-* アプリをインポートしてJavaScriptSDKの導入をしていきます
- * アプリのインポート
+* プロジェクトをインポートして、JavaScriptSDKの導入をしていきます
+ * プロジェクトのインポート
  * SDKの導入
  
 .center[<img src="readme-image/flow0.1.png" width="700">]
@@ -154,8 +156,8 @@ layout: false
 ---
 
 ### 5.1【Monaca】アプリ側の準備
-* アプリのインポートとJavaScriptSDKをMonaca側に設定し連携していきます
- * アプリのインポート
+* プロジェクトのインポートとJavaScriptSDKをMonaca側に設定し連携していきます
+ * プロジェクトのインポート
  * SDKの導入
  
 .center[<img src="readme-image/flow0.2.png" width="700">]
@@ -165,9 +167,10 @@ layout: false
 ### 5.1【Monaca】アプリ側の準備
 * Monacaアプリケーションをインポートします
 1. Monaca(https://monaca.mobi/ja/signup) にログイン
-2. インポートリンク (https://00m.in/WlLhX) をクリック
+2. インポートリンク (http://bit.ly/import20191203) をクリック
 3. __`インポート`__ をクリック
-4. __`クラウドIDEで開く`__  をクリック
+4. __`MonacaRouletteApp`__ をクリック
+5. __`クラウドIDEで開く`__  をクリック
 
 .center[<img src="readme-image/import.png" width="800">]
 
@@ -176,16 +179,16 @@ layout: false
 ### 5.1【Monaca】アプリ側の準備
 * インポートに成功すると以下の画面が表示されます
 
-.center[<img src="readme-image/display.png" width="500">]
+.center[<img src="readme-image/display.png" width="600">]
 
 ---
 
 ### 5.1【Monaca】アプリ側の準備
 * SDKの導入（コンポーネントの追加）をします   
-  1.メニューバーの __`設定`__ をクリックします  
+  1.メニューバーの __`設定`__ をクリック   
   2.__`JS/CSSコンポーネントの追加と削除`__ をクリック  
 
-.center[<img src="readme-image/sdk1.png" width="300">]
+.center[<img src="readme-image/sdk1.png" width="250">]
 
 ---
 
@@ -216,7 +219,7 @@ layout: false
 
 ### 5.1【Monaca】アプリ側の準備
 * SDKの導入（コンポーネントの追加）をします   
-  7.必ずチェックボックスにチェックを入れて、 __`保存`__  をクリック  
+  7.必ず __`チェックボックスにチェックを入れて`__ 、 __`保存`__  をクリック  
 
 .center[<img src="readme-image/sdk5.png" width="500">]
 
@@ -224,7 +227,7 @@ layout: false
 
 ### 5.1【Monaca】アプリ側の準備
 * SDKの導入（コンポーネントの追加）をします   
-  8.一覧に __`ncmb`__ が表示ていることを確認する  
+  8.一覧に __`ncmb`__ が表示ていることを確認  
 
 .center[<img src="readme-image/sdk6.png" width="500">]
 
@@ -233,14 +236,16 @@ layout: false
 ---
 
 ### 5.2【mBaaS】サーバー側の準備
-* mBaaSにもアプリを作成し、払い出されるAPIキーをMonacaに設定、SDKの初期化を行うことで連携していきます
+* mBaaSにもアプリを作成し、払い出されるAPIキーをMonacaに設定    
+* SDKの初期化を行うことで連携していきます  
 
 .center[<img src="readme-image/flow0.3.png" width="700">]
 
 ---
 
 ### 5.2【mBaaS】サーバー側の準備
-* mBaaSにもアプリを作成し、払い出されるAPIキーをMonacaに設定、SDKの初期化を行うことで連携していきます
+* mBaaSにもアプリを作成し、払い出されるAPIキーをMonacaに設定   
+* SDKの初期化を行うことで連携していきます  
 
 .center[<img src="readme-image/flow2.png" width="700">]
 
@@ -249,7 +254,8 @@ layout: false
 ### 5.2【mBaaS】サーバー側の準備
 * mBaaS(https://console.mbaas.nifcloud.com/) にログインします
   * 新しいアプリを作成します
-  * アプリ名を __`Roulette`__ と入力し「`新規作成`」をクリック
+  * アプリ名を __`Roulette`__ と入力
+  * 「`新規作成`」をクリック
 
 .center[<img src="readme-image/mbaas-app-create.png" width="300">]
 
@@ -265,56 +271,57 @@ layout: false
 .center[<img src="readme-image/apikey.png" width="600">]
 
 * この __`アプリケーションキー`__ と __`クライアントキー`__ を合わせてアプリAPIキーと呼びます
+* ここまでで連携にmBaaS側で最低限必要なものを用意できました
 
 ---
 
 
 ### 5.3【Monaca】mBaaSを使うための準備
 * 3.2で発行されたAPIキーを設定します
- * js/app.js を開く
+ * www/js/app.js を開く
  * 左のファイル一覧より __`▶ www`__ の __`▶`__ をクリック
 .center[<img src="readme-image/jsopen1.png" width="600">]
 
 ---
 
 ### 5.3【Monaca】mBaaSを使うための準備
-* 3.2で発行されたAPIキーを設定します
+* 5.2で発行されたAPIキーを設定します
   * 左のファイル一覧より __`▶ js`__ の __`▶`__ をクリック
 .center[<img src="readme-image/jsopen2.png" width="600">]
 
 ---
 
 ### 5.3【Monaca】mBaaSを使うための準備
-* 3.2で発行されたAPIキーを設定します
+* 5.2で発行されたAPIキーを設定します
   * 左のファイル一覧より __`app.js`__ をダブルクリック
 .center[<img src="readme-image/jsopen3.png" width="600">]
 
 ---
 
 ### 5.3【Monaca】mBaaSを使うための準備
-* 3.2で発行されたAPIキーを設定します
+* 5.2で発行されたAPIキーを設定します
   * 画面に __`app.js`__ が表示されることを確認
 .center[<img src="readme-image/jsopen4.png" width="600">]
 
 ---
 
 ### 5.3【Monaca】mBaaSを使うための準備
-* 3.2で発行されたAPIキーを設定します
+* 5.2で発行されたAPIキーを設定します
  * __`APPLICATION_KEY`__ と __`CLIENT_KEY`__ をAPIキー （アプリケーションキーとクライアントキー）に貼り替える
  * メニューバーの __`ファイル`__ > __`保存`__ をクリックしてプロジェクトを保存
   * Windowsでは__`Ctrl + s`__ 、Macは __`Command + s`__ でも保存できます
-* 入力前
-```js
-// 【NCMB】SDKの初期化
-var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
-```
-
-* 入力後
-```js
-// 【NCMB】SDKの初期化
-var ncmb = new NCMB("7612fe7----------------", "5a2efeb----------------");
-```
-
+.center[<img src="readme-image/APIキーとMOなかんの連携画像.png" width="600">]
+ * 入力前
+ ```js
+ // 【NCMB】SDKの初期化
+ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
+ ```
+ * 入力後
+ ```js
+ // 【NCMB】SDKの初期化
+ var ncmb = new NCMB("7612fe7----------------", "5a2efeb----------------");
+ ```
+ 
 ---
 
 ### 5.3【Monaca】mBaaSを使うための準備
@@ -322,11 +329,12 @@ var ncmb = new NCMB("7612fe7----------------", "5a2efeb----------------");
 
 .center[<img src="readme-image/apikeyset.png" width="700">]
 
+* ここまでで、SDKの初期化が完了しMonacaとmBaaSの連携が出来ました
+
 ---
 
 ### 5.4 動作確認① (会員管理)
-* ここでmBaaSとMonacaが連携できたことを確認します
-* まず、ログイン処理が正しく行われることの確認をしましょう
+* ここでMonacaとmBaaSがログイン処理が正しく行われることで連携できたことを確認していきます
 
 .center[<img src="readme-image/flow3.png" width="700">]
 
@@ -347,6 +355,15 @@ var ncmb = new NCMB("7612fe7----------------", "5a2efeb----------------");
 .center[<img src="readme-image/adduser1.png" width="600">]
 
 ---
+
+### 5.4 動作確認① (新規登録処理)
+* 新規会員登録をします
+ * ログイン処理後、表示されるルーレット画面では以下のようにErrorが出てきますが、ここではそのままで大丈夫です
+
+.center[<img src="readme-image/erroruser.png" width="250">]
+
+---
+
 ### 5.4 動作確認① (新規登録処理)
 * 新規会員登録をします
  * mBaaSの管理画面を開く
@@ -355,6 +372,7 @@ var ncmb = new NCMB("7612fe7----------------", "5a2efeb----------------");
 .center[<img src="readme-image/adduser1.5.png" width="600">]
 
 ---
+
 ### 5.4 動作確認① (新規登録処理)
 * 新規会員登録をします
  * 新規登録に成功していると会員情報が追加、ルーレット画面が表示されます
@@ -364,33 +382,9 @@ var ncmb = new NCMB("7612fe7----------------", "5a2efeb----------------");
 
 ---
 
-### 5.4 動作確認① (ログイン処理)
-* 次にログインをします
- * 今回はログアウトボタンを実装していないため、画面をリロードしログイン画面に戻る
- * 右側のプレビュー画面にリロードボタンをクリック
- 
-.center[<img src="readme-image/reload.png" width="300">]
-
----
-
-### 5.4 動作確認① (ログイン処理)
-* 先ほど新規会員登録したユーザーでログインをします
- * 先ほど登録したユーザー名とパスワードを入力
- * __`ログイン`__ をクリック
- * ログインに成功するとルーレット画面が表示されます
-
-.center[<img src="readme-image/loginuser.png" width="700">]
-
----
-
-### 5.4 動作確認① (ログイン処理)
-* ログイン処理後、表示されるルーレット画面では以下のようにErrorが出てきますが、ここではそのままで大丈夫です
-
-.center[<img src="readme-image/erroruser.png" width="300">]
-
----
 layout: true
 class: center, middle, inverse
+
 ---
 
 # 6.ルーレット機能の作成
@@ -398,24 +392,17 @@ class: center, middle, inverse
 ---
 layout: false
 
-### 6.ルーレット機能の作成
-* データストアとファイルストアに今回使用するデータをアップしていきます
-
-.center[<img src="readme-image/flow4.png" width="700">]
-
----
-
 ### 6.1 設定ファイルのDL
-* 必要なファイルをダウンロードします
- * 設定ファイルをダウンロード(http://u0u1.net/RONw)
-  * ファイル構成は以下の通りです
+* ファイルストアとスクリプトに今回使用するデータを用意します
+ * 設定ファイルをダウンロード(http://bit.ly/download20191203)
+ * ファイル構成は以下の通りです
 
 .center[<img src="readme-image/settings.png" width="700">]
 
 ---
 
 ### 6.2【mBaaS】クーポン画像の準備
-* ファイルストアに今回使用するデータをしていきます
+* ファイルストアに今回使用するデータアップロードしていきます
 
 .center[<img src="readme-image/flow5.png" width="700">]
 
@@ -425,8 +412,8 @@ layout: false
 * ファイルをアップロードします  
  1. ファイルストアをクリック  
  2. アップロードをクリック  
- 3. 6.1でダウンロードしたimgフォルダの画像ファイルを点線内にドラッグアンドドロップまたは __`ファイルを指定選択`__ をクリックして指定  
- 4. __`アップロード`__ するをクリック  
+ 3. 6.1でダウンロードしたimgフォルダの画像ファイルを点線内に __`ドラッグ＆ドロップ`__ または __`ファイルを選択`__ をクリックして指定  
+ 4. __`アップロードする`__ をクリック  
 
 .center[<img src="readme-image/file_upload.png" width="700">]
 
@@ -437,11 +424,12 @@ layout: false
 
 .center[<img src="readme-image/filestore.png" width="700">]
 
+* 表示されない場合は __`更新ボタン`__ をクリックすると確認できます
+
 ---
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* データストアに「Roulette_Item」クラスを準備します
-* このクラスにはファイルストアに格納した画像名や、確率、賞の値を持たせます
+* データストアにクーポン画像や、確率、賞の値を持たせたクラス「Item」を準備します
  
 .center[<img src="readme-image/itemclass0.png" width="600">]
 
@@ -449,11 +437,11 @@ layout: false
 
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* データストアに「Roulette_Item」クラスを準備します  
+* データストアに「Item」クラスを準備します  
   1.__`データストア`__ をクリック  
   2.__`作成`__ をクリック  
   3.__`新規作成`__ をクリック  
-  4.クラス名に __`Roulette_Item`__ と入力  
+  4.クラス名に __Item__ と入力  
   5.__`作成する`__ をクリック  
  
 .center[<img src="readme-image/itemclass1.png" width="700">]
@@ -462,34 +450,33 @@ layout: false
 
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* データストアに「Roulette_Item」クラスを準備します  
+* データストアに「Item」クラスを準備します  
   6.__`新しいフィールド`__ をクリック  
-  7.フィールド名に __`probability`__ と入力  
-  8.__`作成する`__ をクリック    
+  7.フィールド名に __`rate`__ と入力  
+  8.__`作成する`__ をクリック  
   9.この手順で、フィールド名 __`rewards`__ と __`png`__ も作成  
- 
+
 .center[<img src="readme-image/itemclass2.png" width="500">]
 
 ---
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
 * 3つのフィールドの作成に成功すると以下のように表示されます
-* それぞれのフィールドは以下の用途で使います
- * probability: 確率
+* それぞれフィールドには以下の値を格納します
+ * rate: 確率
  * rewards: 賞の値
  * png: ファイルストアの画像名
  
-.center[<img src="readme-image/itemclass2.5.png" width="600">]
+.center[<img src="readme-image/itemclass2.5.png" width="700">]
 
 ---
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
 * フィールドに値を用意します 
   1. __`新しいレコード`__ をクリック  
-  2. png の下の　__`(undefined)`__ をダブルクリックし __`["one.png","two.png","three.png"] `__ に差し替え  
-  3. 下に出てくるポップアップの __`文字列▼ `__ をクリックし 配列に変更  
-  4. 差し替えたテキストボックスをクリックした後に __`Enter`__  を押下
-  5. 上記の手順と同様に、 __`probability `__は __`[0.2,0.3]`__ 、rewardsは __`[1,2,3]`__ で定義 
+  2. __`png`__ の下の　__`(undefined)`__ をダブルクリックし __`["one.png","two.png","three.png"] `__ に差し替え  
+  3. 下に出てくるポップアップの __`文字列▼ `__ をクリックし __`配列`__ に変更し  __`Enter`__  を押下  
+  4. 上記の手順と同様に、 __`rate`__ は __`[0.2,0.3]`__ 、rewardsは __`[1,2,3]`__ で定義 
   
 .center[<img src="readme-image/itemclass3.png" width="600">]
 
@@ -508,22 +495,20 @@ layout: false
 ---
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* データストアに「Reward」クラスを準備します
- * 賞ごとに「Reward1」「Reward2」「Reward3」を用意
- * 当たった賞のクラスにユーザー名を登録
+* データストアに当たった賞のユーザー名が登録されるクラス「Reward1」、「Reward2」、「Reward3」を準備します
  
 .center[<img src="readme-image/rewardclass0.png" width="600">]
 
 ---
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* データストアに「Reward」クラスを準備する手順  
-  1. __`データストア`__をクリック  
-  2. __`作成を`__クリック  
-  3. __`新規作成`__をクリック  
+* データストアに「Reward1」、「Reward2」、「Reward3」クラスを準備します 
+  1. __`データストア`__ をクリック  
+  2. __`作成`__ をクリック  
+  3. __`新規作成`__ をクリック  
   4. クラス名に __Reward1__ と入力  
-  5. 作成するをクリック  
-  6. 上記手順で同様に __Reward2__ と __Reward3__ も作成    
+  5. __`作成する`__ をクリック  
+  6. 上記手順で同様に __Reward2__ と __Reward3__ も作成  
   
 .center[<img src="readme-image/rewardclass1.png" width="700">]
 
@@ -536,17 +521,17 @@ layout: false
 
 ---
 
-
 ### 6.4【mBaaS】スーパーユーザーの準備
 * スーパーユーザーの役割
- * セキュリティを担保するために、このユーザーしかクラスにアクセスできないようにaclを設定し、工夫しています
- * acl(アクセスコントロールリスト)とはユーザーの役割に応じてアクセス可能なデータを制限する際に、ユーザー名とデータとのひも付けを確認するためのリスト
+ * セキュリティを担保するために、特定のユーザーだけがアクセスできるようにaclを設定し、工夫しています
+
+.center[<img src="readme-image/superuser.png" width="700">]
 
 ---
 
 ### 6.4【mBaaS】スーパーユーザーの準備
 * Rewardクラスへのアクセス権限を持ったスーパーユーザーを用意します
- * スーパーユーザー以外は誰もアクセスできないacl設定を施します
+ * スーパーユーザーだけがアクセスできるacl設定を施します
 
 .center[<img src="readme-image/flow6.png" width="700">]
 
@@ -554,7 +539,7 @@ layout: false
 
 ### 6.4【mBaaS】スーパーユーザーの準備
 * Rewardクラスへのアクセス権限を持ったスーパーユーザーを用意します
- * スーパーユーザー以外は誰もアクセスできないacl設定を施します
+ * スーパーユーザーだけがアクセスできるacl設定を施します
  
 .center[<img src="readme-image/flow7.png" width="700">]
 
@@ -562,7 +547,7 @@ layout: false
 
 ### 6.4【mBaaS】スーパーユーザーの準備
 * Rewardクラスへのアクセス権限を持ったスーパーユーザーを用意します
- * スーパーユーザー以外は誰もアクセスできないacl設定を施します
+ * スーパーユーザーだけがアクセスできるacl設定を施します
 
 .center[<img src="readme-image/flow8.png" width="700">]
 
@@ -570,10 +555,10 @@ layout: false
 
 ### 6.4【mBaaS】スーパーユーザーの準備
 * スーパーユーザーを用意する  
-  1.データストアをクリック  
-  2.新しい会員をクリック  
-  3.新しい会員の新規作成をクリック  
-  4.入力欄が表示されることを確認する   
+  1.__`データストア`__ をクリック  
+  2.__`新しい会員`__ をクリック  
+  3.__`新しい会員の新規作成`__ をクリック  
+  4.入力欄が表示されることを確認  
 
 .center[<img src="readme-image/superuser1.png" width="700">]
 
@@ -583,41 +568,43 @@ layout: false
 * スーパーユーザーを用意する  
   5.userNameに superuser と入力し Enterを押下  
   6.passwordに super と入力し Enterを押下  
-* 成功するとユーザーが追加され、passwordがhiddenになります  
-* objectIdが自動で割り振られ、この値をacl設定に後ほど使用します  
 
 .center[<img src="readme-image/superuser2.png" width="700">]
+
+* 成功するとユーザーが追加され、passwordがhiddenになります  
+* objectIdが自動で割り振られ、この値をacl設定に後ほど使用します
+  * objectId: mBaaSのデータ1つ1つに払い出された、世界中で重複しないことになっているID
 
 ---
 
 ### 6.5【mBaaS】参照権限の設定
-* 参照権限を設定することのメリットは、書き換えや参照をあるユーザーだけ実行できるように限定することによって、他のユーザーから干渉を受けず、確率の書き換えなど受けなくなる。 
-* permissionの設定  
-  1.会員管理をクリック  
-  2.superuserのobjectIdをコピー  
+* 「Reward1」、「Reward2」、「Reward3」のクラスに参照権限を設定します
+* パーミッションの設定をします  
+  1.__`会員管理`__ をクリック  
+  2.__`superuser`__ の __`objectId`__ をコピー  
 
 .center[<img src="readme-image/acl1.png" width="700">]
 
 ---
 
 ### 6.5【mBaaS】参照権限の設定
-* permissionの設定  
-  3.データストアをクリック  
-  4.Reward1をクリック  
-  5.クラスの編集をクリック  
-  6.パーミッションの設定をクリック  
+* パーミッションの設定をします  
+  3.__`データストア`__ をクリック  
+  4.__`Reward1`__ をクリック  
+  5.__`クラスの編集`__ をクリック  
+  6.__`パーミッションの設定`__ をクリック  
 
 .center[<img src="readme-image/acl2.png" width="600">]
 
 ---
 
 ### 6.5【mBaaS】参照権限の設定
-* permissionの設定  
-  7.新しいパーミッションをクリック  
-  8.全員 ▼ をクリック  
-  9.会員をクリック  
-  10.先ほどコピーしたobjectIdをペースト  
-  11.変更を保存をクリック  
+* パーミッションの設定をします  
+  7.__`新しいパーミッション`__ をクリック  
+  8.__`全員 ▼`__ をクリック  
+  9.__`会員`__ を選択 
+  10.先ほどコピーした __`objectId`__ をペースト  
+  11.__`変更を保存`__ をクリック  
 
 .center[<img src="readme-image/acl3.png" width="300">]
 
@@ -626,30 +613,67 @@ layout: false
 ### 6.5【mBaaS】参照権限の設定
  * パーミッションの保存が成功すると緑のポップアップが右上に表示される
   * 手順を Reward2、Reward3に対しても実施する
- 
+
 .center[<img src="readme-image/acl4.png" width="400">]
 
 * 設定されているか確認します  
-  1.データストアをクリック  
-  2.パーミッションの設定をクリック  
-  3.上手く登録されていれば先ほど登録した内容が反映されている    
+  1.__`データストア`__　をクリック  
+  2.__`パーミッションの設定`__　をクリック  
+* 登録されると次のように表示されます  
 
 .center[<img src="readme-image/acl5.png" width="400">]
 
 ---
 
+### 6.6【mBaaS】スクリプト準備
+* スクリプトとは
+  * 主な機能としては
+
+
+---
+
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * 処理内容
-  1. Roulette_Itemからルーレットの確率を取得
+  1. Itemからルーレットの確率を取得
   2. その確率から1等,2等,3等を算出
-  3. 当たった賞の値をRoulette_Itemから取得しMonaca側へ返す
-
+  3. 当たった賞の値をItemから取得しMonaca側へ返す
 * Point
   * 確率の調整が可能
   * 1等が絶対に当たらない鬼畜設定も可能…
 
+.center[<img src="readme-image/script1.png" width="400">]
+
 ---
 
+### 6.6【mBaaS】スクリプト準備①SelectReward.js
+* 処理内容
+  1. Itemからルーレットの確率を取得
+  2. その確率から1等,2等,3等を算出
+  3. 当たった賞の値をItemから取得しMonaca側へ返す
+
+.center[<img src="readme-image/script11.png" width="400">]
+
+---
+
+### 6.6【mBaaS】スクリプト準備①SelectReward.js
+* 処理内容
+  1. Itemからルーレットの確率を取得
+  2. その確率から1等,2等,3等を算出
+  3. 当たった賞の値をItemから取得しMonaca側へ返す
+
+.center[<img src="readme-image/script12.png" width="400">]
+
+---
+
+### 6.6【mBaaS】スクリプト準備①SelectReward.js
+* 処理内容
+  1. Itemからルーレットの確率を取得
+  2. その確率から1等,2等,3等を算出
+  3. 当たった賞の値をItemから取得しMonaca側へ返す
+
+.center[<img src="readme-image/script13.png" width="400">]
+
+---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * コード確認
@@ -659,12 +683,12 @@ layout: false
 module.exports = function (req, res) {
     var NCMB = require('ncmb');
     var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
-    var Roulette_Item = ncmb.DataStore('Roulette_Item');
+    var Roulette_Item = ncmb.DataStore('Item');
 
     //Roulette_Itemから確率を取得
     Roulette_Item.fetchAll().then(function (results) {
         //何等が当たったか算出
-        var rewardNum = selectReward(results[0].probability);
+        var rewardNum = selectReward(results[0].rate);
         if (rewardNum == -1) {
             res.status(500).json({
                 "message": "Probabilities of rewards must be defined as Array(length=2)"
@@ -697,15 +721,13 @@ function selectReward(probabilities) {
 ```
 ]
 
-・fetchAll() : 全件検索取得
-
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-* 3行目のAPIキーの置き換え  
-  1.editorにてSelectReward.jsを開きます  
-  2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします   
-  3.各editorにて保存を実施する  
+* 3行目のAPIキーを置き換えます  
+  1.editorにてSelectReward.jsを開く  
+  2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換え  
+  3.各editorにて保存
   
 ```js
     var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
@@ -713,7 +735,7 @@ function selectReward(probabilities) {
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-* SelectReward.jsをアップロード  
+* SelectReward.jsをアップロードする  
   1.スクリプトをクリック  
   2.アップロードをクリック  
 
@@ -722,10 +744,10 @@ function selectReward(probabilities) {
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-* SelectReward.jsをアップロード  
+* SelectReward.jsをアップロードする  
   3.SelectReward.jsをドラッグアンドドロップかファイル選択  
-  4.メソッドはGET  
-  5.ファイルの状態は実行可能  
+  4.メソッドはGETを選択  
+  5.ファイルの状態は実行可能を選択  
   6.アップロードするをクリック  
   
 .center[<img src="readme-image/select2.png" width="300">]
@@ -733,7 +755,7 @@ function selectReward(probabilities) {
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-* SelectReward.jsを実行  
+* SelectReward.jsをテストしてみましょう  
   7.SelectReward.jsがアップロードされていることを確認  
   8.SelectReward.jsをクリック  
   9.実行タブをクリック  
@@ -744,19 +766,21 @@ function selectReward(probabilities) {
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-* SelectReward.jsを実行  
+* SelectReward.jsをテストしてみましょう  
   11.以下の警告が出るが実行するをクリック  
   
-.center[<img src="readme-image/select4.png" width="400">]
- 
+.center[<img src="readme-image/select5.png" width="400">]
+
+* ここでDBの入力値などの間違いが出てくる
+
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-* SelectReward.jsを実行  
+* SelectReward.jsをテストしてみましょう  
   12.実行ボタンの下に結果が出力されていることを確認  
   13.当たった等(stopNumber)とクーポン画像名(png)が取れている  
   
-.center[<img src="readme-image/select5.png" width="400">]
+.center[<img src="readme-image/select4.png" width="400">]
  
 ---
 
@@ -768,8 +792,8 @@ function selectReward(probabilities) {
   4. 無ければ登録する(クーポンを表示できるようになる)  
 
 * Point
-  * 管理者でしかPOSTできないため、セキュリティ面も安心
-  * ハッカーが勝手にユーザーを登録すること防ぐ
+  * 管理者でしか登録できないため、セキュリティ面も安心
+  * 悪意のあるユーザーが勝手に登録すること防ぐ
 
 ---
 
@@ -829,9 +853,9 @@ module.exports = function (req, res) {
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * 3行目のAPIキーの置き換え  
-  1.editorにてUserPost.jsを開きます  
-  2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします  
-  3.各editorにて保存を実施する
+  1.editorにてUserPost.jsを開く  
+  2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換え  
+  3.各editorにて保存  
   
 ```js
     var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
@@ -892,7 +916,7 @@ module.exports = function (req, res) {
 * 処理内容  
   1. 非同期処理スタート、まずは管理者でログイン  
   2. 次にReward1にユーザーがいるか検索  
-  3. 存在していれば画像名をRoulette_Itemから取得  
+  3. 存在していれば画像名をItemから取得  
   4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
 
 * Point
@@ -910,7 +934,7 @@ module.exports = function (req, res) {
     var NCMB = require('ncmb');
     var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
 
-    var Item = ncmb.DataStore('Roulette_Item');
+    var Item = ncmb.DataStore('Item');
     var Reward1 = ncmb.DataStore('Reward1');
     var Reward2 = ncmb.DataStore('Reward2');
     var Reward3 = ncmb.DataStore('Reward3');
@@ -1099,7 +1123,7 @@ const promise = new Promise((resolve, reject) => {
 
 ---
 
-### 6.11【動作確認】
+### 6.10【動作確認】
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順  
   2.正常にログインできると、このルーレット画面に遷移  
   3.スタートボタンを押してルーレット開始  
@@ -1108,7 +1132,7 @@ const promise = new Promise((resolve, reject) => {
 
 ---
 
-### 6.11【動作確認】
+### 6.10【動作確認】
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順  
   4.ルーレット回転(この時回転までに数秒の間があります)  
   5.ルーレット停止すると結果を表示  
@@ -1117,7 +1141,7 @@ const promise = new Promise((resolve, reject) => {
 
 ---
 
-### 6.11【動作確認】
+### 6.10【動作確認】
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順  
   6.クーポンページに遷移  
   7.Reloadボタンを押す  
