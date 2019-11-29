@@ -1177,7 +1177,7 @@ const promise = new Promise((resolve, reject) => {
 
 ### 6.10【動作確認】
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順  
-  1.好きなユーザー名と、パスワードを入力し新規ログイン  
+  1.好きなユーザー名と、パスワードを入力し __`新規ログイン`__  
 
 .center[<img src="readme-image/check1.png" width="300">]
 
@@ -1186,7 +1186,7 @@ const promise = new Promise((resolve, reject) => {
 ### 6.10【動作確認】
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順  
   2.正常にログインできると、このルーレット画面に遷移  
-  3.スタートボタンを押してルーレット開始  
+  3.__`スタートボタン`__ を押してルーレット開始  
 
 .center[<img src="readme-image/check2.png" width="200">]
 
@@ -1204,7 +1204,7 @@ const promise = new Promise((resolve, reject) => {
 ### 6.10【動作確認】
 * 管理画面上で動作確認（実行してただしくログがでるか）の手順  
   6.クーポンページに遷移  
-  7.Reloadボタンを押す  
+  7.__`Reload`__ ボタンを押す  
   8.当たったクーポンが表示される  
   
 .center[<img src="readme-image/check4.png" width="600">]
@@ -1220,4 +1220,12 @@ class: center, middle, inverse
 layout: false
 
 ### まとめと振り返り
-* 
+お疲れさまでした。  
+  
+スクリプト機能の基本的な使い方や、メリットについて理解いただけたのではないかと思います。  
+  
+以下の公式ホームページにもスクリプトの基本的な使い方についての説明が掲載されていますので、復習の意味を込めてお時間のある時に見返していただけたらと思います。導入は他の機能に比べて敷居は高いかもしれませんが、セキュリティの向上をするうえでは必須の機能でもあります。自分なりにスクリプト機能を使うことを主としたアプリ開発をしてみると面白いかもしれません。  
+  
+今後ともニフクラ mobile backendをどうぞよろしくお願いいたします。   
+  
+スクリプト（Monaca）基本的な使い方(https://mbaas.nifcloud.com/doc/current/script/basic_usage_monaca.html)  
