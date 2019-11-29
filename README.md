@@ -746,7 +746,7 @@ function selectReward(probabilities) {
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * SelectReward.jsをアップロードする  
-  3.SelectReward.jsをドラッグアンドドロップかファイル選択  
+  3.SelectReward.jsをドラッグ＆ドロップかファイル選択  
   4.メソッドはGETを選択  
   5.ファイルの状態は実行可能を選択  
   6.アップロードするをクリック  
@@ -890,7 +890,7 @@ module.exports = function (req, res) {
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * UserPost.jsをアップロードする  
-  1.UserPost.jsをドラッグアンドドロップかファイル選択  
+  1.UserPost.jsをドラッグ＆ドロップかファイル選択  
   2.メソッドはPOSTを選択  
   3.ファイルの状態は実行可能を選択  
   4.アップロードするをクリック  
@@ -900,7 +900,7 @@ module.exports = function (req, res) {
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* UserPost.jsを実行する  
+* UserPost.jsをテストしてみましょう 
   5.UserPost.jsがアップロードされていることを確認  
   6.UserPost.jsをクリック  
   7.実行タブをクリック  
@@ -926,7 +926,7 @@ module.exports = function (req, res) {
   13.データストアをクリック  
   14.今回はstopNumberを1としたのでReward1をクリック  
   
-.center[<img src="readme-image/post5.png" width="400">]
+.center[<img src="readme-image/post5.png" width="500">]
  
  * 指定したuserが登録されていれば成功です  
  
@@ -1059,10 +1059,10 @@ module.exports = function (req, res) {
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* CouponGet.jsをアップロード  
-  1.CouponGet.jsをドラッグアンドドロップかファイル選択  
-  2.メソッドはGet  
-  3.ファイルの状態は実行可能  
+* CouponGet.jsをアップロードする  
+  1.CouponGet.jsをドラッグ＆ドロップかファイル選択  
+  2.メソッドはGetを選択  
+  3.ファイルの状態は実行可能を選択  
   4.アップロードするをクリック  
   
 .center[<img src="readme-image/coupon1.png" width="300">]
@@ -1070,11 +1070,11 @@ module.exports = function (req, res) {
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* CouponGet.jsを実行  
+* CouponGet.jsをテストしてみましょう  
   5.CouponGet.jsがアップロードされていることを確認  
   6.CouponGet.jsをクリック  
   7.実行タブをクリック  
-  8.queryの欄に *user=name* を入力  
+  8.queryの欄に __`user=name`__ を入力(nameは好きな文字列)  
   9.実行をクリック  
   
 .center[<img src="readme-image/coupon2.png" width="500">]
@@ -1082,19 +1082,14 @@ module.exports = function (req, res) {
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* CouponGet.jsを実行  
+* CouponGet.jsをテストしてみましょう  
   10.以下の警告が出るが実行するをクリック  
-  
 .center[<img src="readme-image/coupon3.png" width="400">]
- 
----
-
-### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* CouponGet.jsを実行  
   11.実行ボタンの下に結果が出力されていることを確認  
-  12.現在はReward1のクラスなのでone.pngが結果として取得できている
-  
 .center[<img src="readme-image/coupon4.png" width="400">]
+ 
+* 現在はReward1のクラスなのでone.pngが結果として取得できている
+
  
 ---
 
