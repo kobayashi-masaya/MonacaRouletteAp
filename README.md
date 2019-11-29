@@ -768,19 +768,12 @@ function selectReward(probabilities) {
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * SelectReward.jsをテストしてみましょう  
-  11.以下の警告が出るが実行するをクリック  
-  
+  11.以下の警告が出るが実行するをクリック   
 .center[<img src="readme-image/select5.png" width="400">]
-
 * ここでDBの入力値などの間違いが出てくる
 
----
-
-### 6.6【mBaaS】スクリプト準備①SelectReward.js
-* SelectReward.jsをテストしてみましょう  
   12.実行ボタンの下に結果が出力されていることを確認  
   13.当たった等(stopNumber)とクーポン画像名(png)が取れている  
-  
 .center[<img src="readme-image/select4.png" width="400">]
  
 ---
@@ -795,6 +788,50 @@ function selectReward(probabilities) {
 * Point
   * 管理者でしか登録できないため、セキュリティ面も安心
   * 悪意のあるユーザーが勝手に登録すること防ぐ
+
+---
+
+### 6.7【mBaaS】スクリプト準備②UserPost.js
+* 処理内容  
+  1. Monaca側から当たった賞をqueryより取得  
+  2. 管理者でログイン  
+  3. 当たった賞のログにユーザーの名前があるか検索  
+  4. 無ければ登録する(クーポンを表示できるようになる)  
+
+.center[<img src="readme-image/script2.png" width="400">]
+
+---
+
+### 6.7【mBaaS】スクリプト準備②UserPost.js
+* 処理内容  
+  1. Monaca側から当たった賞をqueryより取得  
+  2. 管理者でログイン  
+  3. 当たった賞のログにユーザーの名前があるか検索  
+  4. 無ければ登録する(クーポンを表示できるようになる)  
+
+.center[<img src="readme-image/script21.png" width="400">]
+
+---
+
+### 6.7【mBaaS】スクリプト準備②UserPost.js
+* 処理内容  
+  1. Monaca側から当たった賞をqueryより取得  
+  2. 管理者でログイン  
+  3. 当たった賞のログにユーザーの名前があるか検索  
+  4. 無ければ登録する(クーポンを表示できるようになる)  
+
+.center[<img src="readme-image/script22.png" width="400">]
+
+---
+
+### 6.7【mBaaS】スクリプト準備②UserPost.js
+* 処理内容  
+  1. Monaca側から当たった賞をqueryより取得  
+  2. 管理者でログイン  
+  3. 当たった賞のログにユーザーの名前があるか検索  
+  4. 無ければ登録する(クーポンを表示できるようになる)  
+
+.center[<img src="readme-image/script23.png" width="400">]
 
 ---
 
@@ -864,10 +901,10 @@ module.exports = function (req, res) {
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* UserPost.jsをアップロード  
+* UserPost.jsをアップロードする  
   1.UserPost.jsをドラッグアンドドロップかファイル選択  
-  2.メソッドはPOST  
-  3.ファイルの状態は実行可能  
+  2.メソッドはPOSTを選択  
+  3.ファイルの状態は実行可能を選択  
   4.アップロードするをクリック  
 
 .center[<img src="readme-image/post1.png" width="300">]
@@ -875,11 +912,11 @@ module.exports = function (req, res) {
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* UserPost.jsを実行  
+* UserPost.jsを実行する  
   5.UserPost.jsがアップロードされていることを確認  
   6.UserPost.jsをクリック  
   7.実行タブをクリック  
-  8.queryの欄に *user=name&stopNumber=1* を入力  
+  8.queryの欄に __`user=name&stopNumber=1`__ を入力(nameは好きな文字、stopNumberは1,2,3のどれかを指定)  
   9.実行をクリック  
   
 .center[<img src="readme-image/post2.png" width="500">]
@@ -887,29 +924,23 @@ module.exports = function (req, res) {
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* UserPost.jsを実行  
+* UserPost.jsのテストをしてみましょう  
   10.以下の警告が出るが実行するをクリック  
-  
 .center[<img src="readme-image/post3.png" width="400">]
- 
----
-
-### 6.7【mBaaS】スクリプト準備②UserPost.js
 * UserPost.jsを実行  
   11.実行ボタンの下に結果が出力されていることを確認  
-  12.POST data successfully!と出力されていれば成功
-  
 .center[<img src="readme-image/post4.png" width="400">]
- 
+* POST data successfully!と出力されていれば成功です
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* UserPost.jsを実行  
+* UserPost.jsのテストをしてみましょう  
   13.データストアをクリック  
   14.今回はstopNumberを1としたのでReward1をクリック  
-  15.nameというユーザーが登録されていれば成功  
   
-.center[<img src="readme-image/post5.png" width="500">]
+.center[<img src="readme-image/post5.png" width="00">]
+ 
+ * 指定したuserが登録されていれば成功です  
  
 ---
 
@@ -923,6 +954,61 @@ module.exports = function (req, res) {
 * Point
   * 非同期処理を使用
   * 処理が重ならずに全ての処理の終了後に値が返される
+ 
+---
+
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+* 処理内容  
+  1. 非同期処理スタート、まずは管理者でログイン  
+  2. 次にReward1にユーザーがいるか検索  
+  3. 存在していれば画像名をItemから取得  
+  4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
+
+.center[<img src="readme-image/script3.png" width="00">]
+ 
+---
+
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+* 処理内容  
+  1. 非同期処理スタート、まずは管理者でログイン  
+  2. 次にReward1にユーザーがいるか検索  
+  3. 存在していれば画像名をItemから取得  
+  4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
+
+.center[<img src="readme-image/script31.png" width="00">]
+ 
+---
+
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+* 処理内容  
+  1. 非同期処理スタート、まずは管理者でログイン  
+  2. 次にReward1にユーザーがいるか検索  
+  3. 存在していれば画像名をItemから取得  
+  4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
+
+.center[<img src="readme-image/script32.png" width="00">]
+ 
+---
+
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+* 処理内容  
+  1. 非同期処理スタート、まずは管理者でログイン  
+  2. 次にReward1にユーザーがいるか検索  
+  3. 存在していれば画像名をItemから取得  
+  4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
+
+.center[<img src="readme-image/script33.png" width="00">]
+ 
+---
+
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+* 処理内容  
+  1. 非同期処理スタート、まずは管理者でログイン  
+  2. 次にReward1にユーザーがいるか検索  
+  3. 存在していれば画像名をItemから取得  
+  4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
+
+.center[<img src="readme-image/script34.png" width="00">]
  
 ---
 
