@@ -926,7 +926,7 @@ module.exports = function (req, res) {
   13.データストアをクリック  
   14.今回はstopNumberを1としたのでReward1をクリック  
   
-.center[<img src="readme-image/post5.png" width="00">]
+.center[<img src="readme-image/post5.png" width="400">]
  
  * 指定したuserが登録されていれば成功です  
  
