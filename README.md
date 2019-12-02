@@ -120,28 +120,30 @@ layout: false
 
 ### 4.2ハンズオンの流れ
 .size_large[
-    - 5 __ハンズオンの準備__
-    - 5.1【Monaca】アプリ側の準備
-    - 5.2【mBaaS】サーバー側の準備
-    - 5.3【Monaca】mBaaSを使うための準備
-    - 5.4 動作確認①
-    - 6 __ルーレット機能の作成__
-    - 6.1  設定ファイルのDL
-    - 6.2【mBaaS】クーポン画像の準備
-    - 6.3【mBaaS】データストアにクラスを準備
-    - 6.4【mBaaS】スーパーユーザーの準備
-    - 6.5【mBaaS】参照権限の設定
-    - 6.6【mBaaS】スクリプト準備①SelectReward.js
-    - 6.7【mBaaS】スクリプト準備②UserPost.js
-    - 6.8【mBaaS】スクリプト準備③CouponGet.js
-    - 6.9【Monaca】アプリからスクリプトを呼び出す
-    - 6.10 動作確認②
-    - 7 まとめと振り返り
-    ]
+- 5 __ハンズオンの準備__
+- 5.1【Monaca】アプリ側の準備
+- 5.2【mBaaS】サーバー側の準備
+- 5.3【Monaca】mBaaSを使うための準備
+- 5.4 動作確認①
+- 6 __ルーレット機能の作成__
+- 6.1  設定ファイルのDL
+- 6.2【mBaaS】クーポン画像の準備
+- 6.3【mBaaS】データストアにクラスを準備
+- 6.4【mBaaS】スーパーユーザーの準備
+- 6.5【mBaaS】参照権限の設定
+- 6.6【mBaaS】スクリプト準備①SelectReward.js
+- 6.7【mBaaS】スクリプト準備②UserPost.js
+- 6.8【mBaaS】スクリプト準備③CouponGet.js
+- 6.9【Monaca】アプリからスクリプトを呼び出す
+- 6.10 動作確認②
+- 7 まとめと振り返り
+]
+
 ---
 layout: true
 class: center, middle, inverse
 ---
+
 # 5.ハンズオンの準備
 
 ---
