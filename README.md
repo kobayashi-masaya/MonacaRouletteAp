@@ -723,11 +723,13 @@ var NCMB = require("ncmb");
 var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY"); 
 ```
 
+.center[<img src="readme-image/confirm_apikey.png" width="７00">]
+
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 
-.size_small_9[
+.size_small_７[
 * Itemクラスから確率情報を取得して当たりを決定する
   * `selectRewards()` を呼び出す
 
