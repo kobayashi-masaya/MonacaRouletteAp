@@ -89,6 +89,18 @@ layout: false
 .center[<img src="readme-image/mBaaSとは.png" width="300">]
 
 ---
+
+### 2.3 MonacaとmBaaS(Script)を使用したときのイメージ
+
+.center[<img src="readme-image/scriptimage1.png" width="500">]
+
+---
+
+### 2.3 MonacaとmBaaS(Script)を使用したときのイメージ
+
+.center[<img src="readme-image/scriptimage2.png" width="500">]
+
+---
 layout: true
 class: center, middle, inverse
 ---
