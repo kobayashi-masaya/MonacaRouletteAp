@@ -828,18 +828,19 @@ function selectReward(probabilities) {
   12.実行ボタンの下に結果が出力されていることを確認  
   13.当たった等(stopNumber)とクーポン画像名(png)が取れている  
 .center[<img src="readme-image/select4.png" width="300">]
- * ここでDBの入力値などの間違いが出てくる
+
+* ここで上手くいかない場合は、データストアのクラス名やフィールド名に誤りがある可能性があります
  
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * 処理内容  
-  1. Monaca側から当たった賞をqueryより取得  
-  2. 管理者でログイン  
+  1. 当たった賞をqueryから取得  
+  2. スーパーユーザーでログイン  
   3. 当たった賞のログにユーザーの名前があるか検索  
   4. 無ければ登録する(クーポンを表示できるようになる)  
 * Point
-  * 管理者でしか登録できないため、セキュリティ面も安心
+  * スーパーユーザーのみが登録できる仕組みなので、セキュリティ面も安心
   * 悪意のあるユーザーが勝手に登録すること防ぐ
 
 .center[<img src="readme-image/script2.png" width="500">]
@@ -847,55 +848,65 @@ function selectReward(probabilities) {
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* 処理内容  
-  1. Monaca側から当たった賞をqueryより取得  
-  2. 管理者でログイン  
-  3. 当たった賞のログにユーザーの名前があるか検索  
-  4. 無ければ登録する(クーポンを表示できるようになる)  
 
 .center[<img src="readme-image/script21.png" width="500">]
 
+* 処理内容  
+  1. 当たった賞をqueryから取得  
+  2. スーパーユーザーでログイン  
+  3. 当たった賞のログにユーザーの名前があるか検索  
+  4. 無ければ登録する(クーポンを表示できるようになる)  
+
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* 処理内容  
-  1. Monaca側から当たった賞をqueryより取得  
-  2. 管理者でログイン  
-  3. 当たった賞のログにユーザーの名前があるか検索  
-  4. 無ければ登録する(クーポンを表示できるようになる)  
 
 .center[<img src="readme-image/script22.png" width="500">]
 
----
-
-### 6.7【mBaaS】スクリプト準備②UserPost.js
 * 処理内容  
-  1. Monaca側から当たった賞をqueryより取得  
-  2. 管理者でログイン  
+  1. 当たった賞をqueryから取得  
+  2. スーパーユーザーでログイン  
   3. 当たった賞のログにユーザーの名前があるか検索  
   4. 無ければ登録する(クーポンを表示できるようになる)  
 
+
+---
+
+### 6.7【mBaaS】スクリプト準備②UserPost.js
+
 .center[<img src="readme-image/script23.png" width="500">]
+
+* 処理内容  
+  1. 当たった賞をqueryから取得  
+  2. スーパーユーザーでログイン  
+  3. 当たった賞のログにユーザーの名前があるか検索  
+  4. 無ければ登録する(クーポンを表示できるようになる)  
 
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * スクリプトファイルのコードを確認します
   * テキストエディタにて先ほどダウンロードしたフォルダ内にある __`js/UserPost.js`__ を開く
-* スクリプトの作法： Scriptを書くときに必要な宣言
+* スクリプトの作法： 引数の受け渡し
 
 ```js
 module.exports = function (req, res) {
+    var name = String(rq.query.user);
+    var stopNumber = req.query.stopNumber;
+    var className ="Reward" + String(stopNumber);
     
 }
 ```
+
+* queryとして値を渡すことができます
+  * ここではカレントユーザーのユーザー名と、当たった賞の番号を渡しています
 
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 
 * スクリプトからmBaaSを使う： SDKのインポートと初期化
-  * Monaca で設定したのと同様、 __`APPLICATION_KEY`__ と __`CLIENT_KEY`__ をmBaaSから発行されたAPIキーに置き換え
+  * 先ほどと同様、 __`APPLICATION_KEY`__ と __`CLIENT_KEY`__ をmBaaSから発行されたAPIキーに置き換え
   * テキストエディタにて保存
 
 ```js
@@ -910,34 +921,23 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* ncmb.User.login("superuser", "super"): 6.4,6.5章で用意したスーパーユーザーでログイン
- * スーパーユーザーでログインしないと、この後の検索や登録処理が出来ない
+* 6.4,6.5章で用意したスーパーユーザーでログイン
+ * スーパーユーザーでログインをすることで、この後の検索や登録処理が行えます
 
-.size_small_7[
-```js
-    var name = String(req.query.user);
-    var stopNumber = req.query.stopNumber;
-    var className = "Reward" + String(stopNumber);
-    
-    // 【NCMB】あらかじめ準備したsuperuserユーザーでログイン
-    ncmb.User.login("superuser", "super")
-        .then(function (superuser) {
-            /* ログイン成功時の処理 */
-        })
-        .catch(function (err) {
-            /* ログイン失敗時の処理 */
-            res.status(500).send("Error: " + error);
-        });
+```js    
+// 【NCMB】あらかじめ準備したsuperuserユーザーでログイン
+ncmb.User.login("superuser", "super")
+    .then(function (superuser) {
+        /* ログイン成功時の処理 */
+    })
+    .catch(function (err) {
+        /* ログイン失敗時の処理 */
+            
+    });
 ```
-]
 
-
-.size_small_7[
-* スクリプトの作法： 返却値
-  * `res.send(data)`	:dataをアプリ側へ返す
 * mBaaSの処理
-  * `ncmb.User.login()` :指定したユーザー名とパスワードでログイン
-]
+  * `ncmb.User.login("USERNAME", "PASSWORD")` :指定したユーザー名とパスワードでログイン
 
 ---
 
@@ -950,24 +950,24 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 var Reward = ncmb.DataStore(className);
 // 一致する情報を取得する
 Reward.equalTo("name", name)
-        .fetchAll()
-        .then(function(results) {
-            /* 取得成功時の処理 */
-            
-        })
-        .catch(function (error) {
-            /* 取得失敗時の処理 */
-            
-        });  
-}
+      .fetchAll()
+      .then(function(results) {
+          /* 取得成功時の処理 */
+          
+      })
+      .catch(function (error) {
+          /* 取得失敗時の処理 */
+          res.status(500).send("Error: " + error);
+      };
 ```
 
 * mBaaSの処理
-  * `Reward.equalTo(A, B)` :AとBが一致しているかを判断
+  * `.equalTo("KEY", VALUE)` :＜検索条件＞ KEYの値とVALUEが一致している
 
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
+* すでに当たっている場合は `objectId` を取得
 * ルーレットに当たったユーザーの登録または更新処理
 
 ```js
