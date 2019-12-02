@@ -92,13 +92,13 @@ layout: false
 
 ### 2.3 MonacaとmBaaS(Script)を使用したときのイメージ
 
-.center[<img src="readme-image/scriptimage1.png" width="500">]
+.center[<img src="readme-image/scriptimage1.png" width="800">]
 
 ---
 
 ### 2.3 MonacaとmBaaS(Script)を使用したときのイメージ
 
-.center[<img src="readme-image/scriptimage2.png" width="500">]
+.center[<img src="readme-image/scriptimage2.png" width="800">]
 
 ---
 layout: true
