@@ -908,7 +908,7 @@ module.exports = function (req, res) {
 ```
 ]
 
-* 6.4,6.5章で用意したスーパーユーザーでログイン
+* ncmb.User.login("superuser", "super"): 6.4,6.5章で用意したスーパーユーザーでログイン
  * スーパーユーザーでログインしないと、この後の検索や登録処理が出来ない
 
 ---
@@ -1142,8 +1142,8 @@ module.exports = function (req, res) {
 ```
 ]
 
-* const promise = new Promise((resolve, reject) => {: 同期処理
-* res.status(status) :引数として渡された数値をステータスコードとして指定
+* ncmb.User.login("superuser", "super") : p83参照
+* res.status(status) : statusをアプリ側へ返す
 
 ---
 
@@ -1178,7 +1178,7 @@ Reward1.equalTo("name", name)
 ```
 ]
 
-* .fetchAll() :オブジェクトをデータストアから取得(クエリ条件を指定しない場合は全件取得)
+* Reward1.equalTo("name", name).fetchAll() : p71,p84参照
 
 ---
 
