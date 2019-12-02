@@ -582,7 +582,7 @@ layout: false
 .center[<img src="readme-image/superuser2.png" width="700">]
 * 成功するとユーザーが追加され、__`password`__ が __`hidden`__ になります  
 * __`objectId`__ が自動で割り振られ、この値をacl設定に後ほど使用します
-  * __`objectId`__ : mBaaSのデータ1つ1つに払い出された、世界中で重複しないことになっているID
+  * __`objectId`__ : mBaaSのデータ1つ1つに払い出された、機能ごとに重複しないことになっているID
 
 ---
 
