@@ -613,13 +613,11 @@ layout: false
 ### 6.5【mBaaS】参照権限の設定
  * __`パーミッション`__ の保存が成功すると緑のポップアップが右上に表示される
   * 手順を __` __`Reward2`__ 、__`Reward3`__ に対しても実施する
-
 .center[<img src="readme-image/acl4.png" width="300">]
 * 設定されているか確認します  
   1.__`データストア`__ をクリック  
   2.__`パーミッションの設定`__ をクリック  
 * 登録されると次のように表示されます  
-
 .center[<img src="readme-image/acl5.png" width="400">]
 
 ---
