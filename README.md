@@ -43,7 +43,7 @@ layout: false
 * ニフクラ mobile backendの『スクリプト機能』を利用して<br>
 __`サーバーレスでルーレットアプリにクーポン機能を実装します`__
 * 既にコーディングを完了させたサンプルアプリを使って作業していきます
- * 確率などのデータをいれたクラスと、当たったユーザーログクラスの準備、クーポン画像のアップロード、3つのスクリプト連携方法を実際に体験していただきます
+ * 確率などのデータを入れたクラスと、クーポンの当たったユーザーログクラスの準備、クーポン画像のアップロード、3つのスクリプト連携方法を実際に体験していただきます
 
 .center[<img src="readme-image/roulette-app-basic-structure.png" width="500">]
 
@@ -396,7 +396,7 @@ layout: false
 ### 6.1 設定ファイルのDL
 * ファイルストアとスクリプトに今回使用するデータを用意します
  * 設定ファイルをダウンロード(http://bit.ly/download20191203)
- * ファイル構成は以下の通りです
+* ファイル構成は以下の通りです
 
 .center[<img src="readme-image/settings.png" width="700">]
 
@@ -442,7 +442,7 @@ layout: false
   1.__`データストア`__ をクリック  
   2.__`作成`__ をクリック  
   3.__`新規作成`__ をクリック  
-  4.クラス名に __Item__ と入力  
+  4.クラス名に __`Item`__ と入力  
   5.__`作成する`__ をクリック  
  
 .center[<img src="readme-image/itemclass1.png" width="700">]
@@ -475,9 +475,9 @@ layout: false
 ### 6.3【mBaaS】データストアにクラスを準備する手順
 * フィールドに値を用意します 
   1. __`新しいレコード`__ をクリック  
-  2. __`png`__ の下の　__`(undefined)`__ をダブルクリックし __`["one.png","two.png","three.png"] `__ に差し替え  
+  2. __`png`__ フィールドの　__`(undefined)`__ をダブルクリックし配列値 __`["one.png","two.png","three.png"] `__ を入力  
   3. 下に出てくるポップアップの __`文字列▼ `__ をクリックし __`配列`__ に変更し  __`Enter`__  を押下  
-  4. 上記の手順と同様に、 __`rate`__ は __`[0.2,0.3]`__ 、rewardsは __`[1,2,3]`__ で定義 
+  4. 上記の手順と同様に、 __`rate`__ には __`[0.2,0.3]`__ 、rewardsには __`[1,2,3]`__ を入力 
   
 .center[<img src="readme-image/itemclass3.png" width="600">]
 
@@ -507,9 +507,9 @@ layout: false
   1. __`データストア`__ をクリック  
   2. __`作成`__ をクリック  
   3. __`新規作成`__ をクリック  
-  4. クラス名に __Reward1__ と入力  
+  4. クラス名に __`Reward1`__ と入力  
   5. __`作成する`__ をクリック  
-  6. 上記手順で同様に __Reward2__ と __Reward3__ も作成  
+  6. 上記手順で同様に __`Reward2`__ と __`Reward3`__ も作成  
   
 .center[<img src="readme-image/rewardclass1.png" width="700">]
 
@@ -534,7 +534,7 @@ layout: false
 * Rewardクラスへのアクセス権限を持ったスーパーユーザーを用意します
  * スーパーユーザーだけがアクセスできるacl設定を施します
 
-.center[<img src="readme-image/flow6.png" width="700">]
+.center[<img src="readme-image/super_per.png" width="700">]
 
 ---
 
