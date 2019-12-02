@@ -733,7 +733,6 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
   * `selectRewards()` を呼び出す
 
 .size_small_7[
-
 ```js
 /* 【NCMB】データストアから確率を取得する */
     // 保存先クラスの指定
@@ -755,7 +754,9 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
             res.status(500).send("Error: " + error);
         });
 ```
+]
 
+.size_small_7[
 * スクリプトの作法： 返却値
   * `res.status(status)` :statusをアプリ側へ返す
   * `res.send(data)`	:dataをアプリ側へ返す
@@ -764,7 +765,6 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
   * `Item.fetchAll()` :Itemクラスにて全件取得
   * `.then(function(result) {})` :コールバック（処理成功時）
   * `.catch(function(error) {})` :コールバック（処理失敗時）
-
 ]
 
 ---
