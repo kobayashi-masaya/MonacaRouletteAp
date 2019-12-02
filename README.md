@@ -604,7 +604,7 @@ layout: false
   1.__`会員管理`__ をクリック  
   2.__`superuser`__ の __`objectId`__ をコピー  
 
-.center[<img src="readme-image/1.png" width="700">]
+.center[<img src="readme-image/acl1.png" width="700">]
 
 ---
 
