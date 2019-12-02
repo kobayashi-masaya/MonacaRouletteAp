@@ -700,7 +700,7 @@ layout: false
 
 * スクリプトファイルのコードを確認します
   * テキストエディタにて先ほどダウンロードしたフォルダ内にある __`js/SelectReward.js`__ を開く
-* スクリプトの作法： スクリプトを書くときに必要な宣言
+* スクリプトの作法： Scriptを書くときに必要な宣言
 
 ```js
 module.exports = function (req, res) {
@@ -834,9 +834,6 @@ function selectReward(probabilities) {
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-
-.center[<img src="readme-image/script2.png" width="500">]
-
 * 処理内容  
   1. 当たった賞をqueryから取得  
   2. スーパーユーザーでログイン  
@@ -845,6 +842,8 @@ function selectReward(probabilities) {
 * Point
   * スーパーユーザーのみが登録できる仕組みなので、セキュリティ面も安心
   * 悪意のあるユーザーが勝手に登録すること防ぐ
+
+.center[<img src="readme-image/script2.png" width="500">]
 
 ---
 
@@ -856,7 +855,7 @@ function selectReward(probabilities) {
   1. 当たった賞をqueryから取得  
   2. スーパーユーザーでログイン  
   3. 当たった賞のログにユーザーの名前があるか検索  
-  4. 3.の結果、無ければ登録する(クーポンを表示できるようになる) 
+  4. 無ければ登録する(クーポンを表示できるようになる)  
 
 ---
 
@@ -868,7 +867,8 @@ function selectReward(probabilities) {
   1. 当たった賞をqueryから取得  
   2. スーパーユーザーでログイン  
   3. 当たった賞のログにユーザーの名前があるか検索  
-  4. 3.の結果、無ければ登録する(クーポンを表示できるようになる) 
+  4. 無ければ登録する(クーポンを表示できるようになる)  
+
 
 ---
 
@@ -880,7 +880,7 @@ function selectReward(probabilities) {
   1. 当たった賞をqueryから取得  
   2. スーパーユーザーでログイン  
   3. 当たった賞のログにユーザーの名前があるか検索  
-  4. 3.の結果、無ければ登録する(クーポンを表示できるようになる) 
+  4. 無ければ登録する(クーポンを表示できるようになる)  
 
 ---
 
@@ -1108,7 +1108,7 @@ nameAdd.set("name", name)
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * スクリプトファイルのコードを確認します
-  * テキストエディタにて先ほどダウンロードしたフォルダ内にある __`js/UserPost.js`__ を開く
+  * テキストエディタにて先ほどダウンロードしたフォルダ内にある __`js/CouponGet.js`__ を開く
 * スクリプトの作法： Scriptを書くときに必要な宣言
 
 ```js
@@ -1116,6 +1116,8 @@ module.exports = function (req, res) {
     
 }
 ```
+
+---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 
