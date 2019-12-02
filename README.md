@@ -140,22 +140,21 @@ layout: false
 ### 4.2ハンズオンの流れ
 .size_large[
 - 5 __ハンズオンの準備__
-- 5.1【Monaca】アプリ側の準備
-- 5.2【mBaaS】サーバー側の準備
-- 5.3【Monaca】mBaaSを使うための準備
-- 5.4 動作確認①
+  - 5.1【Monaca】アプリ側の準備
+  - 5.2【mBaaS】サーバー側の準備
+  - 5.3【Monaca】mBaaSを使うための準備
+  - 5.4 動作確認①
 - 6 __ルーレット機能の作成__
-- 6.1  設定ファイルのDL
-- 6.2【mBaaS】クーポン画像の準備
-- 6.3【mBaaS】データストアにクラスを準備
-- 6.4【mBaaS】スーパーユーザーの準備
-- 6.5【mBaaS】参照権限（パーミッション）の設定
-- 6.6【mBaaS】スクリプト準備①SelectReward.js
-- 6.7【mBaaS】スクリプト準備②UserPost.js
-- 6.8【mBaaS】スクリプト準備③CouponGet.js
-- 6.9【Monaca】アプリからスクリプトを呼び出す
-- 6.10 動作確認②
-- 7 まとめと振り返り
+  - 6.1  設定ファイルのDL
+  - 6.2【mBaaS】クーポン画像の準備
+  - 6.3【mBaaS】データストアにクラスを準備
+  - 6.4【mBaaS】スーパーユーザーの準備
+  - 6.5【mBaaS】参照権限（パーミッション）の設定
+  - 6.6【mBaaS】スクリプト準備①SelectReward.js
+  - 6.7【mBaaS】スクリプト準備②UserPost.js
+  - 6.8【mBaaS】スクリプト準備③CouponGet.js
+  - 6.9【Monaca】アプリからスクリプトを呼び出す
+  - 6.10 動作確認②
 ]
 
 ---
@@ -189,7 +188,7 @@ layout: false
 ### 5.1【Monaca】アプリ側の準備
 * Monacaアプリケーションをインポートします
 1. Monaca(https://monaca.mobi/ja/signup) にログイン
-2. インポートリンク (http://bit.ly/import20191203) をクリック
+2. インポートリンク (http://bit.ly/import_20191203) をクリック
 3. __`インポート`__ をクリック
 4. __`MonacaRouletteApp`__ をクリック
 5. __`クラウドIDEで開く`__  をクリック
@@ -281,7 +280,7 @@ layout: false
 
 .center[<img src="readme-image/mbaas-app-create.png" width="300">]
 
-* mobile backend を既に使用したことがある場合は、画面上方のメニューバーにある「 __`+新しいアプリ`__ 」をクリックすると同じ画面が表示されます
+* mBaaS を既に使用したことがある場合は、画面上方のメニューバーにある「 __`+新しいアプリ`__ 」をクリックすると同じ画面が表示されます
 
 .center[<img src="readme-image/newapp2.png" width="200">]
 
@@ -352,6 +351,11 @@ var ncmb = new NCMB("7612fe7----------------", "5a2efeb----------------");
 .center[<img src="readme-image/apikeyset.png" width="700">]
 
 * ここまでで、__`SDKの初期化`__ が完了しMonacaとmBaaSの連携が出来ました
+* mBaaSのAPIキーの画面は __`OK`__ ボタンをクリックして閉じておきます
+
+（参考）初回に表示されるAPIの画面を閉じてしまった場合は、右上の __`アプリ設定`__ から確認できます
+
+.center[<img src="readme-image/confirm_apikey.png" width="700">]
 
 ---
 
@@ -387,7 +391,7 @@ var ncmb = new NCMB("7612fe7----------------", "5a2efeb----------------");
 ---
 
 ### 5.4 動作確認① (新規登録処理)
-* __`新規会員登録`__ をします
+* 登録された会員情報を確認します
  * mBaaSの管理画面を開く
  * __`会員管理`__ をクリック
 
@@ -396,9 +400,9 @@ var ncmb = new NCMB("7612fe7----------------", "5a2efeb----------------");
 ---
 
 ### 5.4 動作確認① (新規登録処理)
-* __`新規会員登録`__ をします
- * 新規登録に成功していると会員情報が追加、ルーレット画面が表示されます
- * __`Password`__ はセキュリティ上 __`hidden`__ となっています
+* 登録された会員情報を確認します
+ * 会員情報が追加されていることを確認
+ * __`Password`__ はセキュリティ上 __`hidden`__ と表示され確認不可
 
 .center[<img src="readme-image/adduser2.png" width="600">]
 
