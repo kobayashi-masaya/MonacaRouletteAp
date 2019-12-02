@@ -763,6 +763,7 @@ function selectReward(probabilities) {
 }
 ```
 ]
+
 * 何等賞が当たったかを算出して、1,2,3のどれかをreturnしている関数
 
 ---
@@ -789,8 +790,8 @@ function selectReward(probabilities) {
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * SelectReward.jsをアップロードする  
-  3.SelectReward.jsをドラッグ＆ドロップかファイル選択  
-  4.メソッドは__`GET`__ を選択  
+  3.SelectReward.jsを __`ドラッグ＆ドロップ`__  か __`ファイル選択`__   
+  4.メソッドは __`GET`__ を選択  
   5.ファイルの状態は__`実行可能`__ を選択  
   6.__`アップロードする`__ をクリック  
   
@@ -817,6 +818,7 @@ function selectReward(probabilities) {
   13.当たった等(stopNumber)とクーポン画像名(png)が取れている  
 .center[<img src="readme-image/select4.png" width="300">]
  * ここでDBの入力値などの間違いが出てくる
+ 
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
@@ -972,7 +974,7 @@ reward.set("name", name);
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * UserPost.jsをアップロードする  
-  1.UserPost.jsをドラッグ＆ドロップかファイル選択  
+  1.UserPost.jsをを __`ドラッグ＆ドロップ`__  か __`ファイル選択`__ 
   2.メソッドは __`POST`__ を選択  
   3.ファイルの状態は __`実行可能`__ を選択  
   4.__`アップロードする`__ をクリック  
@@ -982,7 +984,7 @@ reward.set("name", name);
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* UserPost.jsをテストしてみましょう 
+* UserPost.jsをテストしてみましょう  
   5.UserPost.jsがアップロードされていることを確認  
   6.UserPost.jsをクリック  
   7.__`実行タブ`__ をクリック  
@@ -1147,69 +1149,13 @@ Reward1.equalTo("name", name)
         res.status(500).send("Error: " + error);
     });
     
-// 以下Reward2,Reward3クラスも同様に
+    // 以下Reward2,Reward3クラスも同様に
 
 }
 ```
 ]
 
 ---
-
-### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* コード確認
-
-.size_small_7[
-```js
-// 【NCMB】SDKインポート
-    var NCMB = require("ncmb");
-    // 【NCMB】SDKの初期化
-    var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
-    // 【NCMB】あらかじめ準備したsuperuserユーザーでログイン
-    ncmb.User.login("superuser", "super")
-        .then(function (superuser) {
-            /* ログイン成功時の処理 */
-            // 【NCMB】ルーレットの結果毎にユーザー名を保存する
-            // 保存先クラスの生成
-            var Reward = ncmb.DataStore(className);
-            // 致する情報を取得する
-            Reward.equalTo("name", name)
-                  .fetchAll()
-                  .then(function(results) {
-                      /* 取得成功時の処理 */
-                      var objectId = "";
-                      if (results[0]==="" || results[0]===undefined) {
-                          objectId = "";
-                      }else{
-                          objectId = results[0].objectId;
-                      }
-                      // 新規登録または更新をする
-                      var reward = new Reward();
-                      reward.set("name", name);
-                      (objectId == "" ? reward.save() : reward.set("objectId", objectId).update())
-                          .then(function (success) {
-                              /* 保存または更新成功時の処理 */
-                              res.send("POST data successfully!");
-                          })
-                          .catch(function (error) {
-                              /* 保存または更新失敗時の処理 */
-                              res.status(500).send("Error: " + error);
-                          });
-                  })
-                  .catch(function (error) {
-                      /* 取得失敗時の処理 */
-                      res.status(500).send("Error: " + error);
-                  });
-        })
-        .catch(function (err) {
-            /* ログイン失敗時の処理 */
-            res.status(500).send("Error: " + error);
-        });
-```
-]
-
----
-
-
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * 3行目のAPIキーの置き換え  
@@ -1224,7 +1170,7 @@ Reward1.equalTo("name", name)
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * CouponGet.jsをアップロードする  
-  1.CouponGet.jsをドラッグ＆ドロップかファイル選択  
+  1.CouponGet.jsを __`ドラッグ＆ドロップ`__ か __`ファイル選択`__  
   2.メソッドは__`Get`__ を選択  
   3.ファイルの状態は__`実行可能`__ を選択  
   4.__`アップロードする`__ をクリック  
