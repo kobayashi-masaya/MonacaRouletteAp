@@ -723,7 +723,7 @@ var NCMB = require("ncmb");
 var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY"); 
 ```
 
-.center[<img src="readme-image/confirm_apikey.png" width="７00">]
+.center[<img src="readme-image/confirm_apikey.png" width="450">]
 
 ---
 
