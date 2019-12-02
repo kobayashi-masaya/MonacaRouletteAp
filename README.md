@@ -571,7 +571,6 @@ layout: false
   6. __`password`__ に __`super`__ と入力し Enterを押下  
 
 .center[<img src="readme-image/superuser2.png" width="700">]
-__`
 * 成功するとユーザーが追加され、__`password`__ が __`hidden`__ になります  
 * __`objectId`__ が自動で割り振られ、この値をacl設定に後ほど使用します
   * __`objectId`__ : mBaaSのデータ1つ1つに払い出された、世界中で重複しないことになっているID
@@ -626,7 +625,7 @@ __`
 
 ---
 
-### 6.6【mBaaS】スクリプト準備
+### 6.5【mBaaS】スクリプト準備
 * スクリプトとは
   * サーバーサイドにスクリプトを設置できる機能です。簡単なロジックを置くことで、独自機能の拡張などを行い、より柔軟にmobile backend をご利用いただけます。クライアント側に持たせたくないロジックをクラウド側で処理させることで、チート対策やクライアントアプリの軽量化にも繋がります。
 
@@ -885,6 +884,9 @@ module.exports = function (req, res) {
 ```
 ]
 
+* module.exports : モジュール化をし、さまざまな機能を持ったプログラムを個別のファイルに分割することができる
+* require('ncmb') : モジュール化されたncmbを読み込み
+
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
@@ -903,6 +905,9 @@ module.exports = function (req, res) {
         });
 ```
 ]
+
+* 6.4,6.5章で用意したスーパーユーザーでログイン
+ * スーパーユーザーでログインしないと、この後の検索や登録処理が出来ない
 
 ---
 
@@ -934,6 +939,9 @@ Reward.equalTo("name", name)
 ```
 ]
 
+* .fetchAll() :オブジェクトをデータストアから取得(クエリ条件を指定しない場合は全件取得)
+* res.status(status) :引数として渡された数値をステータスコードとして指定
+
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
@@ -942,21 +950,27 @@ Reward.equalTo("name", name)
 .size_small_7[
 ```js
 // 新規登録または更新をする
-var reward = new Reward();
-reward.set("name", name);
-(objectId == "" ? reward.save() : reward.set("objectId", objectId).update())
+var nameAdd = new Reward();
+nameAdd.set("name", name)
+    .save() 
+    .then(function (nameAdd) {
+        nameAdd.set("name", name);
+        return nameAdd.update();
+    })
     .then(function (success) {
         /* 保存または更新成功時の処理 */
-        res.send("POST data successfully!");
+        res.send("POST data successfully!");   
     })
     .catch(function (error) {
         /* 保存または更新失敗時の処理 */
         res.status(500).send("Error: " + error);
     });
-}
 ```
 ]
-*
+
+* .save() ：セットした値を保存する
+* .set()：実行に対する条件をセットする
+* .update()：セットした値でフィールドの値を更新する
 
 ---
 
@@ -1097,6 +1111,9 @@ module.exports = function (req, res) {
 ```
 ]
 
+* module.exports : モジュール化をし、さまざまな機能を持ったプログラムを個別のファイルに分割することができる
+* require('ncmb') : モジュール化されたncmbを読み込み
+
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
@@ -1121,6 +1138,9 @@ module.exports = function (req, res) {
 }
 ```
 ]
+
+* const promise = new Promise((resolve, reject) => {: 同期処理
+* res.status(status) :引数として渡された数値をステータスコードとして指定
 
 ---
 
@@ -1154,6 +1174,8 @@ Reward1.equalTo("name", name)
 }
 ```
 ]
+
+* .fetchAll() :オブジェクトをデータストアから取得(クエリ条件を指定しない場合は全件取得)
 
 ---
 
