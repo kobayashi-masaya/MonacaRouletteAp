@@ -66,7 +66,7 @@ layout: false
 
 .center[<img src="readme-image/monaca.png" width="500">]
 
-* MonacaをはJavaScriptSDKを利用して連携しています
+* MonacaはJavaScriptSDKを利用して連携しています
  * 初めての方でも使いやすい設計なので今回のハンズオンに採用しました
 
 ---
@@ -120,12 +120,12 @@ layout: false
 
 ### 4.2ハンズオンの流れ
 .size_large[
-5.  __ハンズオンの準備(前半)__
+- 5.  __ハンズオンの準備(前半)__
     - 5.1【Monaca】アプリ側の準備
     - 5.2【mBaaS】サーバー側の準備
     - 5.3【Monaca】mBaaSを使うための準備
     - 5.4  動作確認①
-6. __ルーレット機能の作成(後半)__
+- 6. __ルーレット機能の作成(後半)__
     - 6.1  設定ファイルのDL
     - 6.2【mBaaS】クーポン画像の準備
     - 6.3【mBaaS】データストアにクラスを準備
@@ -135,7 +135,7 @@ layout: false
     - 6.7【mBaaS】スクリプト準備②UserPost.js
     - 6.8【mBaaS】スクリプト準備③CouponGet.js
     - 6.9【Monaca】アプリからスクリプトを呼び出す
-    - 6.10【mBaaS】動作確認②
+    - 6.10動作確認②
     - 7 まとめと振り返り
     ]
 ---
@@ -256,11 +256,11 @@ layout: false
 * mBaaS(https://console.mbaas.nifcloud.com/) にログインします
   * 新しいアプリを作成します
   * アプリ名を __`Roulette`__ と入力
-  * 「`新規作成`」をクリック
+  * 「 __`新規作成`__ 」をクリック
 
 .center[<img src="readme-image/mbaas-app-create.png" width="300">]
 
-* mobile backend を既に使用したことがある場合は、画面上方のメニューバーにある「`+新しいアプリ`」をクリックすると同じ画面が表示されます
+* mobile backend を既に使用したことがある場合は、画面上方のメニューバーにある「 __`+新しいアプリ`__ 」をクリックすると同じ画面が表示されます
 
 .center[<img src="readme-image/newapp2.png" width="200">]
 
