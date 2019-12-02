@@ -880,33 +880,45 @@ function selectReward(probabilities) {
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* コード確認
+* スクリプトファイルのコードを確認します
+  * テキストエディタにて先ほどダウンロードしたフォルダ内にある __`js/UserPost.js`__ を開く
+* スクリプトの作法： Scriptを書くときに必要な宣言
 
-.size_small_7[
 ```js
 module.exports = function (req, res) {
-    var name = String(req.query.user);
-    var stopNumber = req.query.stopNumber;
-    var className = "Reward" + String(stopNumber);
     
-    // 【NCMB】SDKインポート
-    var NCMB = require("ncmb");
-    // 【NCMB】SDKの初期化
-    var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
+}
 ```
-]
-
-* req.query.*** :アプリ側からquery指定で受けっとった値
-* module.exports :p70を参考
-* require('ncmb') :p70を参考
 
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* コード確認
+
+* スクリプトからmBaaSを使う： SDKのインポートと初期化
+  * Monaca で設定したのと同様、 __`APPLICATION_KEY`__ と __`CLIENT_KEY`__ をmBaaSから発行されたAPIキーに置き換え
+  * テキストエディタにて保存
+
+```js
+// 【NCMB】SDKインポート
+var NCMB = require("ncmb");
+// 【NCMB】SDKの初期化
+var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY"); 
+```
+
+.center[<img src="readme-image/confirm_apikey.png" width="450">]
+
+---
+
+### 6.7【mBaaS】スクリプト準備②UserPost.js
+* ncmb.User.login("superuser", "super"): 6.4,6.5章で用意したスーパーユーザーでログイン
+ * スーパーユーザーでログインしないと、この後の検索や登録処理が出来ない
 
 .size_small_7[
 ```js
+    var name = String(req.query.user);
+    var stopNumber = req.query.stopNumber;
+    var className = "Reward" + String(stopNumber);
+    
     // 【NCMB】あらかじめ準備したsuperuserユーザーでログイン
     ncmb.User.login("superuser", "super")
         .then(function (superuser) {
@@ -919,13 +931,18 @@ module.exports = function (req, res) {
 ```
 ]
 
-* ncmb.User.login("superuser", "super"): 6.4,6.5章で用意したスーパーユーザーでログイン
- * スーパーユーザーでログインしないと、この後の検索や登録処理が出来ない
+
+.size_small_7[
+* スクリプトの作法： 返却値
+  * `res.send(data)`	:dataをアプリ側へ返す
+* mBaaSの処理
+  * `ncmb.User.login()` :指定したユーザー名とパスワードでログイン
+]
 
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* コード確認
+* ルーレットを回して当たったユーザーがすでに当たっているか検索
 
 .size_small_7[
 ```js
@@ -952,14 +969,18 @@ Reward.equalTo("name", name)
 ```
 ]
 
-* Reward.equalTo("name", name) :今回の場合だと nameが一致しているかを判断
-* .fetchAll() :p71参照
-* res.status(status) :p71参照
+.size_small_7[
+* スクリプトの作法： 返却値
+  * `res.send(data)`	:dataをアプリ側へ返す
+* mBaaSの処理
+  * `Reward.equalTo(A, B)` :AとBが一致しているかを判断
+]
 
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* コード確認
+* ルーレットに当たったユーザーの登録処理
+ * 登録に成功すると"POST data successfully!"が返される
 
 .size_small_7[
 ```js
@@ -982,22 +1003,15 @@ nameAdd.set("name", name)
 ```
 ]
 
-* .set()：条件をセットする
-* .save() ：.set()した値を保存する
-* .update()：.set()した値でフィールドの値を更新する
+.size_small_7[
+* スクリプトの作法： 返却値
+  * `res.send(data)`	:dataをアプリ側へ返す
+* mBaaSの処理
+　* `.set()`：条件をセットする
+　* `.save()` ：.set()した値を保存する
+　* `.update()`：.set()した値でフィールドの値を更新する
+]
 
----
-
-
-### 6.7【mBaaS】スクリプト準備②UserPost.js
-* 3行目のAPIキーの置き換え  
-  1.editorにてUserPost.jsを開く  
-  2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換え  
-  3.各editorにて保存  
-  
-```js
-    var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
-```
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
@@ -1101,37 +1115,42 @@ nameAdd.set("name", name)
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* コード確認
+* スクリプトファイルのコードを確認します
+  * テキストエディタにて先ほどダウンロードしたフォルダ内にある __`js/UserPost.js`__ を開く
+* スクリプトの作法： Scriptを書くときに必要な宣言
 
-.size_small_7[
 ```js
 module.exports = function (req, res) {
-    var name = req.query.user;
-    var png1;
-    var png2;
-    var png3;
     
-    // 【NCMB】SDKインポート
-    var NCMB = require("ncmb");
-    // 【NCMB】SDKの初期化
-    var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
-    
-    // 【NCMB】各種保存先クラスの生成
-    var Item = ncmb.DataStore("Roulette_Item");
-    var Reward1 = ncmb.DataStore("Reward1");
-    var Reward2 = ncmb.DataStore("Reward2");
-    var Reward3 = ncmb.DataStore("Reward3"); 
 }
 ```
-]
 
-* module.exports : p70参照
-* require('ncmb') : p70参照
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+
+* スクリプトからmBaaSを使う： SDKのインポートと初期化
+  * Monaca で設定したのと同様、 __`APPLICATION_KEY`__ と __`CLIENT_KEY`__ をmBaaSから発行されたAPIキーに置き換え
+  * テキストエディタにて保存
+
+```js
+// 【NCMB】SDKインポート
+var NCMB = require("ncmb");
+// 【NCMB】SDKの初期化
+var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY"); 
+
+// 【NCMB】各種保存先クラスの生成
+var Item = ncmb.DataStore("Item");
+var Reward1 = ncmb.DataStore("Reward1");
+var Reward2 = ncmb.DataStore("Reward2");
+var Reward3 = ncmb.DataStore("Reward3"); 
+```
+
+.center[<img src="readme-image/confirm_apikey.png" width="450">]
 
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* コード確認
+* ncmb.User.login("superuser", "super"): 6.4,6.5章で用意したスーパーユーザーでログイン
+ * スーパーユーザーでログインしないと、この後の検索や登録処理が出来ない
 
 .size_small_7[
 ```js
@@ -1153,13 +1172,19 @@ module.exports = function (req, res) {
 ```
 ]
 
-* ncmb.User.login("superuser", "super") : p83参照
-* res.status(status) : statusをアプリ側へ返す
+.size_small_7[
+* スクリプトの作法： 返却値
+  * `res.send(data)`	:dataをアプリ側へ返す
+  * `res.json({A,B,C})` :json形式でA,B,Cを返す
+* mBaaSの処理
+  * `ncmb.User.login()` :指定したユーザー名とパスワードでログイン
+]
 
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* コード確認
+* 当たった賞のRewardクラスに名前があるか検索
+ * 存在していれば、クーポン名を返す
 
 .size_small_7[
 ```js
@@ -1169,39 +1194,30 @@ Reward1.equalTo("name", name)
         if(reward1[0]==="" || reward1[0]===undefined){
             png1 = "";
         }else{
-            // 【NCMB】Roulette_Itemクラスを全件検索する
+            // 【NCMB】Itemクラスを全件検索する
             Item.fetchAll()
                 .then(function (result1) {
                     png1 = result1[0].png[0];
                 })
-                .catch(function (error) {
-                    res.status(500).json({error: 500});
-                });
         }
     })
     .catch(function (error) {
         res.status(500).send("Error: " + error);
     });
-    
+  
     // 以下Reward2,Reward3クラスも同様に
-
 }
 ```
 ]
 
-* Reward1.equalTo("name", name).fetchAll() : p71,p84参照
+.size_small_7[
+* スクリプトの作法： 返却値
+  * `res.send(data)`	:dataをアプリ側へ返す
+  * `res.json({A,B,C})` :json形式でA,B,Cを返す
+* mBaaSの処理
+  * `Reward.equalTo(A, B)` :AとBが一致しているかを判断
+]
 
----
-
-### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* 3行目のAPIキーの置き換え  
- 1.editorにてCouponGet.jsを開きます  
- 2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換えします  
- 3.各editorにて保存を実施する  
- 
-```js
-    var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
-```
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
