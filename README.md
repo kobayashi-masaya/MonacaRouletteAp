@@ -1361,3 +1361,14 @@ layout: false
 今後ともニフクラ mobile backendをどうぞよろしくお願いいたします。   
   
 スクリプト（Monaca）基本的な使い方(https://mbaas.nifcloud.com/doc/current/script/basic_usage_monaca.html)  
+
+---
+
+### まとめと振り返り
+* このハンズオンセミナーで学んだこと
+ * スクリプトの基本（作法）を学んだ
+ * スクリプトからmBaaSの利用方法がわかった
+ * 参照権限（パーミッション）について学んだ
+ * mBaaSを活用したチート対策の手法を学んだ
+ * アプリ開発に触れることができた
+ * 
