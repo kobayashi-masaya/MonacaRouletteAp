@@ -526,7 +526,7 @@ layout: false
 * スーパーユーザーの役割
  * セキュリティを担保するために、特定のユーザーだけがアクセスできるようにaclを設定し、工夫しています
 
-.center[<img src="readme-image/superuser.png" width="700">]
+.center[<img src="readme-image/super_per.png" width="700">]
 
 ---
 
@@ -534,7 +534,7 @@ layout: false
 * Rewardクラスへのアクセス権限を持ったスーパーユーザーを用意します
  * スーパーユーザーだけがアクセスできるacl設定を施します
 
-.center[<img src="readme-image/super_per.png" width="700">]
+.center[<img src="readme-image/flow6.png" width="700">]
 
 ---
 
