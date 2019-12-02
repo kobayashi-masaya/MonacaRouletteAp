@@ -730,6 +730,7 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 
 .size_small_７[
+
 * Itemクラスから確率情報を取得して当たりを決定する
   * `selectRewards()` を呼び出す
 
