@@ -39,6 +39,13 @@ class: center, middle, inverse
 ---
 layout: false
 
+### スクリプトとは
+ * サーバーサイドにスクリプトを設置できる機能です
+ * アプリ側に持たせたくないロジックをクラウド側に持たせることで、チート対策やアプリの軽量化にも繋がります
+.center[<img src="readme-image/スクリプトとは.png" width="600">]
+
+---
+
 ### 概要
 * ニフクラ mobile backendの『スクリプト機能』を利用して<br>
 __`サーバーレスでルーレットアプリにクーポン機能を実装します`__
@@ -614,25 +621,17 @@ layout: false
 
 ### 6.5【mBaaS】参照権限の設定
 * __`パーミッション`__ の保存が成功すると緑のポップアップが右上に表示される
- * 手順を __`Reward2`__ 、 __`Reward3`__ に対しても実施する
 .center[<img src="readme-image/acl4.png" width="300">]
 * 設定されているか確認します  
   1.__`データストア`__ をクリック  
   2.__`パーミッションの設定`__ をクリック  
 * 登録されると次のように表示されます  
 .center[<img src="readme-image/acl5.png" width="400">]
+* 同じ手順を __`Reward2`__ 、 __`Reward3`__ に対しても権限を設定する
+
 
 ---
 
-### 6.6【mBaaS】スクリプト準備
-* スクリプトとは
-  * サーバーサイドにスクリプトを設置できる機能です
-  * 簡単なロジックを置くことで、独自機能の拡張をし、より柔軟にmobile backend をご利用いただけます
-  * クライアント側に持たせたくないロジックをクラウド側で処理させることで、チート対策やクライアントアプリの軽量化にも繋がります
-
-.center[<img src="readme-image/スクリプトとは.png" width="500">]
-
----
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * 処理内容
@@ -694,8 +693,9 @@ module.exports = function (req, res) {
 ```
 ]
 
-* module.exports : モジュール化をし、さまざまな機能を持ったプログラムを個別のファイルに分割することができる
-* require('ncmb') : モジュール化されたncmbを読み込み
+* module.exports : Scriptを書くときに必要な宣言 
+* require('ncmb') : SDKをインポート
+* new NCMB("APPLICATION_KEY", "CLIENT_KEY") ：SDKを初期化
 
 ---
 
@@ -731,10 +731,10 @@ module.exports = function (req, res) {
 ```
 ]
 
-* .fetchAll() :オブジェクトをデータストアから取得(クエリ条件を指定しない場合は全件取得)
-* res.status(status) :引数として渡された数値をステータスコードとして指定
-* res.send(data)	:引数として渡された文字列をレスポンスボディとして返却
-* res.json(data)	:引数として渡されたJSONをレスポンスボディとして返却
+* Item.fetchAll() :Itemクラスにて全件取得
+* res.status(status) :statusをアプリ側へ返す
+* res.send(data)	:dataをアプリ側へ返す
+* res.json(data)	:dataをjson形式にしてアプリ側へ返す
 
 ---
 
@@ -885,8 +885,9 @@ module.exports = function (req, res) {
 ```
 ]
 
-* module.exports : モジュール化をし、さまざまな機能を持ったプログラムを個別のファイルに分割することができる
-* require('ncmb') : モジュール化されたncmbを読み込み
+* req.query.*** :アプリ側からquery指定で受けっとった値
+* module.exports :p70を参考
+* require('ncmb') :p70を参考
 
 ---
 
@@ -940,8 +941,9 @@ Reward.equalTo("name", name)
 ```
 ]
 
-* .fetchAll() :オブジェクトをデータストアから取得(クエリ条件を指定しない場合は全件取得)
-* res.status(status) :引数として渡された数値をステータスコードとして指定
+* Reward.equalTo("name", name) :今回の場合だと nameが一致しているかを判断
+* .fetchAll() :p71参照
+* res.status(status) :p71参照
 
 ---
 
@@ -969,9 +971,9 @@ nameAdd.set("name", name)
 ```
 ]
 
-* .save() ：セットした値を保存する
-* .set()：実行に対する条件をセットする
-* .update()：セットした値でフィールドの値を更新する
+* .set()：条件をセットする
+* .save() ：.set()した値を保存する
+* .update()：.set()した値でフィールドの値を更新する
 
 ---
 
@@ -1112,8 +1114,8 @@ module.exports = function (req, res) {
 ```
 ]
 
-* module.exports : モジュール化をし、さまざまな機能を持ったプログラムを個別のファイルに分割することができる
-* require('ncmb') : モジュール化されたncmbを読み込み
+* module.exports : p70参照
+* require('ncmb') : p70参照
 
 ---
 
