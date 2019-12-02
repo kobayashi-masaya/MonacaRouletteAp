@@ -693,6 +693,7 @@ module.exports = function (req, res) {
 }
 ```
 ]
+
 * module.exports : モジュール化をし、さまざまな機能を持ったプログラムを個別のファイルに分割することができる
 * require('ncmb') : モジュール化されたncmbを読み込み
 
