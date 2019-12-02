@@ -521,7 +521,7 @@ layout: false
 ---
 
 ### 6.3【mBaaS】データストアにクラスを準備する手順
-* データストアに当たった賞のユーザー名が登録されるクラス「Reward1」、「Reward2」、「Reward3」を準備します
+* 当たったごとにユーザー名が登録されるクラス「Reward1」、「Reward2」、「Reward3」を準備します
  
 .center[<img src="readme-image/rewardclass0.png" width="600">]
 
@@ -650,6 +650,9 @@ layout: false
 
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
+
+.center[<img src="readme-image/script1.png" width="500">]
+
 * 処理内容
   1. Itemからルーレットの確率を取得
   2. その確率から1等,2等,3等を算出
@@ -658,67 +661,85 @@ layout: false
   * 確率の調整が可能
   * 1等が絶対に当たらない鬼畜設定も可能…
 
-.center[<img src="readme-image/script1.png" width="500">]
-
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-* 処理内容
-  1. Itemからルーレットの確率を取得
-  2. その確率から1等,2等,3等を算出
-  3. 当たった賞の値をItemから取得しMonaca側へ返す
 
 .center[<img src="readme-image/script11.png" width="500">]
 
----
-
-### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * 処理内容
   1. Itemからルーレットの確率を取得
   2. その確率から1等,2等,3等を算出
-  3. 当たった賞の値をItemから取得しMonaca側へ返す
+  3. 当たった賞の値をItemから取得しMonaca側へ返
+
+---
+
+### 6.6【mBaaS】スクリプト準備①SelectReward.js
 
 .center[<img src="readme-image/script12.png" width="500">]
 
----
-
-### 6.6【mBaaS】スクリプト準備①SelectReward.js
 * 処理内容
   1. Itemからルーレットの確率を取得
   2. その確率から1等,2等,3等を算出
   3. 当たった賞の値をItemから取得しMonaca側へ返す
 
+---
+
+### 6.6【mBaaS】スクリプト準備①SelectReward.js
+
 .center[<img src="readme-image/script13.png" width="500">]
 
+* 処理内容
+  1. Itemからルーレットの確率を取得
+  2. その確率から1等,2等,3等を算出
+  3. 当たった賞の値をItemから取得しMonaca側へ返す
+
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-* コード確認
 
-.size_small_7[
+* スクリプトファイルのコードを確認します
+  * テキストエディタにて SelectReward.js を開く
+* スクリプトの作法： Scriptを書くときに必要な宣言
+
 ```js
 module.exports = function (req, res) {
-    var name = req.query.user;
     
-    // 【NCMB】SDKインポート
-    var NCMB = require("ncmb");
-    
-    // 【NCMB】SDKの初期化
-    var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY"); 
 }
 ```
-]
 
-* module.exports : Scriptを書くときに必要な宣言 
-* require('ncmb') : SDKをインポート
-* new NCMB("APPLICATION_KEY", "CLIENT_KEY") ：SDKを初期化
+* スクリプトの作法：引数の受け渡し
+  * queryとして値を渡すことが可能
+  * ここではログイン中のユーザーのユーザー名を受け渡し
+
+```js
+var name = req.query.user;
+```
 
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-* コード確認
 
-.size_small_7[
+* スクリプトからmBaaSを使う： SDKのインポートと初期化
+  * Monaca で設定したのと同様、 __`APPLICATION_KEY`__ と __`CLIENT_KEY`__ をmBaaSから発行されたAPIキーに置き換え
+  * テキストエディタにて保存
+
+```js
+// 【NCMB】SDKインポート
+var NCMB = require("ncmb");
+// 【NCMB】SDKの初期化
+var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY"); 
+```
+
+---
+
+### 6.6【mBaaS】スクリプト準備①SelectReward.js
+
+* Itemクラスから確率情報を取得して当たりを決定する
+  * `selectRewards()` を呼び出す
+
+.size_small_９[
+
 ```js
 /* 【NCMB】データストアから確率を取得する */
     // 保存先クラスの指定
@@ -729,12 +750,7 @@ module.exports = function (req, res) {
             /* 取得成功時の処理 */
             // 確率によりクーポンを決定
             var rewardNum = selectReward(results[0].rate);
-            // データに不備があった場合の処理
-            if (rewardNum == -1) {
-                res.status(500).json({
-                    "message": "Probabilities of rewards must be defined as Array(length=2)"
-                });
-            }
+
             // クーポン番号と画像情報を返却
             var stopNumber = results[0].rewards[rewardNum];
             var png = results[0].png[rewardNum];
@@ -745,31 +761,30 @@ module.exports = function (req, res) {
             res.status(500).send("Error: " + error);
         });
 ```
+
 ]
 
-* Item.fetchAll() :Itemクラスにて全件取得
-* res.status(status) :statusをアプリ側へ返す
-* res.send(data)	:dataをアプリ側へ返す
-* res.json(data)	:dataをjson形式にしてアプリ側へ返す
+* スクリプトの作法： 返却値
+  * `res.status(status)` :statusをアプリ側へ返す
+  * `res.send(data)`	:dataをアプリ側へ返す
+  * `res.json(data)`	:dataをjson形式にしてアプリ側へ返す
+* mBaaSの処理
+  * `Item.fetchAll()` :Itemクラスにて全件取得
+  * `.then(function(result) {})` :コールバック（処理成功時）
+  * `.catch(function(error) {})` :コールバック（処理失敗時）
 
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
-* コード確認
 
-.size_small_7[
+* `selectRewards()` の処理： 乱数により当たりを決定
+  * 何等賞が当たったかを算出して、1,2,3のいずれかをreturn
+
 ```js
 // クーポンの決定処理
-function selectReward(probabilities) {
-    // probabilitiesが配列かどうか確認
-    if (!(Array.isArray(probabilities))) return -1;
-    
-    // probabilities の要素数の確認
-    if (probabilities.length != 2) return -1;
-    
+function selectReward(probabilities) {    
     const p0 = Number(probabilities[0]); // rewards[0]が選択される確率
     const p1 = Number(probabilities[1]); // rewards[1]が選択される確率
-    
     // 乱数の生成
     var randNum = Math.random();
     // クーポンの決定
@@ -778,21 +793,7 @@ function selectReward(probabilities) {
     else return 2;
 }
 ```
-]
 
-* 何等賞が当たったかを算出して、1,2,3のどれかをreturnしている関数
-
----
-
-### 6.6【mBaaS】スクリプト準備①SelectReward.js
-* 3行目のAPIキーを置き換えます  
-  1.editorにてSelectReward.jsを開く  
-  2.APPLICATION_KEYとCLIENT_KEYを自分のAPIキーに置き換え  
-  3.各editorにて保存
-  
-```js
-    var ncmb = new NCMB('APPLICATION_KEY', 'CLIENT_KEY');
-```
 ---
 
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
