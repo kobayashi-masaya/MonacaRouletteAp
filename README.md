@@ -943,7 +943,6 @@ ncmb.User.login("superuser", "super")
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * ルーレットを回して当たったユーザーがすでに当たっているか検索
-* すでに当たっている場合は `objectId` を取得
 
 ```js
 // 【NCMB】ルーレットの結果毎にユーザー名を保存する
@@ -954,12 +953,7 @@ Reward.equalTo("name", name)
       .fetchAll()
       .then(function(results) {
           /* 取得成功時の処理 */
-          var objectId = "";
-          if (results[0]==="" || results[0]===undefined) {
-              objectId = "";
-          }else{
-              objectId = results[0].objectId;
-          }
+          
       })
       .catch(function (error) {
           /* 取得失敗時の処理 */
@@ -973,36 +967,29 @@ Reward.equalTo("name", name)
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
-* ルーレットに当たったユーザーの登録処理
- * 登録に成功すると `"POST data successfully!"` が返される
+* すでに当たっている場合は `objectId` を取得
+* ルーレットに当たったユーザーの登録または更新処理
 
-.size_small_7[
 ```js
+// 既存データ（objectId）の有無を確認
+var objectId = "";
+if (results[0]==="" || results[0]===undefined) {
+    objectId = "";
+}else{
+    objectId = results[0].objectId;
+}
 // 新規登録または更新をする
-var nameAdd = new Reward();
-nameAdd.set("name", name)
-    .save() 
-    .then(function (nameAdd) {
-        nameAdd.set("name", name);
-        return nameAdd.update();
-    })
-    .then(function (success) {
-        /* 保存または更新成功時の処理 */
-        res.send("POST data successfully!");   
-    })
-    .catch(function (error) {
-        /* 保存または更新失敗時の処理 */
-        res.status(500).send("Error: " + error);
-    });
+var reward = new Reward();
+reward.set("name", name);
+(objectId == "" ? reward.save() : reward.set("objectId", objectId).update())
 ```
-]
 
-.size_small_7[
 * mBaaSの処理
-　* `.set()`：条件をセットする
+　* `.set()` ：値をセットする
 　* `.save()` ：.set()した値を保存する
-　* `.update()`：.set()した値でフィールドの値を更新する
-]
+　* `.update()` ：.set()した値でフィールドの値を更新する
+* JavaScriptの作法
+  * `(条件 ? 条件が真の場合の処理 : 条件が偽の場合の処理)` :三項演算子
 
 ---
 
@@ -1043,86 +1030,80 @@ nameAdd.set("name", name)
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * UserPost.jsのテストをしてみましょう  
   13.__`データストア`__ をクリック  
-  14.今回はstopNumberを1としたので __`Reward1`__ をクリック  
+  14.stopNumberを1とした場合、 __`Reward1`__ をクリック
 .center[<img src="readme-image/post5.png" width="500">]
-* 指定したuserが登録されていれば成功です  
+* 指定したユーザー名が登録されていれば成功です  
  
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
+
+.center[<img src="readme-image/script3.png" width="400">]
+
 * 処理内容  
-  1. 非同期処理スタート、まずは管理者でログイン  
-  2. 次にReward1にユーザーがいるか検索  
+  1. 同期処理を開始し、スーパーユーザーでログイン  
+  2. 次にReward1にユーザーが登録されているかどうか検索  
   3. 存在していれば画像名をItemから取得  
-  4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
+  4. 2,3が終了後Reward2,Reward3と順に同様処理を実行  
 * Point  
   * 同期処理を使用   
   * 処理が重ならずに全ての処理の終了後に値が返される  
-.center[<img src="readme-image/script3.png" width="400">]
  
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* 処理内容  
-  1. 非同期処理スタート、まずは管理者でログイン  
-  2. 次にReward1にユーザーがいるか検索  
-  3. 存在していれば画像名をItemから取得  
-  4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
 
 .center[<img src="readme-image/script31.png" width="500">]
+
+* 処理内容  
+  1. 同期処理を開始し、スーパーユーザーでログイン  
+  2. 次にReward1にユーザーが登録されているかどうか検索  
+  3. 存在していれば画像名をItemから取得  
+  4. 2,3が終了後Reward2,Reward3と順に同様処理を実行  
  
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* 処理内容  
-  1. 非同期処理スタート、まずは管理者でログイン  
-  2. 次にReward1にユーザーがいるか検索  
-  3. 存在していれば画像名をItemから取得  
-  4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
 
 .center[<img src="readme-image/script32.png" width="500">]
+
+* 処理内容  
+  1. 同期処理を開始し、スーパーユーザーでログイン  
+  2. 次にReward1にユーザーが登録されているかどうか検索  
+  3. 存在していれば画像名をItemから取得  
+  4. 2,3が終了後Reward2,Reward3と順に同様処理を実行  
  
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* 処理内容  
-  1. 非同期処理スタート、まずは管理者でログイン  
-  2. 次にReward1にユーザーがいるか検索  
-  3. 存在していれば画像名をItemから取得  
-  4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
 
 .center[<img src="readme-image/script33.png" width="500">]
+
+* 処理内容  
+  1. 同期処理を開始し、スーパーユーザーでログイン  
+  2. 次にReward1にユーザーが登録されているかどうか検索  
+  3. 存在していれば画像名をItemから取得  
+  4. 2,3が終了後Reward2,Reward3と順に同様処理を実行   
  
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* 処理内容  
-  1. 非同期処理スタート、まずは管理者でログイン  
-  2. 次にReward1にユーザーがいるか検索  
-  3. 存在していれば画像名をItemから取得  
-  4. 2,3が終了後Reward2,Reward3と順に同様処理が行われる  
 
 .center[<img src="readme-image/script34.png" width="500">]
+
+* 処理内容  
+  1. 同期処理を開始し、スーパーユーザーでログイン  
+  2. 次にReward1にユーザーが登録されているかどうか検索  
+  3. 存在していれば画像名をItemから取得  
+  4. 2,3が終了後Reward2,Reward3と順に同様処理を実行  
  
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * スクリプトファイルのコードを確認します
   * テキストエディタにて先ほどダウンロードしたフォルダ内にある __`js/CouponGet.js`__ を開く
-* スクリプトの作法： Scriptを書くときに必要な宣言
-
-```js
-module.exports = function (req, res) {
-    
-}
-```
-
----
-
-### 6.8【mBaaS】スクリプト準備③CouponGet.js
-
 * スクリプトからmBaaSを使う： SDKのインポートと初期化
-  * Monaca で設定したのと同様、 __`APPLICATION_KEY`__ と __`CLIENT_KEY`__ をmBaaSから発行されたAPIキーに置き換え
+  * 先ほどと同様、 __`APPLICATION_KEY`__ と __`CLIENT_KEY`__ をmBaaSから発行されたAPIキーに置き換え
   * テキストエディタにて保存
 
 ```js
@@ -1130,12 +1111,6 @@ module.exports = function (req, res) {
 var NCMB = require("ncmb");
 // 【NCMB】SDKの初期化
 var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY"); 
-
-// 【NCMB】各種保存先クラスの生成
-var Item = ncmb.DataStore("Item");
-var Reward1 = ncmb.DataStore("Reward1");
-var Reward2 = ncmb.DataStore("Reward2");
-var Reward3 = ncmb.DataStore("Reward3"); 
 ```
 
 .center[<img src="readme-image/confirm_apikey.png" width="450">]
@@ -1143,74 +1118,77 @@ var Reward3 = ncmb.DataStore("Reward3");
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
-* ncmb.User.login("superuser", "super"): 6.4,6.5章で用意したスーパーユーザーでログイン
- * スーパーユーザーでログインしないと、この後の検索や登録処理が出来ない
 
-.size_small_7[
+* あらかじめ各クラスを生成
+
+```js
+// 【NCMB】各種保存先クラスの生成
+var Item = ncmb.DataStore("Item");
+var Reward1 = ncmb.DataStore("Reward1");
+var Reward2 = ncmb.DataStore("Reward2");
+var Reward3 = ncmb.DataStore("Reward3");
+```
+
+---
+
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+
+* 同期処理（promise）を開始し、スーパーユーザーでログイン
+
 ```js
 // 【NCMB】あらかじめ準備したsuperuserユーザーでログイン
-    const promise = new Promise((resolve, reject) => {
-        ncmb.User.login("superuser", "super")
-            .then(function (superuser) {
-                /* ログイン成功時の処理 */
-            })    
-            .catch(function (error) {
-                res.status(500).send("Error: " + error);
-            });
+const promise = new Promise((resolve, reject) => {
+    ncmb.User.login("superuser", "super")
+        .then(function (superuser) {
+            /* ログイン成功時の処理 */
+        })    
+        .catch(function (error) {
+            /* ログイン失敗時の処理 */
+            
+        });
     });
-    
-    promise.then(() => setTimeout(function () {
-        res.status(200).json({png1,png2,png3});
-    }, 1000));
 }
 ```
-]
-
-.size_small_7[
-* スクリプトの作法： 返却値
-  * `res.send(data)`	:dataをアプリ側へ返す
-  * `res.json({A,B,C})` :json形式でA,B,Cを返す
-* mBaaSの処理
-  * `ncmb.User.login()` :指定したユーザー名とパスワードでログイン
-]
 
 ---
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * 当たった賞のRewardクラスに名前があるか検索
- * 存在していれば、クーポン名を返す
+* 存在していれば、クーポン名を取得
 
-.size_small_7[
 ```js
 Reward1.equalTo("name", name)
-    .fetchAll()
-    .then(function (reward1) {
-        if(reward1[0]==="" || reward1[0]===undefined){
-            png1 = "";
-        }else{
-            // 【NCMB】Itemクラスを全件検索する
-            Item.fetchAll()
-                .then(function (result1) {
-                    png1 = result1[0].png[0];
-                })
-        }
-    })
-    .catch(function (error) {
-        res.status(500).send("Error: " + error);
-    });
-  
-    // 以下Reward2,Reward3クラスも同様に
-}
+       .fetchAll()
+       .then(function (reward1) {
+           if(reward1[0]==="" || reward1[0]===undefined){
+               png1 = "";
+           }else{
+               // 【NCMB】Itemクラスを全件検索する
+               Item.fetchAll()
+                   .then(function (result1) {
+                       png1 = result1[0].png[0];
+                   })
+           }
+       })
+       .catch(function (error) {
+           res.status(500).send("Error: " + error);
+       });
+// 以下Reward2,Reward3クラスも同様に
 ```
-]
 
-.size_small_7[
+---
+
+### 6.8【mBaaS】スクリプト準備③CouponGet.js
+* 同期処理（promise）の結果（クーポン名）をまとめて返す
+
+```js
+promise.then(() => setTimeout(function () {
+    res.status(200).json({png1,png2,png3});
+}, 1000));
+```
+
 * スクリプトの作法： 返却値
-  * `res.send(data)`	:dataをアプリ側へ返す
   * `res.json({A,B,C})` :json形式でA,B,Cを返す
-* mBaaSの処理
-  * `Reward.equalTo(A, B)` :AとBが一致しているかを判断
-]
 
 ---
 
@@ -1243,7 +1221,7 @@ Reward1.equalTo("name", name)
 .center[<img src="readme-image/coupon3.png" width="200">]  
   11.実行ボタンの下に結果が出力されていることを確認  
 .center[<img src="readme-image/coupon4.png" width="300">]  
-* 現在はReward1のクラスなのでone.pngが結果として取得できている
+* ６.７ で1を指定した場合は `one.png` が結果として取得できている
 
 ---
 
