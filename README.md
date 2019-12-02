@@ -699,21 +699,13 @@ layout: false
 ### 6.6【mBaaS】スクリプト準備①SelectReward.js
 
 * スクリプトファイルのコードを確認します
-  * テキストエディタにて SelectReward.js を開く
+  * テキストエディタにて先ほどダウンロードしたフォルダ内にある __`js/SelectReward.js`__ を開く
 * スクリプトの作法： Scriptを書くときに必要な宣言
 
 ```js
 module.exports = function (req, res) {
     
 }
-```
-
-* スクリプトの作法：引数の受け渡し
-  * queryとして値を渡すことが可能
-  * ここではログイン中のユーザーのユーザー名を受け渡し
-
-```js
-var name = req.query.user;
 ```
 
 ---
