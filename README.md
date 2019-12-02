@@ -730,8 +730,7 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
 * Itemクラスから確率情報を取得して当たりを決定する
   * `selectRewards()` を呼び出す
 
-.size_small_９[
-
+.size_small_9[
 ```js
 /* 【NCMB】データストアから確率を取得する */
     // 保存先クラスの指定
@@ -753,7 +752,6 @@ var ncmb = new NCMB("APPLICATION_KEY", "CLIENT_KEY");
             res.status(500).send("Error: " + error);
         });
 ```
-
 ]
 
 * スクリプトの作法： 返却値
