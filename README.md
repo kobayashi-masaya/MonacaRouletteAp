@@ -1224,8 +1224,8 @@ promise.then(() => setTimeout(function () {
 * アプリからスクリプトを呼び出すコードを確認します
   * js/app.js を開く
   * `Ctrl + F` にて検索窓で「 `//MARK` 」と検索  
-* それぞれ以下の内容を確認していきます 
-  １. スクリプト①: SelectReward.js の呼び出し
+* それぞれ以下の内容を確認していきます
+  1. スクリプト①: SelectReward.js の呼び出し
   1. スクリプト②: UserPost.js の呼び出し
   1. スクリプト③: CouponGet.js の呼び出し
 
