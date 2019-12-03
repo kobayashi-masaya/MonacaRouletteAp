@@ -828,9 +828,8 @@ function selectReward(probabilities) {
   12.実行ボタンの下に結果が出力されていることを確認  
   13.当たった等(stopNumber)とクーポン画像名(png)が取れている  
 .center[<img src="readme-image/select4.png" width="300">]
-
 * ここで上手くいかない場合は、データストアのクラス名やフィールド名に誤りがある可能性があります
- 
+
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
@@ -1221,7 +1220,7 @@ promise.then(() => setTimeout(function () {
 .center[<img src="readme-image/coupon3.png" width="200">]  
   11.実行ボタンの下に結果が出力されていることを確認  
 .center[<img src="readme-image/coupon4.png" width="300">]  
-* ６.７ で1を指定した場合は `one.png` が結果として取得できている
+* 6.7 で1を指定した場合は `one.png` が結果として取得できている
 
 ---
 
