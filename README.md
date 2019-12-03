@@ -13,11 +13,6 @@ class: center, middle, inverse
 ]
 
 ---
-layout: true
-class: center, middle, inverse
----
-# 0.目次
----
 layout: false
 
 ### 目次 
@@ -39,14 +34,14 @@ class: center, middle, inverse
 ---
 layout: false
 
-### スクリプトとは
+### 1.1 スクリプトとは
  * サーバーサイドにスクリプトを設置できる機能です
  * アプリ側に持たせたくないロジックをクラウド側に持たせることで、チート対策やアプリの軽量化にも繋がります
 .center[<img src="readme-image/スクリプトとは.png" width="700">]
 
 ---
 
-### 概要
+### 1.2 作成するアプリ概要
 * ニフクラ mobile backendの『スクリプト機能』を利用して<br>
 __`サーバーレスでルーレットアプリにクーポン機能を実装します`__
 * 既にコーディングを完了させたサンプルアプリを使って作業していきます
@@ -658,8 +653,8 @@ layout: false
   2. その確率から1等,2等,3等を算出
   3. 当たった賞の値をItemから取得しMonaca側へ返す
 * Point
-  * 確率の調整が可能
-  * 1等が絶対に当たらない鬼畜設定も可能…
+  * スクリプトを書き換えなくても確率の調整が可能
+    * 1等が絶対に当たらない鬼畜設定も可能…
 
 ---
 
@@ -670,7 +665,7 @@ layout: false
 * 処理内容
   1. Itemからルーレットの確率を取得
   2. その確率から1等,2等,3等を算出
-  3. 当たった賞の値をItemから取得しMonaca側へ返
+  3. 当たった賞の値をItemから取得しMonaca側へ返す
 
 ---
 
@@ -833,6 +828,9 @@ function selectReward(probabilities) {
 ---
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
+
+.center[<img src="readme-image/script2.png" width="500">]
+
 * 処理内容  
   1. 当たった賞をqueryから取得  
   2. スーパーユーザーでログイン  
@@ -841,8 +839,6 @@ function selectReward(probabilities) {
 * Point
   * スーパーユーザーのみが登録できる仕組みなので、セキュリティ面も安心
   * 悪意のあるユーザーが勝手に登録すること防ぐ
-
-.center[<img src="readme-image/script2.png" width="500">]
 
 ---
 
@@ -890,7 +886,7 @@ function selectReward(probabilities) {
 
 ```js
 module.exports = function (req, res) {
-    var name = String(rq.query.user);
+    var name = String(req.query.user);
     var stopNumber = req.query.stopNumber;
     var className ="Reward" + String(stopNumber);
     
@@ -984,9 +980,9 @@ reward.set("name", name);
 ```
 
 * mBaaSの処理
-　* `.set()` ：値をセットする
-　* `.save()` ：.set()した値を保存する
-　* `.update()` ：.set()した値でフィールドの値を更新する
+  * `.set()` ：値をセットする
+  * `.save()` ：.set()した値を保存する
+  * `.update()` ：.set()した値でフィールドの値を更新する
 * JavaScriptの作法
   * `(条件 ? 条件が真の場合の処理 : 条件が偽の場合の処理)` :三項演算子
 
@@ -994,7 +990,7 @@ reward.set("name", name);
 
 ### 6.7【mBaaS】スクリプト準備②UserPost.js
 * UserPost.jsをアップロードする  
-  1.UserPost.jsをを __`ドラッグ＆ドロップ`__  か __`ファイル選択`__ 
+  1.UserPost.jsを __`ドラッグ＆ドロップ`__  か __`ファイル選択`__  
   2.メソッドは __`POST`__ を選択  
   3.ファイルの状態は __`実行可能`__ を選択  
   4.__`アップロードする`__ をクリック  
@@ -1037,7 +1033,7 @@ reward.set("name", name);
 
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 
-.center[<img src="readme-image/script3.png" width="400">]
+.center[<img src="readme-image/script3.png" width="500">]
 
 * 処理内容  
   1. 同期処理を開始し、スーパーユーザーでログイン  
@@ -1225,106 +1221,100 @@ promise.then(() => setTimeout(function () {
 ---
 
 ### 6.9【Monaca】アプリからスクリプトを呼び出す
-* 管理画面上で動作確認（実行してただしくログがでるか）の手順  
-  1. app.jsを開きCtrl + F にて検索窓で「//MARK」と検索  
-  2. Mark内を大きく①、②、③に分けています  
-  3. スクリプト①にてSelectReward.js  
-  <br>スクリプト②にてUserPost.js  
-  <br>スクリプト③にてCouponGet.jsが呼ばれています  
+* アプリからスクリプトを呼び出すコードを確認します
+  * js/app.js を開く
+  * `Ctrl + F` にて検索窓で「 `//MARK` 」と検索  
+* それぞれ以下の内容を確認していきます 
+  １. スクリプト①: SelectReward.js の呼び出し
+  1. スクリプト②: UserPost.js の呼び出し
+  1. スクリプト③: CouponGet.js の呼び出し
 
 ---
 
-### 6.9【Monaca】アプリからスクリプトを呼び出す ①
-* SelectReward.js呼び出しコード確認  
-  * 非同期処理にてスクリプトを呼び出し  
+### 6.9【Monaca】アプリからスクリプトを呼び出す
+* スクリプト①: SelectReward.js を呼び出すコードを確認します
+  * 同期処理 
   * GETメソッドを使用  
 
-.size_small_7[
 ```js
-const promise = new Promise((resolve, reject) => {
-        //MARK: 【NCMB】スクリプト①：ルーレットの当たりを取得
-        ncmb.Script.exec("GET", "SelectReward.js")
-            .then(function (res) {
-                /* スクリプトの実行成功時の処理 */
-                resolve();
-            })
-            .catch(function (err) {
-                /* スクリプトの実行失敗時の処理 */
-            });
-    });
-    promise.then(() => setTimeout(function () {
+//MARK: 【NCMB】スクリプト①：ルーレットの当たりを取得
+ncmb.Script.exec("GET", "SelectReward.js")
+           .then(function (res) {
+               /* スクリプトの実行成功時の処理 */
+               
+           })
+           .catch(function (err) {
+               /* スクリプトの実行失敗時の処理 */
+               
+           });
 ```
-]
+
+* `ncmb.Script.exec("メソッド", "ファイル名")` : スクリプトの呼び出し
 
 ---
 
-### 6.9【Monaca】アプリからスクリプトを呼び出す ②
-* UserPost.js呼び出しコード確認  
-  * queryを指定して実行  
-  * POSTメソッドを使用  
+### 6.9【Monaca】アプリからスクリプトを呼び出す
+* スクリプト②: UserPost.js を呼び出すコードを確認します
+  * queryを指定して  
+  * POSTメソッドを使用
 
-.size_small_7[
 ```js
 ncmb.Script.query({"user": user.userName,"stopNumber": stopNumber})
-                .exec("POST", "UserPost.js")
-                .then(function (res) {
-                    /* スクリプトの実行成功時の処理 */
-                })
-                .catch(function (err) {
-                    /* スクリプトの実行失敗時の処理 */
-                });
+           .exec("POST", "UserPost.js")
+           .then(function (res) {
+               /* スクリプトの実行成功時の処理 */
+           })
+           .catch(function (err) {
+               /* スクリプトの実行失敗時の処理 */
+           });
 ```
-]
+
+* `.query({JSON})` : クエリの指定
 
 ---
 
-### 6.9【Monaca】アプリからスクリプトを呼び出す ③
-* CouponGet.js呼び出しコード確認  
-  * 非同期処理にてスクリプトを呼び出し  
-  * GETメソッドを使用  
-  * queryを指定して実行  
+### 6.9【Monaca】アプリからスクリプトを呼び出す
+* スクリプト③: CouponGet.js を呼び出すコードを確認します
+  * 同期処理
+  * queryを指定して  
+  * GETメソッドを使用
 
-.size_small_7[
 ```js
-const promise = new Promise((resolve, reject) => {
-        //MARK: 【NCMB】スクリプト③：当たったクーポン画像を取得
-        ncmb.Script.query({"user": user.userName})
-            .exec("GET", "CouponGet.js")
-            .then(function (res) {
-                /* スクリプトの実行成功時の処理 */
-                resolve();
+//MARK: 【NCMB】スクリプト③：当たったクーポン画像を取得
+ncmb.Script.query({"user": user.userName})
+           .exec("GET", "CouponGet.js")
+           .then(function (res) {
+               /* スクリプトの実行成功時の処理 */
+               
             })
             .catch(function (err) {
                 /* スクリプトの実行失敗時の処理 */
+                
             });
-    });
-    // クーポンページの画像をロードする
-    promise.then(() => setTimeout(function () {
-}
 ```
 ]
 
 ---
 
-### 6.10【動作確認】
-* 管理画面上で動作確認（実行してただしくログがでるか）の手順  
-  1.好きなユーザー名と、パスワードを入力し __`新規ログイン`__  
+### 6.10 動作確認②
+* Monacaのプレビュー画面で動作確認をしましょう  
+  1.動作確認①で作成したアカウント情報を入力し __`ログイン`__  
 
 .center[<img src="readme-image/check1.png" width="300">]
 
 ---
 
-### 6.10【動作確認】
-* 管理画面上で動作確認（実行してただしくログがでるか）の手順  
-  2.正常にログインできると、このルーレット画面に遷移  
+### 6.10 動作確認②
+* Monacaのプレビュー画面で動作確認をしましょう  
+  2.ルーレット画面に遷移  
   3.__`スタートボタン`__ を押してルーレット開始  
 
 .center[<img src="readme-image/check2.png" width="200">]
 
 ---
 
-### 6.10【動作確認】
-* 管理画面上で動作確認（実行してただしくログがでるか）の手順  
+### 6.10 動作確認②
+* Monacaのプレビュー画面で動作確認をしましょう  
   4.ルーレット回転(この時回転までに数秒の間があります)  
   5.ルーレット停止すると結果を表示  
 
@@ -1332,12 +1322,21 @@ const promise = new Promise((resolve, reject) => {
 
 ---
 
-### 6.10【動作確認】
-* 管理画面上で動作確認（実行してただしくログがでるか）の手順  
+### 6.10 動作確認②
+* Monacaのプレビュー画面で動作確認をしましょう  
   6.クーポンページに遷移  
   7.__`Reload`__ ボタンを押す  
   8.当たったクーポンが表示される  
   
+// ここに画像
+
+---
+
+### 6.10 動作確認②
+* Monacaのプレビュー画面で動作確認をしましょう  
+  9.mBaaS管理画面にて該当する賞のクラスを確認  
+  10.名前が登録されていることを確認
+
 .center[<img src="readme-image/check4.png" width="600">]
 
 ---
@@ -1351,6 +1350,16 @@ class: center, middle, inverse
 layout: false
 
 ### まとめと振り返り
+* このハンズオンセミナーで学んだこと
+ * スクリプトの基本（作法）を学んだ
+ * スクリプトからmBaaSの利用方法がわかった
+ * 参照権限（パーミッション）について学んだ
+ * mBaaSを活用したチート対策の手法を学んだ
+ * アプリ開発に触れることができた
+
+---
+
+### まとめと振り返り
 お疲れさまでした。  
   
 スクリプト機能の基本的な使い方や、メリットについて理解いただけたのではないかと思います。  
@@ -1360,13 +1369,3 @@ layout: false
 今後ともニフクラ mobile backendをどうぞよろしくお願いいたします。   
   
 スクリプト（Monaca）基本的な使い方(https://mbaas.nifcloud.com/doc/current/script/basic_usage_monaca.html)  
-
----
-
-### まとめと振り返り
-* このハンズオンセミナーで学んだこと
- * スクリプトの基本（作法）を学んだ
- * スクリプトからmBaaSの利用方法がわかった
- * 参照権限（パーミッション）について学んだ
- * mBaaSを活用したチート対策の手法を学んだ
- * アプリ開発に触れることができた
