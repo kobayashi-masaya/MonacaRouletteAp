@@ -1328,7 +1328,7 @@ ncmb.Script.query({"user": user.userName})
   7.__`Reload`__ ボタンを押す  
   8.当たったクーポンが表示される  
   
-// ここに画像
+.center[<img src="readme-image/coupon_res.png" width="600">]
 
 ---
 
@@ -1355,7 +1355,6 @@ layout: false
  * スクリプトからmBaaSの利用方法がわかった
  * 参照権限（パーミッション）について学んだ
  * mBaaSを活用したチート対策の手法を学んだ
- * アプリ開発に触れることができた
 
 ---
 
