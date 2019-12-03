@@ -1328,7 +1328,7 @@ ncmb.Script.query({"user": user.userName})
   7.__`Reload`__ ボタンを押す  
   8.当たったクーポンが表示される  
   
-.center[<img src="readme-image/coupon_res.png" width="300">]
+.center[<img src="readme-image/coupon_res.png" width="200">]
 
 ---
 
