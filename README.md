@@ -1190,7 +1190,7 @@ promise.then(() => setTimeout(function () {
 ### 6.8【mBaaS】スクリプト準備③CouponGet.js
 * CouponGet.jsをアップロードする  
   1.CouponGet.jsを __`ドラッグ＆ドロップ`__ か __`ファイル選択`__  
-  2.メソッドは__`Get`__ を選択  
+  2.メソッドは__`GET`__ を選択  
   3.ファイルの状態は__`実行可能`__ を選択  
   4.__`アップロードする`__ をクリック  
   
@@ -1259,6 +1259,7 @@ ncmb.Script.exec("GET", "SelectReward.js")
   * POSTメソッドを使用
 
 ```js
+//MARK: 【NCMB】スクリプト②：当たり状況の登録
 ncmb.Script.query({"user": user.userName,"stopNumber": stopNumber})
            .exec("POST", "UserPost.js")
            .then(function (res) {
@@ -1292,7 +1293,6 @@ ncmb.Script.query({"user": user.userName})
                 
             });
 ```
-]
 
 ---
 
