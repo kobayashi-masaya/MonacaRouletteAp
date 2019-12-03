@@ -68,7 +68,7 @@ layout: false
 
 .center[<img src="readme-image/monaca.png" width="500">]
 
-* MonacaはJavaScriptSDKを利用して連携しています
+* MonacaはJavaScriptSDKを利用して、ニフクラ mobile backendと連携しています
  * 初めての方でも使いやすい開発環境なので今回のハンズオンに採用しました
 
 ---
@@ -77,7 +77,7 @@ layout: false
 * スマートフォンアプリに必要なバックエンド機能が __`開発不要で利用できる`__ クラウドサービスです
 * クラウド上に用意された機能を __`APIを呼び出すだけで利用可能`__ です
 * __`無料`__ で体験可能です
-* APIを利用するためのSDKは幅広く対応 (Swift / iOS / Android / JavaScript / Monaca / Unity)
+* APIを利用するためのSDKは幅広く対応 (iOS(Obj-C,Swift) / Android / JavaScript / Monaca / Unity)
 * mobile Backend as a Service の頭文字を取って、通称 __`mBaaS`__ と呼びます
  * この後 __`ニフクラ mobile backend`__ を __`mBaaS`__ と置き換えてお話しします
 
